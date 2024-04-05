@@ -1,0 +1,33 @@
+<script>
+
+    /*
+        [개념] 문자열 자르기
+            let 변수 = "문자열";
+            
+            [1] 변수 = 변수.substring(시작인덱스, 마지막인덱스 + 1);
+                특정 구간의 문자열을 잘라준다.
+
+            [2] 변수 = 변수.substring(시작인덱스);
+                시작인덱스부터 문자열의 끝까지 잘라준다.
+
+            [3] 주의: 
+    */
+
+    // 아래 문구에서 "java"를 잘라내 출력하시오.
+    let text = "hello,javascript";
+    let rs1 = text.substring(6, 10);
+    document.write(rs1 + "<br>");
+
+    // 아래 문구에서 "s john"를 잘라내 출력하시오.
+    let test = "hi my name is john"; // 공백도 문자열의 한글자로 취급된다.
+    let rs2 = test.substring(12);
+    document.write(rs2 + "<br>");
+    
+    // 아래 문구에서 5678 대신 ****로 표현하시오.
+    // 정답) 010-1234-****
+    let phoneNum = "010-1234-5678";
+    phoneNum = phoneNum.substring(0, phoneNum.length - 4);
+    phoneNum += "****";
+    document.write(phoneNum + "<br>");
+
+</script>

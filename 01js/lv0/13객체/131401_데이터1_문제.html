@@ -1,0 +1,105 @@
+<script>
+    /*
+        [문제]
+            info는 온라인 쇼핑몰 상품 정보이다.
+            가로를 기준으로 상품번호와 가격이다.
+            예를 들어 [1001,500]은 1001은 상품 번호이고 500은 상품 가격이다.
+            
+            order는 오늘 주문 목록이다.
+            예를들어 [1001,3]은 1001상품을 3개 주문한 것이다.
+            
+            count에 오늘 판매한 상품별 개수와 총 금액을 저장 후 출력하시오.   
+        [정답] 
+            itemNum : 1001
+            count : 8
+            total : 4000
+  
+            itemNum : 1002
+            count : 5
+            total : 13500
+  
+            itemNum : 1003
+            count : 1
+            total : 1200
+  
+            itemNum : 1004
+            count : 2
+            total : 1600
+            
+            itemNum : 1005
+            count : 5
+            total : 11000
+    */
+  
+    let info = [
+      { itemNum: 1001, price: 500 },
+      { itemNum: 1002, price: 2700 },
+      { itemNum: 1003, price: 1200 },
+      { itemNum: 1004, price: 800 },
+      { itemNum: 1005, price: 2200 },
+    ];
+  
+    let order = [
+      { itemNum: 1001, count: 3 },
+      { itemNum: 1005, count: 5 },
+      { itemNum: 1003, count: 1 },
+      { itemNum: 1001, count: 4 },
+      { itemNum: 1004, count: 2 },
+      { itemNum: 1002, count: 3 },
+      { itemNum: 1001, count: 1 },
+      { itemNum: 1002, count: 2 },
+    ];
+  
+    let count = [
+      { itemNum: 1001, count: 0, total: 0 },
+      { itemNum: 1002, count: 0, total: 0 },
+      { itemNum: 1003, count: 0, total: 0 },
+      { itemNum: 1004, count: 0, total: 0 },
+      { itemNum: 1005, count: 0, total: 0 },
+    ];
+  
+    for (let i = 0; i < order.length; i++) {
+      for (let j = 0; j < info.length; j++) {
+        if (order[i]["itemNum"] === info[j]["itemNum"]) {
+          count[j]["count"] += order[i]["count"];
+          count[j]["total"] += info[j]["price"] * order[i]["count"];
+        }
+      }
+    }
+  
+    //   count[i] == a
+    //   keyList[j] == b
+  
+    count.forEach((a) => {
+      let keyList = Object.keys(a);
+      keyList.forEach((b) => {
+        document.write(`${b} : ${a[b]} <br>`);
+      });
+      document.write("<br>");
+    });
+  
+    /*
+    for(let i=0; i<count.length; i++) {
+        let cnt = 0;
+        for(let j=0; j<order.length; j++) {
+            if(count[i]["itemNum"] == order[j]["itemNum"]) {
+                cnt += order[j]["count"];
+            }
+        }
+        count[i]["count"] = cnt;
+        count[i]["total"] = cnt * info[i]["price"];
+    }
+  
+    
+    for(let i = 0; i < count.length; i++){
+       let keyList = Object.keys(count[i]);
+  
+       for(let j=0; j < keyList.length; j++) {
+           let key = keyList[j];
+           document.write(key + " : " + count[i][key] + "<br>");
+       }
+       document.write("<hr/>");
+   }
+   */
+  </script>
+  

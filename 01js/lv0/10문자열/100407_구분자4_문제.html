@@ -1,0 +1,47 @@
+<script>
+
+  /*
+      [문제]
+          text는 학생5명의 점수를 기록한 데이터이다.
+          전체 평균과 일등의 점수를 출력하시오.
+      [정답]
+          평균 = 30.2
+          일등 점수 = 80
+  */
+
+  let str = "13,32,80,3,23";
+  
+  let arr = [];
+  arr = str.split(",");
+  let total = 0;
+  let avg = 0;
+  let max = 0;
+  for(let i = 0; i < arr.length; i++) {
+    total += Number(arr[i]);
+    if(max < arr[i]) {
+        max = arr[i];
+    }
+  }
+  avg = total / arr.length;
+  document.write("평균 = " + avg + "<br> 일등 점수 = " + max);
+
+  /*
+  let token = str.split(",");
+
+  let maxScore = 0;
+  let total = 0;
+  for(let i=0; i<token.length; i++) {
+      let score = Number(token[i]);
+      total += score;
+
+      if(maxScore < score) {
+          maxScore = score;
+      }
+  }
+  let avg = total / token.length;
+
+  document.write("평균 = " + avg + "<br>");
+  document.write("일등 점수 = " + maxScore);
+  */
+
+</script>

@@ -1,0 +1,108 @@
+<script>
+  let jsonArr = [
+    { num: 1001, name: "김철수", math: 10, eng: 20, kor: 30 },
+    { num: 1002, name: "박민정", math: 40, eng: 60, kor: 10 },
+    { num: 1003, name: "이상아", math: 15, eng: 10, kor: 50 },
+    { num: 1004, name: "조민수", math: 16, eng: 40, kor: 20 },
+  ];
+
+  /*
+      [문제]
+          위 배열에 총점 항목과 평균 항목을 추가하고, 출력하시오.
+          총점은 total 평균은 avg 를 사용한다. 
+          단, 평균은 소수점 두 자리까지 저장하시오.
+          그리고 순위도 추가하시오. 
+          순위는 rank 를 사용한다. 
+      [정답]
+          num : 1001
+          name : 김철수
+          math : 10
+          eng : 20
+          kor : 30
+          total : 60
+          avg : 20.00
+          rank : 4
+
+          num : 1002
+          name : 박민정
+          math : 40
+          eng : 60
+          kor : 10
+          total : 110
+          avg : 36.67
+          rank : 1
+
+          num : 1003
+          name : 이상아
+          math : 15
+          eng : 10
+          kor : 50
+          total : 75
+          avg : 25.00
+          rank : 3
+          
+          num : 1004
+          name : 조민수
+          math : 16
+          eng : 40
+          kor : 20
+          total : 76
+          avg : 25.33
+          rank : 2
+  */
+
+  for (let i = 0; i < jsonArr.length; i++) {
+    let total = jsonArr[i]["math"] + jsonArr[i]["eng"] + jsonArr[i]["kor"];
+    jsonArr[i]["total"] = total;
+    let avg = (total / 3).toFixed(2);
+    jsonArr[i]["avg"] = avg;
+  }
+
+  for (let i = 0; i < jsonArr.length; i++) {
+    let rank = 1;
+    for (let j = 0; j < jsonArr.length; j++) {
+      if (jsonArr[i]["avg"] < jsonArr[j]["avg"]) {
+        rank++;
+      }
+    }
+    jsonArr[i]["rank"] = rank;
+  }
+
+  for(let i = 0; i < jsonArr.length; i++) {
+    let keyList = Object.keys(jsonArr[i]);
+    for(let j = 0; j < keyList.length; j++) {
+        document.write(keyList[j] + " : " + jsonArr[i][keyList[j]] + "<br>");
+    }
+    document.write("<br>");
+  }
+
+  /*
+  for(let i=0; i<jsonArr.length; i++) {
+      let total = jsonArr[i]["math"] + jsonArr[i]["eng"] + jsonArr[i]["kor"];
+      let avg = total / 3;
+
+      jsonArr[i]["total"] = total;
+      jsonArr[i]["avg"] = Number(avg.toFixed(2));
+  }
+
+  for(let i = 0; i < jsonArr.length; i++){
+      let count = 1;
+      for(let j = 0; j < jsonArr.length; j++){
+          if(jsonArr[i]["avg"] < jsonArr[j]["avg"]){
+              count +=1 ;
+          }
+      }
+      jsonArr[i]["rank"] = count;
+  }
+
+
+  for(let i = 0; i < jsonArr.length; i++){
+      let keyList = Object.keys(jsonArr[i]);
+      for(let j=0; j < keyList.length; j++) {
+          let key = keyList[j];
+          document.write(key + " : " + jsonArr[i][key] + "<br>");
+      }
+      document.write("<hr/>");
+  }
+  */
+</script>

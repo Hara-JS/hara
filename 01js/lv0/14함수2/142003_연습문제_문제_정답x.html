@@ -1,0 +1,74 @@
+<script>
+
+  /*
+      [문제]
+          memberList는 회원목록데이터이다.
+          순서대로 회원번호 , 회원이름 이다.
+
+          itemList은 쇼핑몰 판매상품데이터이다.
+          순서대로 상품번호 , 상품이름 이다.
+
+          orderList는 오늘 주문 목록이다. 
+          순서대로 주문한 회원번호, 주문한 상품번호이다.
+          
+          회원별 구입개수를 출력하시오/
+          [회원번호, 회원이름 , 판매개수] 를 출력한다. 
+          단, 판매개수가 0인 상품은 출력하지않는다. 
+          단, 판매개수가 높은순으로 내림차순 출력한다. 
+          판매개수가 같으면 번호가낮은순으로 오름차순한다. 
+          함수를 사용하시오.
+
+          정답이없습니다. 
+          확신이 안들면 앞에서부터 복습하시오.
+      [정답] 
+          100001,고래밥,5
+          100002,새우깡,2
+          100003,감자깡,2
+          100004,칸쵸,2
+          100007,고구마깡,2
+          100006,빼빼로,1
+  */
+
+
+  let memberList = [
+      {"memberNum":3001, "memberName":"이만수"},
+      {"memberNum":3002, "memberName":"김철민"},
+      {"memberNum":3003, "memberName":"이영희"},
+      {"memberNum":3004, "memberName":"조성아"},
+      {"memberNum":3005, "memberName":"박민재"},
+      {"memberNum":3006, "memberName":"유재석"}
+  ];
+
+  let itemList = [
+      {"itemNum":100001, "itemName":"고래밥"},
+      {"itemNum":100002, "itemName":"새우깡"},
+      {"itemNum":100003, "itemName":"감자깡"},
+      {"itemNum":100004, "itemName":"칸쵸"},
+      {"itemNum":100005, "itemName":"오징어땅콩"},
+      {"itemNum":100006, "itemName":"빼빼로"},
+      {"itemNum":100007, "itemName":"고구마깡"},
+      {"itemNum":100008, "itemName":"포카칩"},
+  ];
+
+  let orderList = [
+      {"memberNum":3001, "itemNum":100001},
+      {"memberNum":3001, "itemNum":100002},
+      {"memberNum":3003, "itemNum":100001},
+      {"memberNum":3002, "itemNum":100007},
+      {"memberNum":3003, "itemNum":100006},
+      {"memberNum":3005, "itemNum":100007},
+      {"memberNum":3002, "itemNum":100001},
+      {"memberNum":3001, "itemNum":100003},
+      {"memberNum":3003, "itemNum":100002},
+      {"memberNum":3001, "itemNum":100001},
+      {"memberNum":3002, "itemNum":100003},
+      {"memberNum":3001, "itemNum":100004},
+      {"memberNum":3003, "itemNum":100004},
+      {"memberNum":3004, "itemNum":100001}
+
+  ];
+
+ 
+  
+  
+</script>

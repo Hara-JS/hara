@@ -1,0 +1,22 @@
+<script>
+
+    /*
+        [문제]
+            a 변수에 1부터 10 사이의 랜덤 숫자를 저장하고, 
+            "짝수" 또는 "홀수"를 출력하시오.
+    */
+
+    let a = parseInt(Math.random() * 10) + 1;   // [0 ~ 9] + 1
+    console.log("a = " + a);
+    document.write("a = " + a + "<br>");
+
+    if(a % 2 == 0) {
+        console.log("짝수");
+        document.write("짝수<br>");
+    }
+    if(a % 2 == 1) {
+        console.log("홀수");
+        document.write("홀수<br>");
+    }
+
+</script>

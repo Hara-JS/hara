@@ -1,0 +1,64 @@
+<script>
+ 
+  let student = [
+      {"num" : 1001, "name" : "김철수", "math" : 10, "eng" : 20, "kor" : 30},
+      {"num" : 1002, "name" : "박민정", "math" : 40, "eng" : 60, "kor" : 10},
+      {"num" : 1003, "name" : "이상아", "math" : 15, "eng" : 10, "kor" : 50},
+      {"num" : 1004, "name" : "조민수", "math" : 16, "eng" : 40, "kor" : 20}
+  ];
+
+  /*
+      [문제]
+          student 의 배열을 평균이 60점이상이면 시험합격이다.
+          전부 합격했으면 "전체합격" , 
+          전부 불합격했으면 "전체불합격" ,
+          일부만 합격했으면 "일부합격" 을 출력하시오.
+      [정답]
+          전체불합격
+
+  */
+
+  let cnt = 0;
+
+  for(let i = 0; i < student.length; i++) {
+    let total = student[i]["math"] + student[i]["eng"] + student[i]["kor"];
+    let avg = total / 3;
+    if(avg >= 60) {
+        cnt++;
+    }
+  }
+
+  if(cnt === student.length) {
+    console.log("전체합격");
+  } else if(cnt === 0) {
+    console.log("전체불합격");
+  } else {
+    console.log("일부합격");
+  }
+
+  /*
+  let count = 0;
+  for(let i=0; i<student.length; i++) {
+      let total = student[i]["math"] + student[i]["eng"] + student[i]["kor"];
+      let avg = total/3;
+      if(avg >= 60){
+         
+          count += 1;
+      }
+  }
+
+  if(count == student.length){
+      document.write("전체합격");
+  }
+  else if(count == 0){
+      document.write("전체불합격");
+  }
+  else{
+      document.write("일부합격");
+  }
+  */
+  
+  
+
+  
+</script>

@@ -1,0 +1,37 @@
+<script>
+
+	/*
+		[문제]
+			[1] 0에서 100 사이의 랜덤 점수 2개를 저장해 평균을 구한다.
+			[2] 평균이 60점 이상이면 "합격", 60점 미만이면 "불합격"을 출력하시오.
+			[3] 단, 평균이 60 이상이라도, 한 과목이라도 50 미만이면 "과락"을 출력하시오.
+	*/
+
+	let score1 = parseInt(Math.random() * 101);		// 0 ~ 100
+	let score2 = parseInt(Math.random() * 101);		// 0 ~ 100
+
+	// 랜덤값이 잘안나오면 직접넣어서 테스트해본다.
+	score1 = 90;
+	score2 = 49;
+
+	console.log(score1 + ", " + score2);
+	document.write(score1 + ", " + score2 + "<br>");
+
+	let total = score1 + score2;
+	let avg = total / 2;
+	console.log(avg);
+	document.write(avg + "<br>");
+
+	if(avg >= 60){
+		if(score1 >= 50 && score2 >=50){
+			document.write("합격")
+		}
+		if(score1 < 50 || score2 < 50){
+			document.write("과락")
+		}
+	}
+	if(avg < 60){
+		document.write("불합격")
+	}
+	
+</script>

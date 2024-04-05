@@ -1,0 +1,59 @@
+<script>
+  let student = [
+      {"num" : 1001, "name" : "김철수", "math" : 10, "eng" : 20, "kor" : 30},
+      {"num" : 1002, "name" : "박민정", "math" : 40, "eng" : 60, "kor" : 10},
+      {"num" : 1003, "name" : "이상아", "math" : 15, "eng" : 10, "kor" : 50},
+      {"num" : 1004, "name" : "조민수", "math" : 16, "eng" : 40, "kor" : 20}
+  ];
+
+  /*
+      [문제] 
+          국어 1등 의 학생정보를 출력하시오.
+      [정답]         	
+          num : 1003
+          name : 이상아
+          math : 15
+          eng : 10
+          kor : 50
+  */
+
+  let max = 0;
+  let maxIndex = 0;
+  for(let i = 0; i < student.length; i++) {
+    if(max < student[i]["kor"]) {
+        max = student[i]["kor"];
+        maxIndex = i;
+    }
+}
+document.write(max + " ");
+document.write(maxIndex + "<br>");
+
+let keyList = Object.keys(student[maxIndex]);
+document.write(keyList + "<br>");
+
+
+for(let i = 0; i < keyList.length; i++) {
+    let key = keyList[i];
+    document.write(key + " : " + student[maxIndex][key] + "<br>");
+} 
+
+  /*
+  let mx = 0;
+  let mxi = 0;
+  for(let i=0; i<student.length; i++) {
+      if( student[i]["kor"] > mx){
+          mx =  student[i]["kor"];
+          mxi = i;
+      }
+  }
+
+  let keyList = Object.keys(student[mxi]);
+  for(let i=0; i< keyList.length; i++) {
+      
+      let key = keyList[i];
+      document.write(key + " : " + student[mxi][key] + "<br>");
+  }
+  document.write("<hr/>");
+  */
+
+</script>

@@ -1,0 +1,61 @@
+<script>
+
+  /*
+      [문제]
+          arr배열에 랜덤숫자(1~100)를 9개 저장하고,
+          그 중에 가장 큰 값을 출력하시오.
+      [예시]
+          [5,  81, 71]
+          [49, 85, 29]
+          [63, 54, 27]
+          
+          max :  85    
+  */
+  
+  let arr = [
+      [0,0,0],
+      [0,0,0],
+      [0,0,0]
+  ];
+
+  for(let i = 0; i < arr.length; i++) {
+    for(let j =0; j < arr[i].length; j++) {
+      arr[i][j] =Math.floor(Math.random() * 100) + 1;
+    }
+  }
+
+  for(let i = 0; i < arr.length; i++) {
+    document.write(arr[i] + "<br>");
+  }
+
+  let max = 0;
+  for(let i = 0; i < arr.length; i++) {
+    for(let j = 0; j <arr[i].length; j++) {
+      if(max < arr[i][j]) {
+        max = arr[i][j]
+      }
+    }
+  }
+
+  document.write("max = " + max);
+  
+  /*
+  let max = 0;
+  for(let i=0; i<arr.length; i++) {
+      for(let j=0; j<arr[i].length; j++) {
+          arr[i][j] = Math.floor(Math.random() * 100) + 1;
+
+          if(max < arr[i][j]) {
+              max = arr[i][j];
+          }
+      }
+  }
+
+  for(let i=0; i<arr.length; i++) {
+      document.write(arr[i] + "<br>");
+  }
+
+  document.write("max = " + max);
+  */
+
+</script>

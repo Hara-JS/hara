@@ -1,0 +1,39 @@
+<script>
+
+    /*
+        [문제]
+            45의 약수 중에서 작은 수부터 큰 수를 출력했을 때, 
+            첫번째 약수와 세번째 약수를 출력하시오.
+        [정답]
+            1
+            5  
+    */
+
+    let num = 45;
+    let count = 0;
+    
+    let i = 1;
+    let result1 = 0;
+    let result2 = 0;
+    while(i <= num) {
+        if(num % i == 0) {
+            //document.write(i + " ");
+            count += 1;
+            if(count == 1){
+                result1 = i;
+            }
+            if(count == 3) {
+                result2 = i;
+            }
+        }
+        i += 1;
+    }
+    /*
+        연속적으로 출력하는값이 아니라면, 
+        보통 반복문이 종료되고 결과를 적는것이 좋다.
+    */
+    document.write("<br/>");
+    document.write(result1);
+    document.write("<br/>");
+    document.write(result2);
+</script>

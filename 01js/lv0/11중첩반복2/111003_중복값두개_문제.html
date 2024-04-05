@@ -1,0 +1,50 @@
+<script>
+
+  /*
+      [문제]
+          a배열과 b배열 전체를 비교하여 
+          a배열 안에도 있고 b배열 안에도 있는 값은 
+          c배열에 저장하시오. 
+          단, b배열에 같은 값이 두 개 있는 값만 추가하시오.
+      [정답]
+          7, 3
+  */
+
+  let a = [1, 2, 7, 40, 3, 6];
+  let b = [1, 2, 7, 3, 7, 6, 2, 2, 3];
+  let c = [];
+
+  for(let i = 0; i < a.length; i++) {
+    let count = 0;
+    for(let j = 0; j < b.length; j++) {
+        if(a[i] === b[j]) {
+            count += 1;
+        }
+    }
+    if(count === 2) {
+        c.push(a[i]);
+    }
+  }
+  console.log(c);
+  
+  /*
+  for(let i=0; i<a.length; i++) {
+      let count = 0;
+
+      for(let j=0; j<b.length; j++) {
+
+          if(a[i] == b[j]) {
+              count += 1;
+          }
+      }
+
+      if(count == 2) {
+          // document.write(a[i] + " ");
+
+          c.push(a[i]);
+      }
+  }
+  document.write(c);
+  */
+
+</script>

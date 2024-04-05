@@ -1,0 +1,41 @@
+<script>
+
+  /*
+      [문제]
+          arr배열의 가로 합을 garo배열에 추가하시오.
+          arr배열의 세로 합을 sero배열에 추가하시오.
+      [정답]
+          garo = [410, 710, 1210]
+          sero = [503, 606, 609, 612]    
+  */
+
+  let arr = [
+      [101, 102, 103, 104],
+      [101, 202, 203, 204],
+      [301, 302, 303, 304]
+   ]
+
+  let garo = [];
+  let sero = [];
+
+  for(let i=0; i<arr.length; i++) {
+      let total = 0;
+      for(let j=0; j<arr[i].length; j++) {
+          total += arr[i][j];
+      }
+      garo.push(total);
+  }
+
+  document.write("garo = " + garo + "<br>");
+
+  for(let i=0; i<arr[0].length; i++) {
+      let total = 0;
+      for(let j=0; j<arr.length; j++) {
+          total += arr[j][i];
+      }
+      sero.push(total);
+  }
+
+  document.write("sero = " + sero);
+
+</script>

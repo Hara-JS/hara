@@ -1,0 +1,28 @@
+<script>
+
+    /*
+        [문제]
+            a 와 b 의 각각의 값을 비교해서 더 큰 값을 출력한다. 
+            서로 같으면 둘 다 출력한다.
+        [정답]
+            b :  54
+            a :  43
+            a :  23
+            a :  12, b : 12
+            a :  53    
+    */
+
+    let a = [10, 43, 23, 12, 53];
+    let b = [54, 6, 4, 12, 50];
+
+    for(let i=0; i<5; i++) {
+        if(a[i] > b[i]) {
+            document.write("a : " + a[i] + "<br>");
+        } else if(a[i] < b[i]) {
+            document.write("b : " + b[i] + "<br>");
+        } else {
+            document.write("a : " + a[i] + ", b : " + b[i] + "<br>");
+        }
+    }
+
+</script>

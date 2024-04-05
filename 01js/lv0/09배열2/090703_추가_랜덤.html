@@ -1,0 +1,23 @@
+<script>
+
+    /*
+        [문제]
+            a배열과 b배열에 랜덤 숫자(1~10)을 다섯 개씩 저장하고,
+            둘 다 출력하시오.
+        [예시]    
+            a = 1,9,7,8,1
+            b = 1,5,8,4,1
+    */
+
+    let a = [];
+    let b = [];
+
+    for(let i=0; i<5; i++) {
+        a.push(Math.floor(Math.random() * 10) + 1);
+        b.push(Math.floor(Math.random() * 10) + 1);
+    }
+
+    document.write("a = " + a + "<br>");
+    document.write("b = " + b + "<br>");
+
+</script>

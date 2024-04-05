@@ -1,0 +1,58 @@
+<script>
+  /*
+		student 배열은 순서대로 ["번호", "이름", "성별"] 의 데이터 이고, 
+		score 배열은 순서대로 ["번호", "국어", "수학"] 의 데이터이다.
+	*/
+  /*
+		[문제] 
+			남학생들 점수 총합과 여학생들의 점수 총합을 출력하시오.		
+		[정답]
+			259 333
+	*/
+
+  let student = [
+    { num: 1001, name: "이만수", gender: "남" },
+    { num: 1002, name: "이영희", gender: "여" },
+    { num: 1003, name: "김민정", gender: "여" },
+    { num: 1004, name: "이철민", gender: "남" },
+    { num: 1005, name: "오만석", gender: "남" },
+    { num: 1006, name: "최이슬", gender: "여" },
+  ];
+
+  let score = [
+    { num: 1001, kor: 10, math: 20 },
+    { num: 1002, kor: 70, math: 20 },
+    { num: 1003, kor: 64, math: 65 },
+    { num: 1004, kor: 13, math: 87 },
+    { num: 1005, kor: 49, math: 80 },
+    { num: 1006, kor: 14, math: 90 },
+  ];
+
+  let totalF = 0;
+  let totalM = 0;
+  for (let i = 0; i < score.length; i++) {
+    if (student[i]["gender"] === "남") {
+      totalM += score[i]["kor"] + score[i]["math"];
+    } else {
+      totalF += score[i]["kor"] + score[i]["math"];
+    }
+  }
+
+  document.write(totalM + " " + totalF);
+
+  /*
+	let total1 = 0;
+	let total2 = 0;
+	for(let i = 0; i < student.length; i++){
+		for(let j = 0; j < score.length; j++){
+			if(student[i]["num"] == score[j]["num"] && student[i]["gender"] == "남"){
+				total1 += (score[j]["kor"] + score[j]["math"]);
+			}	
+			if(student[i]["num"] == score[j]["num"] && student[i]["gender"] == "여"){
+				total2 += (score[j]["kor"] + score[j]["math"]);
+			}	
+		}
+	}
+	document.write(total1  + " " + total2);
+	*/
+</script>

@@ -1,0 +1,24 @@
+<script>
+
+    /*
+        [개념] 문자열 형변환
+            문자열은 숫자가 아니기 때문에 산술연산을 사용할 수 없다.
+            문자열을 산술하기 위해서는 문자를 숫자로 변환해야 한다.
+
+            [1] 문자를 숫자로 형변환
+                Number(문자)
+            [2] 숫자를 문자로 형변환
+                String(숫자)
+    */
+
+    let a = "10";
+    document.write(a + 10 + "<br>");         // 1010
+
+    a = Number(a);
+    document.write(a + 10 + "<br>");        // 20
+
+    let b = 10;
+    b = String(b);
+    document.write(b + 10);                 // 1010
+
+</script>

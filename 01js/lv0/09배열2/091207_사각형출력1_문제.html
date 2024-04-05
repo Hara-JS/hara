@@ -1,0 +1,23 @@
+<script>
+
+  /*
+      [문제]	
+          아래 arr배열의 값을 사각형 모양으로 출력하시오.
+      [정답]
+          1 1 1 1
+          1 1 1 1
+          1 1 1 1
+  */
+
+  let arr = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+
+  for(let i=0; i<arr.length; i++) {
+      document.write(arr[i] + " ");
+      if(i % 4 == 3) {
+          document.write("<br>");
+      }
+  }
+
+ 
+
+</script>

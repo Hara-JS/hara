@@ -1,0 +1,33 @@
+<script>
+
+  /*
+      [문제]
+          com은 1~20 사이의 숫자를 한 개 저장한다.
+          me는 com의 숫자를 모른다고 가정하고, 1~20 사이의 숫자를 제시한다.
+          com과 me를 비교해서 "크다", "작다", "같다"를 출력하시오.
+
+          com은 딱 한 번만 숫자를 정하고, 
+          me는 com의 숫자를 맞출 때까지 계속 숫자를 랜덤으로 뽑는다. 
+          숫자를 맞추면 게임은 종료된다.    
+  */
+
+  let com = Math.floor(Math.random() * 20) + 1;  
+  document.write("com = " + com + "<br>");
+
+  for( let run = true; run == true;) {
+
+      let me = Math.floor(Math.random() * 20) + 1;
+      document.write("me = " + me + "<br>");
+
+      if(com < me) {
+          document.write("크다<br>");
+      } else if(com > me) {
+          document.write("작다<br>");
+      } else {
+          document.write("같다<br>");
+          run = false;
+      }
+
+  }
+
+</script>

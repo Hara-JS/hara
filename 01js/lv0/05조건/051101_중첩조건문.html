@@ -1,0 +1,38 @@
+<script>
+
+	/*	
+		철수는 시험을 치뤘다. 시험은 60점이상이면 합격이다.
+		랜덤숫자(0~100)숫자 한개를 저장후 "합격" 과 "불합격" 을 출력하시오.
+	*/
+	
+	let a = parseInt(Math.random() * 101);
+	document.write(a);
+	document.write("<br/>");
+
+	if(60 <= a && a <= 100){
+		document.write("합격(논리연산자)");
+	}
+	if(0 <= a && a < 60){
+		document.write("불합격(논리연산자)");
+	}
+	document.write("<br/>");
+	
+	/*
+		경우에 따라서는 중첩조건문이 식이 보기좋고 작성하기 편리할때가있다.
+	*/
+
+	
+	if(a >= 60){
+		if(a <= 100){
+			document.write("합격(중첩if문)");
+		}
+	}
+	if(a >= 0){
+		if(a < 60){
+			document.write("불합격(중첩if문)")
+		}
+	}
+
+	
+	
+</script>

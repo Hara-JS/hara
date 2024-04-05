@@ -1,0 +1,27 @@
+<script>
+
+    // 랜덤 
+    let rand = Math.random(); // 0 < 소수점 < 1
+    document.write(rand);
+    document.write("<hr/>");
+
+    // 만약에 0~2사이의 값을 뽑는다면,
+
+    rand = rand * 3; // 0부터 3개 0, 1, 2
+    document.write(rand);
+    document.write("<hr/>");
+
+    rand = parseInt(rand);
+    document.write(rand);
+   
+
+    document.write("<hr/>");
+
+    
+    // 위 내용은 세단계로 되어있는데, 한줄로 바꾸면 아래와같다.
+
+    rand = parseInt(Math.random() * 3); 
+    document.write(rand);
+
+
+</script>

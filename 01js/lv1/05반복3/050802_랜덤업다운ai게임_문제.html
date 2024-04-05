@@ -1,0 +1,43 @@
+<script>
+
+  /*
+      [문제]
+          아래식은 랜덤 업다운 게임 식이다.
+          com 이 랜덤으로 숫자를 저장하면 
+          me가 com의 숫자를 맞출 때까지 반복하는 것이다.
+          하지만 me는 그저 랜덤으로 아무 숫자나 막 뽑는다. 그 부분을 해결한다.
+          예를 들어 com이 50이고 me가 30을 뽑았으면
+          그 이후는 1~30 사이는 뽑지 않게 아래식을 수정하시오. 
+          마찬가지로 com이 50인데 me가 80을 뽑았다면 
+          그 이후는 80~100은 뽑지 않게 바꾸면 된다.     
+  */
+
+  let com = Math.floor(Math.random() * 100) + 1;  // [0 ~ 99] + 1
+  document.write("com = " + com + "<br>");
+  
+  let begin = 1;
+  let end = 100; 
+  let plus = 1;
+
+  let i = 1;
+  let run = true;
+  while(run) {
+      let me = Math.floor(Math.random() * (end - begin + 1)) + plus; 
+      document.write("me = " + me + "<br>");
+
+      if(com < me) {
+          end = me - 1;
+          document.write("크다<br>");
+      } else if(com > me) {
+          begin = me + 1;
+          plus = me + 1;
+          document.write("작다<br>");
+      } else {
+          document.write("같다<br>");
+          run = false;
+      }
+
+      i += 1;
+  }
+
+</script>

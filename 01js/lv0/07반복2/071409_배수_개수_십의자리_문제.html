@@ -1,0 +1,28 @@
+<script>
+
+    /*
+        [문제]
+            100~200 사이의 숫자 중에서
+            [조건1] 9의 배수 중에서 십의 자리가 7인 수만 출력하고, 
+            [조건2] 개수를 구하시오.
+        [정답] 
+            171 
+            count = 1   
+    */
+
+    let count = 0;
+
+    let i = 100;
+    while(i <= 200) {
+        let unit = parseInt(i % 100 / 10);
+        if(i % 9 == 0 && unit == 7) {
+            document.write(i + " ");
+            count += 1;
+        }
+        i += 1;
+    }
+
+    document.write("<br>");
+    document.write("count = " + count);
+
+</script>

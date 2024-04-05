@@ -1,0 +1,36 @@
+<script>
+
+    /*
+        [개념] 문자열 인덱싱(indexing)
+            문자열도 배열과 유사하게 인덱싱이 가능하다.
+            대괄호와 인덱스 번호를 활용해 글자 한 개를 출력할 수 있다.
+    */
+
+    let text = "abcde";
+    document.write(text[1] + "<br>");
+
+    /*
+        [문제]
+            text변수에서 c만빼고 출력하시오.
+        [정답]
+            abde
+    */
+
+    for(let i=0; i < text.length; i++) {
+        if(text[i] != "c") {
+            document.write(text[i]);
+        }
+    }
+    document.write("<br>");
+
+    /*
+        [문제]
+            text변수에서 가장 마지막 글자를 출력하시오.
+        [정답]
+            e
+    */
+
+    let index = text.length - 1;
+    document.write(text[index]);
+
+</script>

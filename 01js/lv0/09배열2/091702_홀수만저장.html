@@ -1,0 +1,32 @@
+<script>
+
+    /*
+        [문제]
+            [조건1] arr배열에 1~100 사이의 랜덤숫자 5개를 추가한다.
+            [조건2] 단, 홀수만 저장한다.  
+        [예시]
+            arr = 13,43,3,17,33
+    */
+
+    let arr = [];
+
+    let count = 0;
+    
+    document.write("실제 뽑힌 숫자=")
+    while(true) {
+        let num = Math.floor(Math.random() * 100) + 1;
+        document.write(num + " ");
+
+        if(num % 2 != 0) {
+            arr.push(num);
+            count += 1;
+
+            if(count == 5) {
+                break;
+            }
+        }
+    }
+    document.write("<br>");
+    document.write("arr = " + arr);
+
+</script>

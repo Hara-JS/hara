@@ -1,0 +1,34 @@
+<script>
+
+    /*
+        [수열]
+            수열이란, 일정한 규칙으로 수가 나열되면, 그규칙을 찾는것을 말한다. 
+
+        [문제]
+            랜덤(2~10)의 숫자를 저장하고 
+            랜덤 개수만큼 반복을 하면서 "영일이수열" 을 arr배열에 저장하시오.
+            "영일이수열" 이란, 0 1 2 0 1 2 0 1 2 을 반복하는것을 말한다.
+        [예시1] 
+            r=8
+            arr=0,1,2,0,1,2,0,1
+        [예시2] 
+            r=4
+            arr=0,1,2,0
+    */
+
+    let arr = [];
+
+    let r = parseInt(Math.random() * 9) + 2;
+    document.write("r=" + r);
+    document.write("<br/>");
+    let num = 0;
+    for(let i = 0; i < r; i++){
+        arr.push(num);
+        num += 1;
+        if(num == 3){
+            num = 0;
+        }
+    }
+    
+    document.write("arr="+arr);
+</script>

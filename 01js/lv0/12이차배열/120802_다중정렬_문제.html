@@ -1,0 +1,81 @@
+<script>
+
+  /*
+          member 배열은 회원목록 리스트이다. 
+          데이터는 순서대로 번호, 이름, 등급 이다.
+
+  */
+
+  let member = [
+      [1001, "김철수", "A"],         
+      [1002, "이만수", "B"],         
+      [1003, "오수정", "C"],        
+      [1004, "박만삼", "A"],         
+      [1005, "이영희", "B"],
+      [1006, "송민아", "B"],         
+      [1007, "이영희", "A"],        
+      [1008, "이만수", "A"],             
+  ];
+
+
+  /*
+      이름 순서대로 오름차순으로 정렬하시오.
+      단, 이름이 같으면 등급순으로 오름차순하시오.
+  */
+
+  member.sort(
+    (a, b) => {
+      if(a[1] < b[1]) {
+        return -1;
+      } else if(a[1] > b[1]) {
+        return 1;
+      } else {
+        if(a[2] < b[2]) {
+          return -1;
+        } else if(a[2] > b[2]) {
+          return 1;
+        } else {
+          return 0;
+        }
+      }
+    }
+  );
+
+  for(let i = 0; i < member.length; i++) {
+    document.write(member[i] + "<br>");
+  }
+
+  /*
+  member.sort((a , b) =>{ 
+      if(a[1] < b[1]){
+          return -1;
+      }else if(a[1] > b[1]){
+          return 1;
+      }else{
+          if(a[2] < b[2]){
+              return  -1;
+          }else if(a[2] > b[2]){
+              return 1;
+          }else{
+              return 0;
+          }
+      }
+  });
+
+  for(let i = 0; i < member.length; i++){
+      document.write(member[i] + "<br/>");
+  }
+  */
+
+  /*  
+      1001,김철수,A
+      1004,박만삼,A
+      1006,송민아,B
+      1003,오수정,C
+      1008,이만수,A
+      1002,이만수,B
+      1007,이영희,A
+      1005,이영희,B
+  */
+  
+</script>

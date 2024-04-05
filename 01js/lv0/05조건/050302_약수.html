@@ -1,0 +1,21 @@
+<script>
+   
+  /*
+    [문제]
+      변수에 1부터 10 사이의 숫자를 랜덤으로 저장한다.
+      저장한 숫자의 값이 300의 약수이면 "o"
+      300의 약수가 아니면 "x"를 출력하시오.
+  */
+
+  let a = parseInt(Math.random() * 10) + 1; 
+  console.log("a = " + a);
+  document.write("a = " + a + "<br>");
+
+  if(300 % a == 0) {
+    document.write("o");
+  }
+  if(300 % a != 0 ) {
+    document.write("x");
+  }
+
+</script>

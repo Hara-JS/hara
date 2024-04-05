@@ -1,0 +1,38 @@
+<script>
+
+	/*
+		[삼항 연산자]
+			if문을 한줄로 표시한 것이다.
+
+			if(a == 10) {
+				result = "참";
+			} else {
+				result = "거짓";
+			}
+			
+			삼항연산자로 표시하면 
+			result = a == 10 ? "참" : "거짓";
+
+		[1] ? 는 참이고,
+		[2] : 은 거짓이다.
+
+		[설명]
+			삼항연산자는 익숙해지면 편리해서 자주사용하게된다. 반드시 익혀두자.
+	*/
+
+	let a = 10;
+	
+	let result = "";
+	if(a == 10){
+		result = "참";
+	} else {
+		result = "거짓";
+	}
+	console.log(result);
+	document.write(result + "<br>");
+
+	result = a == 10 ?  "참" : "거짓";
+	console.log(result);
+	document.write(result + "<br>");
+
+</script>

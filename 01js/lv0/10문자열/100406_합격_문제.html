@@ -1,0 +1,44 @@
+<script>
+
+  /*
+      [문제]
+          아래는 학생과 점수 데이터이다.
+          시험점수는 60점이상 합격이다.
+          
+          합격한 사람  점수를 문자열에 저장해서 출력하시오.
+          단, 데이터구분자는 ,(콤마)를 중간에 삽입한다.
+      [정답]
+          result = 92,63
+  */
+
+  let scoreList = [12, 92, 54, 63];
+  let result = "";
+
+  let arr = scoreList.filter(score => score >= 60);
+ 
+  /**
+   * function filter(조건식) {
+   *    scoreList.filter(score => score >= 60)의 흐름
+   *    const returnArr = [];
+   *        for(let i = 0; i < scoreList.length - 1; i++) {
+   *            if(scoreList[i] >= 60) {
+   *            returnArr.push(scoreList[i]);
+   *        }
+   *    }
+   *    return returnArr;
+   * }
+   */
+  document.write(arr);
+  
+  /*
+  for(let i=0; i<scoreList.length; i++) {
+      if(scoreList[i] >= 60) {
+          result += scoreList[i];
+          result += ",";
+      }
+  }
+  result = result.substring(0, result.length - 1);
+  document.write("result = " + result);
+  */
+
+</script>

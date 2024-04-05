@@ -1,0 +1,38 @@
+<script>
+
+  /*
+      [문제]
+          arr배열에 10~90까지 값을 저장 후
+          랜덤으로 값 하나를 출력하시오.
+      [예시]
+          arr :  [[10, 20, 30], [40, 50, 60], [70, 80, 90]]
+          r1 : 1  r2 : 0
+          40    
+  */
+
+  let arr = [
+      [0, 0, 0],
+      [0, 0, 0],
+      [0, 0, 0]
+  ];    
+
+  let num = 10;
+  for(let i=0; i<arr.length; i++) {
+      for(let j=0; j<arr[i].length; j++) {
+          arr[i][j] = num;
+          num += 10;
+      }
+  }
+
+  for(let i=0; i<arr.length; i++) {
+      document.write(arr[i] + "<br/>");
+  }
+
+  // 이차원 배열이므로 인덱스가 2개 필요하다.
+  let r1 = Math.floor(Math.random() * 3);
+  let r2 = Math.floor(Math.random() * 3);
+  document.write("r1 = " + r1 + ", r2 = " + r2 + "<br/>");
+
+  document.write(arr[r1][r2]);
+
+</script>

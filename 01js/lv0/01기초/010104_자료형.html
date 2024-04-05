@@ -1,0 +1,67 @@
+<script>
+
+	/*
+		[개념] 자료형(Data Type)
+			[1] 숫자(정수)
+				(1) number
+				(2) 소수점이 없는 수(10, -1, 123123)
+			[2] 숫자(실수)
+				(1) number
+				(2) 소수점이 있는 수(3.14, -10.3)
+			[3] 문자
+				(1) string
+				(2) 큰 따옴표나 작은 따옴표 2개로 감싸야 한다.
+			[4] 참과 거짓 
+				(1) boolean
+				(2) true, false
+			[5] 자료형을 확인하는 방법
+				typeof 값
+	*/
+
+	// 1. 숫자(정수) 
+	console.log("[정수]");
+	console.log(10);
+	console.log(-1);
+	console.log(123123);
+	document.write("[정수]<br>");
+	document.write(10 + "<br>");
+	document.write(-1 + "<br>");
+	document.write(123123 + "<br>");
+	
+	// 2. 숫자(실수) 
+	console.log("[실수]");
+	console.log(3.14);
+	console.log(-10.3);
+	document.write("[실수]<br>");
+	document.write(3.14 + "<br>");
+	document.write(-10.3 + "<br>");
+	
+	// 3. 문자
+	console.log("[문자]");
+	console.log('홑따옴표');
+	console.log("쌍따옴표");
+	document.write("[문자]<br>");
+	document.write('홑따옴표<br>');
+	document.write("쌍따옴표<br>");
+
+	// 4. 참과 거짓 
+	console.log("[참과 거짓]");
+	console.log(true);
+	console.log(false);
+	document.write("[참과 거짓]<br>");
+	document.write(true + "<br>");
+	document.write(false + "<br>");
+
+	// 자료형 확인하기
+	console.log("[자료형 확인]");
+	console.log(typeof 10);   		// number
+	console.log(typeof 10.3); 		// number
+	console.log(typeof "10.3"); 	// string
+	console.log(typeof false); 		// boolean
+	document.write("[자료형 확인]<br>");
+	document.write(typeof 10 + "<br>");   		
+	document.write(typeof 10.3 + "<br>"); 		
+	document.write(typeof "10.3" + "<br>"); 	
+	document.write(typeof false + "<br>"); 	
+
+</script>

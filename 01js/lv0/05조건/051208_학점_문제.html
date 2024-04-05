@@ -1,0 +1,98 @@
+<script>
+
+	/*
+        [문제]
+            0에서 100 사이의 랜덤 숫자를 시험 점수로 저장한다.
+            시험점수에 해당하는 학점을 출력하시오.
+            아래는 점수표이다.
+            100~91 이면 A학점,
+            90~81  이면 B학점,
+            80 이하는 "재시험"
+            
+            단, 만점이거나, A 학점과 B 학점의 일의 자리가 8점 이상이면 + 기호를 추가하시오.
+            [예] 
+                100 => A+
+                88 ==> B+
+                82 ==> B
+                23 ==> 재시험
+	*/
+
+    let score = parseInt(Math.random() * 101);      // 0 ~ 100
+    console.log("score = " + score + "점");
+    document.write("score = " + score + "점<br>");
+
+    if(0 <= score && score <= 80) {
+        console.log("재시험");
+        document.write("재시험");
+    }
+    if(81 <= score && score <= 87) {
+        console.log("B");
+        document.write("B");
+    }
+    if(88 <= score && score <= 90) {
+        console.log("B+");
+        document.write("B+");
+    } 
+    if(91 <= score && score <= 97) {
+        console.log("A");
+        document.write("A");
+    }
+    if(98 <= score && score <= 100) {
+        console.log("A+");
+        document.write("A+");
+    }
+
+</script>
+<script>
+
+	/*
+        [문제]
+            0에서 100 사이의 랜덤 숫자를 시험 점수로 저장한다.
+            시험점수에 해당하는 학점을 출력하시오.
+            아래는 점수표이다.
+            100~91 이면 A학점,
+            90~81  이면 B학점,
+            80 이하는 "재시험"
+            
+            단, 만점이거나, A 학점과 B 학점의 일의 자리가 8점 이상이면 + 기호를 추가하시오.
+            [예] 
+                100 => A+
+                88 ==> B+
+                82 ==> B
+                23 ==> 재시험
+	*/
+
+    let a = parseInt(Math.random() * 101);      // 0 ~ 100
+    
+    // 원하는 랜덤값이 나오지않으면 아래와 같이 직접값을넣어서 테스트한다. 
+
+    /*  
+    a = 100;
+    */
+   
+    document.write("a = " + a + "점<br>");
+    
+    let b = a % 10;
+
+    if(a == 100){
+        document.write("A+");
+    }
+    if(90 <= a && a <= 99){
+        document.write("A");
+        if(b >= 8){
+            document.write("+");
+        }
+    }
+    if(80 <= a && a <= 89){
+        document.write("B");
+        if(b >= 8){
+            document.write("+");
+        }
+    }
+    if(0 <= a && a <= 80) {
+        console.log("재시험");
+        document.write("재시험");
+    }
+
+
+</script>

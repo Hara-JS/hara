@@ -1,0 +1,40 @@
+<script>
+
+    /*
+        [문제]
+            a배열과 b배열에 랜덤 숫자(1~10)을 다섯 개씩 저장하고,
+            a와 b의 값을 각각 비교해서 더 큰 값을 출력하시오.
+            단, 서로 같으면 둘 다 출력하시오.
+        [예시]    
+            a = 1,1,9,2,5
+            b = 2,7,5,2,5
+            
+            b : 2
+            b : 7
+            a : 9
+            a : 2, b : 2
+            a : 5, b : 5
+    */
+
+    let a = [];
+    let b = [];
+
+    for(let i=0; i<5; i++) {
+        a.push(Math.floor(Math.random() * 10) + 1);
+        b.push(Math.floor(Math.random() * 10) + 1);
+    }
+
+    document.write("a = " + a + "<br>");
+    document.write("b = " + b + "<br>");
+    
+    for(let i=0; i<5; i++) {
+        if(a[i] > b[i]) {
+            document.write("a : " + a[i] + "<br>");
+        } else if(b[i] > a[i]) {
+            document.write("b : " + b[i] + "<br>");
+        } else if(a[i] == b[i]) {
+            document.write("a : " + a[i] + ", b : " + b[i] + "<br>");
+        }
+    }
+
+</script>

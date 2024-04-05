@@ -1,0 +1,28 @@
+<script>
+
+  /*
+      [최소값]
+          [1] 숫자 3개를 랜덤으로 저장한다. (1~1000 사이의 숫자)
+          [2] 3개의 랜덤 숫자를 비교한다.
+          [3] 가장 작은수(MIN)를 출력한다.      
+  */
+
+  let a = parseInt(Math.random() * 1000) + 1;      // [0 ~ 999] + 1
+  let b = parseInt(Math.random() * 1000) + 1;      // [0 ~ 999] + 1
+  let c = parseInt(Math.random() * 1000) + 1;      // [0 ~ 999] + 1
+
+  document.write(a + ", " + b + ", " + c + "<br>");
+
+  
+  let min = a;
+  
+  if(min > b) {
+      min = b;
+  }
+  if(min > c) {
+      min = c;
+  }
+
+  document.write("min = " + min);
+
+</script>

@@ -1,0 +1,53 @@
+<script>
+
+  /*
+      [문제]
+          arr배열의 각 값의 약수를 전부 출력하고 
+          각 약수의 개수를 count배열에 추가하시오.
+      [정답]
+          1 43 
+          1 5 11 55 
+          1 5 13 65 
+          1 11 		
+          count = 2, 4, 4, 2
+  */
+
+    let arr = [43, 55, 65, 11];
+    let count = [];
+
+    for(let i = 0; i < arr.length; i++) {
+        let num = 0;
+        for(let j = 1; j <= arr[i]; j++) {
+            if(arr[i] % j === 0) {
+                document.write(j + " ");
+                num += 1;
+            }
+        }
+        count.push(num);
+        document.write("<br>");
+    }
+    document.write("count = " + count);
+
+  
+  /*
+  let arr = [43, 55, 65, 11];
+  let count = [];
+
+  for(let i=0; i<arr.length; i++) {
+
+      let total = 0;
+      for(let j=1; j<=arr[i]; j++) {
+          if(arr[i] % j == 0) {
+              document.write(j + " ");
+              total += 1;
+          }
+      }
+
+      count.push(total);
+      document.write("<br>");
+  }
+
+  document.write("count = " + count);
+  */
+
+</script>

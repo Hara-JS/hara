@@ -1,0 +1,44 @@
+<script>
+
+    /*
+        [개념] 문자열 수정 시 주의점
+            자바스크립트에서는 문자열의 일부를 변경할수없다.
+            완전히 새로 만들어야한다.
+
+            [1] 처음부터 새로 변수를 만들거나,
+            [2] replace() 함수를 사용해야 한다.
+    */
+
+    // [문제] hello에서 e를 a로 변경하시오.
+
+    // [직접변경] 
+    let text = "hello";
+    text[1] = "a";                      // 직접 수정은 불가능하다.
+    document.write(text + "<br>");      // hello
+
+    //[방법1]
+    let newText = "";
+    for(let i=0; i < text.length; i++) {
+        if(text[i] == "e") {
+            newText += "a";
+        } else {
+            newText += text[i];
+        }
+    }
+    document.write(newText + "<br>");
+
+
+    /*
+        [개념] 문자열 교체
+            let 변수 = "문자열";
+            변수 = 변수.replace(교체전, 교체후);
+
+            문자열의 일부를 교체할 때 사용한다.
+    */
+    // [방법2]
+    text = "hello";
+    text = text.replace("e", "a"); // 교체후 반드시 다시 저장해야한다. 
+    document.write(text + "<br>");      // hallo
+
+   
+</script>

@@ -1,0 +1,23 @@
+<script>
+
+    /*
+        [문제]
+            a배열에서 십의 자리가 2인 수만 출력하시오.
+        [정답]
+            423
+            124
+            23
+            122    
+    */
+
+    let arr = [510, 423, 124, 512, 252, 23, 312, 453, 122];
+
+    for(let i=0; i<arr.length; i++) {
+        let unit = parseInt(arr[i] % 100 / 10);
+
+        if(unit == 2) {
+            document.write(arr[i] + "<br>");
+        }
+    }
+
+</script>

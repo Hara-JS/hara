@@ -1,0 +1,31 @@
+<script>
+
+  /*
+      [문제] 
+          arr배열의 값을 비교해서,
+          그 중에 짝수는 b배열에 추가하고,
+          그 중 홀수는 c배열에 추가하시오.
+      [정답]   
+          b = 2, 22
+          c = 49, 51, 17
+  */
+
+  let a = [49, 2, 51, 22, 17];
+  let b = [];
+  let c = [];
+
+  for(let i=0; i<a.length; i++) {
+      if(a[i] % 2 == 0) {
+          b.push(a[i]);
+      } else {
+          c.push(a[i]);
+      }
+  }
+
+  document.write("b = " + b + "<br>");
+  document.write("c = " + c + "<br>");
+
+  
+
+
+</script>

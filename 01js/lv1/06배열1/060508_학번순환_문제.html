@@ -1,0 +1,46 @@
+<script>
+
+    /*
+        [문제] 
+            numbers 배열은 학생들의 번호를 저장한 정보이고,
+            scores 배열은 학생들의 점수 정보이다.
+            실수로 학생들의 점수가 한칸씩 밀렸다. 
+            학생들의 점수를 한칸씩 앞으로 당기고 
+            맨 앞의 점수는 맨 뒤에 저장하시오.
+        [정답]	
+            numbers = 1001, 1002, 1003, 1004, 1005
+            scores  =   11,   45,   98,   23,   87    
+    */
+
+    let numbers = [1001, 1002, 1003, 1004, 1005];
+    let scores  = [  87,   11,   45,   98,   23];
+
+    const temp = scores[i];
+
+    for(let i = 0; i < scores.length; i++) {
+        scores[i] = scores[i + 1];
+    }
+    scores[scores.length - 1] = temp;
+
+    document.write(scores.toString() + "<br>");
+
+    /*
+    let temp = scores[0];       // 87
+    let size = numbers.length;
+    for(let i=0; i<size - 1; i++){
+        
+            방   =   값;
+            a[0] = a[1]
+            a[1] = a[2]
+            a[2] = a[3]
+            a[3] = a[4]
+        
+        scores[i] = scores[i + 1];
+    }
+    scores[size - 1] = temp;
+
+    document.write(scores + "<br>");
+    */
+
+
+</script>

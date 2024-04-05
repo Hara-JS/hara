@@ -1,0 +1,74 @@
+<script>
+
+  /*
+      [문제]
+          두 개의 배열 a와 b에 숫자를 랜덤(1~9 사이의 숫자)으로 5개씩 저장한다.
+          두 배열 중 a값이 더 크면 arr1 배열에 저장한다.
+          b의 값이 더 크면 arr2 배열에 저장한다. 
+          앞에서부터 순차적으로 저장하며,
+          만약에 값이 같으면 둘 다 저장한다. 
+          총 다섯 번을 반복하고 배열을 출력하시오.
+      [예시]
+          a = 8,5,6,1,4
+          b = 2,1,7,6,5
+          arr1 = 8,5
+          arr2 = 7,6,5  
+  */
+
+  let a = [];
+  let b = [];
+
+  let arr1 = [];
+  let arr2 = [];
+
+  for(let i=0; i<5; i++) {
+      a.push(Math.floor(Math.random() * 9) + 1);
+      b.push(Math.floor(Math.random() * 9) + 1);
+  }
+  document.write("a = " + a + "<br>");
+  document.write("b = " + b + "<br>");
+
+  for(let i=0; i<5; i++) {
+      if(a[i] > b[i]) {
+          arr1.push(a[i]);
+      } else if(a[i] < b[i]) {
+          arr2.push(b[i]);
+      } else if(a[i] == b[i]) {
+          arr1.push(a[i]);
+          arr2.push(b[i]);
+      }
+  }
+  document.write("arr1 = " + arr1 + "<br>");
+  document.write("arr2 = " + arr2 + "<br>");
+
+  //----------------------------------------------
+  a = [];
+  b = [];
+  arr1 = [];
+  arr2 = [];
+
+  let i = 0;
+  while(i < 5) {
+      a.push(Math.floor(Math.random() * 9) + 1);
+      b.push(Math.floor(Math.random() * 9) + 1);
+      i += 1;
+  }
+  document.write("a = " + a + "<br>");
+  document.write("b = " + b + "<br>");
+
+  i = 0;
+  while(i < 5) {
+      if(a[i] > b[i]) {
+          arr1.push(a[i]);
+      } else if(a[i] < b[i]) {
+          arr2.push(b[i]);
+      } else if(a[i] == b[i]) {
+          arr1.push(a[i]);
+          arr2.push(b[i]);
+      }
+      i += 1;
+  }
+  document.write("arr1 = " + arr1 + "<br>");
+  document.write("arr2 = " + arr2 + "<br>");
+
+</script>

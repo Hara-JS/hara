@@ -1,0 +1,45 @@
+<script>
+
+    /*
+        [문제]
+            arr배열에 0~9사이의 랜덤 값을 4개 저장한 후 출력한다. 
+            배열안의 값들이 모두 짝수면 "1등",
+            모두 홀수이면 "2등" , 이외는 "꽝" 을 출력한다.
+            단, 0은 짝수이다.
+        [예시] 
+            4, 6, 2, 0 : 1등
+            5, 2, 0, 4 : 꽝    
+    */
+
+    let arr = [];
+
+    for(let i = 0; i < 4; i++) {
+        let num = Math.floor(Math.random() * 10);
+        
+        arr.push(num);
+    }
+    document.write(arr);
+
+    let size = arr.length;
+    let count = 0;
+    for(let i = 0; i < size; i++){
+        let a = arr[i] % 2 == 0;
+        if(a){
+            count += 1;
+        }
+    }
+    if(count == size){
+        document.write("=1등");
+    }
+    else if(count == 0){
+        document.write("=2등");
+    }
+    else{
+        document.write("=꽝");
+    }
+
+
+
+    
+
+</script>

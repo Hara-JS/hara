@@ -1,0 +1,71 @@
+<script>
+
+    let student = [
+        {"num" : 1001,  "name" : "김철수", "math" : 10, "eng" : 20, "kor" : 20},
+        {"num" : 1002,  "name" : "박민정", "math" : 40, "eng" : 60, "kor" : 10},
+        {"num" : 1003,  "name" : "이상아", "math" : 15, "eng" : 10, "kor" : 50},
+        {"num" : 1004,  "name" : "조민수", "math" : 16, "eng" : 40, "kor" : 20}
+    ];
+  
+    /*
+        국어점수가 높은순서대로 내림정렬한다. 
+        만약에 국어 점수가 같으면, 영어점수가 높은순으로 내림차순정렬하시오.
+        국어점수비교를 위해 조금 수정했다.
+        
+    */
+  
+    /*  
+        num : 1003
+        name : 이상아
+        math : 15
+        eng : 10
+        kor : 50
+  
+        num : 1004
+        name : 조민수
+        math : 16
+        eng : 40
+        kor : 20
+  
+        num : 1001
+        name : 김철수
+        math : 10
+        eng : 20
+        kor : 20
+        
+        num : 1002
+        name : 박민정
+        math : 40
+        eng : 60
+        kor : 10
+    */
+  
+  
+    student.sort((a, b) => {
+            if(a["kor"] < b["kor"]){
+                return 1;
+            }else if(a["kor"] > b["kor"]){
+                return -1;
+            }else{
+  
+                if(a["eng"] < b["eng"]){
+                    return 1;
+                }else if(a["eng"] > b["eng"]){
+                    return -1;
+                }else{
+                    return 0;
+                }
+  
+            }            
+        });
+  
+    for(let i = 0; i < student.length; i++){
+       let keyList = Object.keys(student[i]);
+       for(let j=0; j < keyList.length; j++) {
+           let key = keyList[j];
+           document.write(key + " : " + student[i][key] + "<br>");
+       }
+       document.write("<hr/>");
+   }
+  
+  </script>

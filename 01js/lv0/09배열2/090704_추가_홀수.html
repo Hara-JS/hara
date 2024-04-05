@@ -1,0 +1,22 @@
+<script>
+
+    /*
+        [문제] 
+            다음 a배열의 값 중 홀수만 b배열에 저장하시오.
+        [정답]   
+            b = 49, 51, 17
+    */
+
+    let a = [49, 2, 51, 22, 17];
+    let b = [];
+
+    for(let i=0; i<a.length; i++) {
+        if(a[i] % 2 == 1) {
+            b.push(a[i]);
+        }
+    }
+    document.write("b = " + b + "<br>");
+
+   
+
+</script>

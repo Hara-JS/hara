@@ -1,0 +1,29 @@
+<script>
+
+    /*
+        [문제]
+            1부터 10 사이의 랜덤 숫자중 두 개를 출력한다.
+            하나는 반드시 1~5 사이의 숫자이어야 하고,
+            나머지 하나는 반드시 6~10 사이의 숫자이어야 한다.
+            단, 출력순서도 랜덤으로 출력되어야 한다. 
+        
+        [예시1]
+            3 6
+
+        [예시2]
+            8 1
+    */
+
+    let a = parseInt(Math.random() * 5) + 1;   
+    let b = parseInt(Math.random() * 5) + 6;   
+
+    let c = parseInt(Math.random() * 2) + 1;
+
+    if(c == 1) {
+        document.write(a + " " + b);
+    }
+    if(c == 2) {
+        document.write(b + " " + a);
+    }
+
+</script>

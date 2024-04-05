@@ -1,0 +1,28 @@
+<script>
+
+  /*
+      [문제]
+          [조건1] arr배열에 랜덤 숫자(1~100) 5개를 추가한다.
+          [조건2] 위 값 중에 50보다 큰 값들만 result 에 저장후 출력한다.
+      [예시]
+          63,66,96,22,73
+          63,66,96,73
+  */
+
+  let arr = [];
+  let result = [];
+
+  for(let i=0; i<5; i++) {
+      let r = Math.floor(Math.random() * 100) + 1;
+      arr.push(r);
+
+      if(arr[i] > 50) {
+          result.push(arr[i]);
+      }
+  }
+  document.write("arr="+arr + "<br/>");
+  document.write("result="+result + "<br/>");
+
+  
+
+</script>

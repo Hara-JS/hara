@@ -1,0 +1,48 @@
+<script>
+
+  /*
+  [문제]
+    [1] com은 0~2 사이의 숫자를 랜덤 저장한다. 
+    [2] me는  0~2 사이의 숫자를 랜덤 저장한다. 
+    [3] 가위, 바위, 보를 0, 1, 2 숫자로 대신 표현한다.
+    [4] com과 me를 비교해서 me를 기준으로 "비김" "승리" "패배"를 출력하시오.
+  */
+  /*	
+  이해를 돕기위해 com 은 상대편 me 는 자신을뜻한다. 
+  */
+
+   let me = parseInt(Math.random() * 3);		// [0 ~ 2]
+let com = parseInt(Math.random() * 3);		// [0 ~ 2]
+console.log(me + ", " + com);
+document.write(me + ", " + com + "<br>");
+
+if(me == com) {
+  console.log("비겼다.");
+  document.write("비겼다.");
+} 
+if(me == 0 && com == 2) {
+  console.log("내가 이겼다.");
+  document.write("내가 이겼다.");
+} 
+if(me == 1 && com == 0) {
+  console.log("내가 이겼다.");
+  document.write("내가 이겼다.");
+} 
+if(me == 2 && com == 1) {
+  console.log("내가 이겼다.");
+  document.write("내가 이겼다.");
+} 
+if(me == 0 && com == 1) {
+  console.log("내가 졌다.");
+  document.write("내가 졌다.");
+}
+if(me == 1 && com == 2) {
+  console.log("내가 졌다.");
+  document.write("내가 졌다.");
+}
+if(me == 2 && com == 0) {
+  console.log("내가 졌다.");
+  document.write("내가 졌다.");
+}
+
+</script>

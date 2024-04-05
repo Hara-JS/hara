@@ -1,0 +1,40 @@
+<script>
+
+  /*
+      [문제]
+          랜덤숫자 (10~99) 두개를 입력받고 그사이에 3 이나 6 이나 9의 개수를 출력하시오.
+          
+      [결과] 
+          범위 : 75 85 , 개수 : 3
+  */
+
+  function checkNumberCount(a , b){
+      if(a > b){
+          let temp = a;
+          a = b;
+          b = temp;
+      }
+      let i = a;
+      let count = 0;
+      while(i <= b){
+          let x = parseInt(i / 10);          
+          let y = i % 10;                   
+          
+          if(x == 3 || x == 6 || x == 9) {
+              count += 1;
+          }
+          if(y == 3 || y == 6 || y == 9) {
+              count += 1;
+          }
+
+          i += 1;
+      }
+
+      document.write("범위 : " + a + " " + b + " , 개수 : " + count);
+
+  }
+  let a = Math.floor(Math.random() * 90) + 10;
+  let b = Math.floor(Math.random() * 90) + 10;
+  checkNumberCount(a , b);
+
+</script>

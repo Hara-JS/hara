@@ -1,0 +1,27 @@
+<script>
+
+  /*
+      배열 삭제를 위해 splice 함수를 이용한다.
+      : splice(인덱스, 개수)
+  */
+
+  let arr = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+  document.write("arr = " + arr + "<br>");
+  
+  // [문제] 10 삭제
+  arr.splice(0, 1);                           // 0번째 인덱스부터 값 1개 삭제
+  document.write("arr = " + arr + "<br>");    // arr = 20,30,40,50,60,70,80,90,100
+  
+  // [문제] 40, 50, 60 삭제
+  arr.splice(2, 3);                           // 2번째 인덱스부터 값 3개 삭제
+  document.write("arr = " + arr + "<br>");    // arr = 20,30,70,80,90
+
+  // [문제] 100 삭제
+  arr.splice(arr.length - 1, 1);              // 8번째 인덱스부터 값 1개 삭제
+  document.write("arr = " + arr + "<br>");    // arr = 20,30,40,50,60,70,80,90
+  
+  // [문제] 전체삭제
+  arr = [];
+  document.write("arr = " + arr + "<br>");    // arr = 20,30,40,50,60,70,80,90
+
+</script>

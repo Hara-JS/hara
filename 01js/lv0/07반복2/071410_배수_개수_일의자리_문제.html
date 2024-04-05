@@ -1,0 +1,29 @@
+<script>
+
+    /*
+        [문제]
+            100~200 사이의 숫자 중에서 
+            [조건1] 6의 배수 중에서 일의 자리가 2인 수만 출력하고, 
+            [조건2] 그 개수를 구하시오.
+        [정답]
+            102 132 162 192 
+            count = 4    
+    */
+
+    let count = 0;
+
+    let i = 100;
+    while(i <= 200) {
+        let unit = i % 10;
+        if(i % 6 == 0 && unit == 2) {
+            document.write(i + " ");
+            count += 1;
+        }
+
+        i += 1;
+    }
+
+    document.write("<br>");
+    document.write("count = " + count);
+
+</script>

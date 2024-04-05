@@ -1,0 +1,105 @@
+<script>
+
+  /*
+      [문제]
+          랜덤으로 (1~4)를 저장하고
+          아래와 같은 경우로 배열에 저장하시오.
+      [정답]
+          r = 1
+              123
+              654
+              789 
+          
+          r = 2
+              761
+              852
+              943
+          
+          r = 3
+              987
+              456
+              321
+          
+          r = 4
+              349
+              258
+              167    
+  */
+
+  let snake = [
+      [0, 0, 0],
+      [0, 0, 0],
+      [0, 0, 0]
+  ];
+
+  let r = Math.floor(Math.random() * 4) + 1;
+  document.write("r = " + r + "<br>");
+
+  if(r == 1) {
+     
+      let num = 1;
+      let turn = true;
+      for(let i=0; i<3; i++) {
+          for(let j=0; j<3; j++) {
+              if(turn) {
+                  snake[i][j] = num;
+              } else {
+                  snake[i][2 - j] = num;    
+              }
+              num += 1;
+          }
+
+          turn = !turn;
+      }
+  } else if(r == 2) {
+     
+      let num = 1;
+      let turn = true;
+      for(let i=0; i<3; i++) {
+          for(let j=0; j<3; j++) {
+              if(turn) {
+                  snake[j][2 - i] = num;
+              } else {
+                  snake[2 - j][2 - i] = num;
+              }
+              num += 1;
+          }
+          turn = !turn;
+      }
+  } else if(r == 3) {
+      
+      let num = 1;
+      let turn = true;
+      for(let i=0; i<3; i++) {
+          for(let j=0; j<3; j++) {
+              if(turn) {
+                  snake[2 - i][2 - j] = num;
+              } else {
+                  snake[2 - i][j] = num;
+              }
+              num += 1;
+          }
+          turn = !turn;
+      }
+  } else if(r == 4) {
+      
+      let num = 1;
+      let turn = true;
+      for(let i=0; i<3; i++) {
+          for(let j=0; j<3; j++) {
+              if(turn) {
+                  snake[2 - j][i] = num;
+              } else {
+                  snake[j][i] = num;
+              }
+              num += 1;
+          }
+          turn = !turn;
+      }
+  }
+
+  for(let i=0; i<3; i++) {
+      document.write(snake[i] + "<br>");
+  }
+
+</script>

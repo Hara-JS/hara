@@ -1,0 +1,114 @@
+<script>
+
+  /*
+  [문제]
+          복권 1개당 7칸으로, 총 5개의 복권을 제작하려 한다.
+          복권 1줄은 1 또는 7의 랜덤 숫자로 구성되어 있다.
+          7이 연속으로 3개 이상이면 "당첨"이고, 그 미만은 "꽝"이다.
+          5개 중에 딱 1개만 당첨 복권이고 나머지 4개는 꽝인 복권을
+          랜덤으로 생성해서 출력하시오.
+      [예시]
+          1177117 (꽝)
+          1117771 (당첨)
+          7171117 (꽝)
+          7711771 (꽝)
+          7171717 (꽝)    
+  */
+
+  let lotto = [0, 0, 0, 0, 0];
+
+  let cnt = 0;
+  let mark = 0;
+  let index = 0;
+  while(true) {
+
+      // 복권 생성
+      let temp = [];
+      for(let i=0; i<7; i++) {
+          let r = Math.floor(Math.random() * 2);
+          if(r == 0) {
+              r = 7;
+          } 
+
+          temp.push(r);
+      }
+      lotto[index] = temp;
+
+      document.write(lotto[index]);
+      console.log(lotto[index]);
+      // 당첨복권 확인
+      let check = false;
+      let count = 0;
+      for(let i=0; i<7; i++) {
+          if(lotto[index][i] == 7) {
+              count += 1;
+
+              if(count == 3) {
+                  check = true;
+              }
+          } else {
+              count = 0;
+          }
+      }
+      if(check) {
+          document.write("(당첨)<br>");
+          console.log("(당첨)<br>");
+          mark += 1;
+      } else {
+          document.write("(꽝)<br>");
+          console.log("(꽝)<br>");
+      }
+
+      index += 1;
+
+      
+      // 당첨 복권이 한개일 때
+      if(index == 5 && mark == 1) {
+          break;
+      }
+
+      // 당첨 복권이 한개도 없을 때
+      if(index == 5 && mark == 0) {
+          index = 0;
+          mark = 0;
+      }
+
+      // 당첨 복권이 한개 이상일 때
+      if(index == 5 && mark > 1) {
+          index = 0;
+          mark = 0;
+      }
+
+  }
+
+  document.write("<br><br><br>");
+
+  // 당첨복권 확인
+  for(let i=0; i<lotto.length; i++) {
+      let check = false;
+      let count = 0;
+
+      for(let j=0; j<lotto[i].length; j++) {
+          if(lotto[i][j] == 7) {
+              count += 1;
+
+              if(count == 3) {
+                  check = true;
+              }
+          } else {
+              count = 0;
+          }
+      }
+      document.write(lotto[i]);
+      if(check) {
+          document.write("(당첨)<br>");
+          console.log("(당첨)<br>");
+          mark += 1;
+      } else {
+          document.write("(꽝)<br>");
+          console.log("(꽝)<br>");
+      }
+  }
+
+
+</script>

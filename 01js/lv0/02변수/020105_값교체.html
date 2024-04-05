@@ -1,0 +1,30 @@
+<script>
+
+	/*
+		[변수의 값교체]
+			변수는 한번에 한가지 값만 저장가능하다.
+			그래서 동시에 교체가 불가능하다.
+			값교체를 위해서는 변수 를 한개 더선언해야한다.
+	*/
+	let a = 10;
+	let b = 20;
+	a = b;
+	b = a;
+
+	document.write(a + " " + b); // 값이 같아진다.
+
+	document.write("<hr/>");
+
+
+	let c = 10;
+	let d = 20;
+	let e = c;  // 변수를 한개 더선언해야 교체가 가능하다. 
+	c = d;
+	d = e;
+
+	document.write(c + " " + d); // 이제 교체가 되었다.
+
+	document.write("<hr/>");
+
+
+</script>

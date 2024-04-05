@@ -1,0 +1,49 @@
+<script>
+
+  /*
+      [문제]
+         str의 내용은 각반 학생들의 이번시험 데이터이다.
+         , 를 기준으로 한학생에 대한 데이터이며, 
+         / 를 기준으로 할때 번호,이름,국어,영어,수학 데이터이다.
+         
+         [1] 학생별 시험점수의 합을 totalList 에 순차적으로 저장한다.
+      [정답]
+          127,93,172
+  */
+
+  let str = "1001/김철수/87/30/10,1002/이만수/42/32/19,1003/이영희/95/21/56";
+
+  let totalList = [];
+
+  let arr = [];
+  let arr1 = [];
+  arr = str.split(",");
+  /**
+   * ["1001/김철수/87/30/10", "1002/이만수/42/32/19", "1003/이영희/95/21/56"]
+   */
+  for(let i = 0; i < arr.length; i++){
+    arr1 = arr[i].split("/");
+    let sum = (Number(arr1[2]) + Number(arr1[3]) + Number(arr1[4]));
+    totalList.push(sum);
+  }
+  document.write(totalList);
+  
+  /*
+  let token = str.split(",");
+  // token = [1001/김철수/87/30/10 , 1002/이만수/42/32/19 , 1003/이영희/95/21/56]
+  for(let i=0; i<token.length; i++) {
+
+      // a = 1001/김철수/87/30/10
+      let a = token[i];
+
+      // b = [1001,김철수,87,30,10]
+      let b = a.split("/");
+
+      let total = Number(b[2]) + Number(b[3]) + Number(b[4]);
+      totalList.push(total);
+  }
+
+
+  document.write(totalList + "<br>");
+  */
+</script>

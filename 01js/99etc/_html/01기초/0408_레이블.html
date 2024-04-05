@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        label for
+        
+        [1] label 과 for 를 사용해서 라디오버튼이 아닌 글자를 클릭해도 라디오버튼이 선택된다.
+    -->
+
+    <form action="#">
+        여러분의 나이대를 골라보세요.<br>
+        <input type="radio" name="ages" id="teen" value="teenage">
+        <label for="teen">10대</label><br>
+        <input type="radio" name="ages" id="twenty" value="twenties">
+        <label for="twenty">20대</label><br>
+        <input type="radio" name="ages" id="thirty" value="thirties">
+        <label for="thirty">30대</label><br>
+        <input type="radio" name="ages" id="forty" value="forties">
+        <label for="forty">40대 이상</label><br>
+        <input type="submit">
+    </form>
+</body>
+</html>

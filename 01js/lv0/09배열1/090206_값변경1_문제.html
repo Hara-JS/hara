@@ -1,0 +1,19 @@
+<script>
+
+  /*
+      [문제]
+          arr배열에서 각각값을 검사하여 짝수는 원래의 값에1을 더하시오.
+      [정답]
+          11,43,25,13,53
+  */
+
+  let arr = [10, 43, 24, 12, 52];
+  
+  for(let i = 0; i < arr.length; i++){
+      if(arr[i] % 2 == 0){
+          arr[i] += 1;
+      }
+  }
+
+  document.write(arr);
+</script>

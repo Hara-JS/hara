@@ -1,0 +1,26 @@
+<script>
+
+  /*
+      [문제]
+          [조건1] arr배열에 1~100사이의 랜덤 숫자 5개를 추가한다.
+          [조건2] 랜덤으로 위 값 중 한 개만 삭제 후 출력하시오. 
+      [예시]
+          arr = 1, 43, 22, 77, 44
+          r = 3
+          arr = 1, 43, 22, 44
+  */
+
+  let arr = [];
+
+  for(let i=0; i< 5; i++) {
+      arr.push(Math.floor(Math.random() * 100) + 1);
+  }
+  document.write("arr = " + arr + "<br>");
+  
+  let r = Math.floor(Math.random() * arr.length);
+  document.write("r = " + r + "<br>");
+  
+  arr.splice(r, 1);
+  document.write("arr = " + arr + "<br>");
+  
+</script>

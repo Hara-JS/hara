@@ -1,0 +1,49 @@
+<script>
+	
+	/*
+		[문제]  
+			철수는 편의점에서 아르바이트를 하고있다.
+			현재 편의점에 준비된 잔돈은 아래와 같다.  
+			각각 순서대로 a b c d 변수로 표현한다. 
+			5000원권 3매
+			1000원권 4매
+			500원권 3개
+			100원권 3개 
+
+			현재 거스름돈을 8900원 거슬러줘야할때, 
+			거스름돈이 충분하면 "8900원입니다" 출력,
+			거스름돈이 부족하면 "거스름돈이부족합니다" 출력하시오. 
+			100원이 3개 이기 때문에 잔돈이 부족하다.
+
+		[정답]
+			거스름돈이부족합니다
+		
+	*/
+
+	function checkCharge(a, b, c, d, e){
+		let a1 = parseInt(e / 5000);
+		let b1 = parseInt(e % 5000 / 1000);
+		let c1 = parseInt(e % 1000 / 500);
+		let d1 = parseInt(e % 500 / 100);
+
+		document.write(a1 + " " + b1 + " " + c1 + " " + d1 + "<br/>");
+
+
+		if(a1 <= a && b1 <= b && c1 <= c && d1 <= d){
+			document.write("8900원입니다");
+		}
+		if(a1 > a || b1 > b || c1 > c || d1 > d){
+			document.write("거스름돈이부족합니다");
+		}
+	}
+
+	let a = 3;
+	let b=  4;
+	let c = 3;
+	let d = 3;
+
+	let e = 8900;
+	checkCharge(a , b , c , d , e);
+	
+
+</script>

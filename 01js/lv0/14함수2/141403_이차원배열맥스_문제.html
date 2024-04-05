@@ -1,0 +1,34 @@
+<script>
+
+	/*
+		[문제]
+			이차원 배열에서 가장 큰 수를 
+			반환하는 함수를 만드시오.
+		[정답]
+			455
+	*/
+
+ 	function getDoubleArrMax(darr){
+		let max = 0;
+		
+		for(let i=0; i<darr.length; i++) {
+			for(let j=0; j<darr[i].length; j++) {
+				if(max < darr[i][j]) {
+					max = darr[i][j];
+				}
+			}
+		}
+
+		return max;
+	}
+
+	let darr = [
+		[ 1, 43,   3, 54,  1],
+		[45, 41, 455,  4,  6],
+		[ 5, 21,  51, 32, 13]
+	];
+
+	let max = getDoubleArrMax(darr);
+	document.write(max);	
+
+</script>

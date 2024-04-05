@@ -1,0 +1,87 @@
+<script>
+
+  /*
+      [문제]
+          철수는 빙고 게임을 만들고 있다.
+          빙고 조건은 가로 1이 3개 또는 세로 1이 3개 
+          또는 대각선으로 1이 3개이면 빙고이다.
+          빙고는 중첩될 수 있다.
+          반복적으로 랜덤 위치에 1을 저장한다. 
+          단, 한번 1이 저장된 곳은 또 다시 저장할 수 없다.
+          3빙고가 성립되면 종료한다.     
+  */
+
+  let bingo = [
+      [0,0,0],
+      [0,0,0],
+      [0,0,0]
+  ];
+
+  while(true) {
+
+      for(let i=0; i<bingo.length; i++) {
+          document.write(bingo[i] + "<br>");
+      }
+      document.write("<br>");
+
+      let y = Math.floor(Math.random() * bingo.length);
+      let x = Math.floor(Math.random() * bingo.length);
+
+      if(bingo[y][x] != 0) {
+          continue;
+      }
+
+      bingo[y][x] = 1;
+
+      let count = 0;
+      // 가로 검사
+      for(let i=0; i<bingo.length; i++) {
+          let cnt = 0;
+          for(let j=0; j<bingo[i].length; j++) {
+              if(bingo[i][j] == 1) {
+                  cnt += 1;
+              }
+          }
+          if(cnt == 3) {
+              document.write("가로 빙고!<br>");
+              count += 1;
+          }
+      }
+
+      // 세로 검사
+      for(let i=0; i<bingo.length; i++) {
+          let cnt = 0;
+          for(let j=0; j<bingo[i].length; j++) {
+              if(bingo[j][i] == 1) {
+                  cnt += 1;
+              }
+          }
+          if(cnt == 3) {
+              document.write("세로 빙고!<br>");
+              count += 1;
+          }
+      }
+
+      // 대각선 검사 \
+      if(bingo[0][0] == 1 && bingo[1][1] == 1 && bingo[2][2] == 1) {
+          document.write("대각선 \\ 빙고!<br>");
+          count += 1;
+      }
+
+      // 대각선 검사 /
+      if(bingo[0][2] == 1 && bingo[1][1] == 1 && bingo[2][0] == 1) {
+          document.write("대각선 / 빙고!<br>");
+          count += 1;
+      }
+
+      if(count >= 3) {
+          break;
+      }
+  }
+
+  for(let i=0; i<bingo.length; i++) {
+      document.write(bingo[i] + "<br>");
+  }
+  document.write("<br>");
+
+</script>

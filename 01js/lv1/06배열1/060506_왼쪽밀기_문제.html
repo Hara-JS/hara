@@ -1,0 +1,38 @@
+<script>
+
+    /*
+        [문제]
+            arr배열의 값 중 0을 제외한 모든 값을 
+            왼쪽으로 모으시오.
+        [정답]
+            arr = 2,3,4,5,0,0,0,0,0,0
+    */
+
+    let arr = [0, 0, 2, 0, 3, 0, 4, 0, 0, 5];
+
+    let index = 0;
+    for(let i = 0; i < arr.length; i++) {
+        if(arr[i] !== 0) {
+            const temp = arr[index];
+            arr[index] = arr[i];
+            arr[i] = temp;
+            index += 1;
+        }
+    }
+    document.write(arr + "<br>");
+
+    /*
+    let index = 0;
+    for(let i=0; i<arr.length; i++) {
+        if(arr[i] != 0) {
+            if(i != index) {
+                arr[index] = arr[i];
+                arr[i] = 0;
+            }
+            index += 1;
+        }
+    }
+    document.write(arr + "<br>");
+    */
+
+</script>

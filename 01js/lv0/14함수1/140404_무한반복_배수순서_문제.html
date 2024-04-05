@@ -1,0 +1,48 @@
+<script>
+	
+	/*
+		
+		[문제] 
+			랜덤숫자 (2~9) 사이의 숫자를 저장한다. 랜덤숫자는 구하려는 배수를 뜻한다.
+			랜덤숫자 (4~ 8) 사이의 숫자를 저장한다. 위 배수의 순서를 뜻한다.
+			랜덤숫자 의 배수를 출력하는데 그중에서 두번째 랜덤숫자의 순서의 배수만 출력한다.
+
+		[예시] 2의 배수의 6번째 배열을 출력한다.
+			2 6 		
+			12
+	*/
+
+	function checkMulti(num, maxCount){
+		let i = 1;
+
+		let count = 0;
+
+		let run = true;
+
+		// run 이 true 이므로 무한이 반복된다.
+		while(run) {
+
+			if(i % num == 0) {
+				count += 1;
+				
+				if(count == maxCount) {
+					document.write(i + "<br>");
+					run = false;
+				}
+			}
+
+			if(run){
+				i = i + 1;
+			}
+		}
+
+	}
+
+	let num = Math.floor(Math.random() * 8) + 2;
+	let maxCount = Math.floor(Math.random() * 5) + 4;
+	document.write(num + " " + maxCount);
+	document.write("<hr/>");
+	checkMulti(num , maxCount);
+
+
+</script>

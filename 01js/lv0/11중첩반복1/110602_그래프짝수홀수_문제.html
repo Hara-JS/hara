@@ -1,0 +1,59 @@
+<script>
+
+  /*
+      [문제] 
+          0~9 사이의 랜덤 숫자를 다섯 번 반복해서 저장하고
+          각각 숫자가짝수면 *을 개수만큼 출력하고 홀수이면 !을 개수만큼 출력한다. 
+      [예시]
+          9,2,7,5,8
+          9 : !!!!!!!!!
+          2 : **
+          7 : !!!!!!!
+          5 : !!!!!
+          8 : ********
+  */
+
+  let arr = [];
+  for(let i = 0; i < 5; i++) {
+    let ranNum = Math.floor(Math.random() * 9);
+    arr.push(ranNum);
+    document.write(arr[i] + " : ");
+    let size = arr[i];
+    for(let j = 0; j < size; j++) {
+        if(ranNum % 2 === 0) {
+            document.write("*");
+        } else {
+            document.write("!");
+        }
+    }
+    document.write("<br>");
+  }
+
+ /*
+ let arr = [];
+ for(let i= 0; i < 5; i++) {
+      let size = Math.floor(Math.random() * 10);
+      arr.push(size);
+  }
+  document.write(arr);
+
+  document.write("<br/>");
+  document.write("<hr/>");
+
+  for(let i= 0; i < 5; i++) {
+      let size = arr[i];
+      document.write(size + " : ");
+
+      for(let j = 0; j < size; j++) {
+          
+          if(size % 2 == 1){
+              document.write("!");
+          }else{
+              document.write("*");
+          }
+      }
+      document.write("<br>");
+  }
+ 
+ */
+</script>

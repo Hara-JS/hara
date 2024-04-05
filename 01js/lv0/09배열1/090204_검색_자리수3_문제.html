@@ -1,0 +1,29 @@
+<script>
+
+  /*
+      [문제]
+          arr배열에서 십의 자리가 2이거나 백의 자리가 5인 수만 출력하시오.
+      [정답]
+          510
+          423
+          124
+          512
+          23
+          122   
+  */
+
+  let arr = [510, 423, 124, 512, 252, 23, 312, 453, 122];
+
+  for(let i=0; i<arr.length; i++) {
+      // 백의 자리
+      let hundredUnit  = parseInt(arr[i] / 100);
+      // 십의 자리
+      let tenUnit = parseInt(arr[i] % 100 / 10);
+      // document.write(hundredUnit  + ", " + tenUnit + "<br>");
+
+      if(hundredUnit == 5 || tenUnit == 2) {
+          document.write(arr[i] + "<br>");
+      }
+  }
+
+</script>

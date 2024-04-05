@@ -1,0 +1,28 @@
+<script>
+	
+	/*
+		[문제] 
+			321321초를 시간을 제외한 "분"과,
+			시간과 분을 제외한 "초"를 구한 후,	
+			분과 초를 더한 값이 100보다 큰지 확인하시오.
+		
+			위 내용을 비교연산자로 표현하시오.
+		[정답]
+			false
+	*/
+
+	let 총시간 = 321321;
+
+	let 분 = parseInt(총시간 % 3600 / 60);
+	let 초 = 총시간 % 60;
+	let 결과 = (분 + 초) > 100;
+
+	console.log(분);
+	console.log(초);
+	console.log(결과);
+	
+	document.write(분 + "<br>");
+	document.write(초 + "<br>");
+	document.write(결과 + "<br>");
+
+</script>

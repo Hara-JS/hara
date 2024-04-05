@@ -1,0 +1,27 @@
+<script>
+
+  /*
+      [문제]
+          무한반복문안에서 랜덤(1~10) 숫자 하나를 저장한다. 
+          숫자가 5이하이면 출력하고, 5초과이면 출력하지 않는다.
+          [조건1] 총 숫자가 10개 출력되면 종료한다.     
+      [예시]
+          4 2 2 2 1 3 2 3 5 3
+  */
+
+  let count = 0;
+  for(let run = true; run == true;) {
+      let num = Math.floor(Math.random() * 10) + 1;   // [0 ~ 9] + 1
+      if(num <= 5) {
+          document.write(num + " ");
+          count += 1;
+
+          if(count == 10) {
+              run = false;
+          }
+      } 
+  }
+  document.write("<br>");
+
+ 
+</script>

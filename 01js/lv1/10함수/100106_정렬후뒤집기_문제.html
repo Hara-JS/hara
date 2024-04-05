@@ -1,0 +1,86 @@
+<script>
+
+  /*
+      [문제]
+          오름차순으로 정렬한 후,
+          이를 뒤집어 내림차순으로 변경해주는
+          함수를 만드시오.
+      [정답]
+          23,234,1001,3234,32134
+          32134,3234,1001,234,23
+*/  
+
+  function mySort(arr){
+      for(let i = 0; i < arr.length; i++){
+          for(let j = i; j < arr.length; j++){
+              if(arr[i] > arr[j]){
+                  let temp = arr[i];
+                  arr[i] = arr[j];
+                  arr[j] = temp;
+              }
+          }
+      }
+  } 
+
+  function myReverse(arr){
+      let last = arr.length - 1;
+      for(let i = 0; i < arr.length/2; i++){
+          let temp = arr[last];
+          arr[last] = arr[i];
+          arr[i] = temp;
+          last -= 1;
+      }
+  }
+
+  let arr = [1001, 3234, 23, 32134, 234];
+
+  mySort(arr);
+  document.write(arr + "<br>");
+  myReverse(arr);
+  document.write(arr + "<br>");
+
+
+</script>
+<script>
+
+  /*
+      [문제]
+          오름차순으로 정렬한 후,
+          이를 뒤집어 내림차순으로 변경해주는
+          함수를 만드시오.
+      [정답]
+          23,234,1001,3234,32134
+          32134,3234,1001,234,23
+*/  
+
+  function mySort(arr){
+      for(let i = 0; i < arr.length; i++){
+          for(let j = i; j < arr.length; j++){
+              if(arr[i] > arr[j]){
+                  let temp = arr[i];
+                  arr[i] = arr[j];
+                  arr[j] = temp;
+              }
+          }
+      }
+  } 
+
+  function myReverse(arr){
+      let last = arr.length - 1;
+      for(let i = 0; i < arr.length/2; i++){
+          let temp = arr[last];
+          arr[last] = arr[i];
+          arr[i] = temp;
+          last -= 1;
+      }
+  }
+
+  let arr = [1001, 3234, 23, 32134, 234];
+
+  mySort(arr);
+  document.write(arr + "<br>");
+  myReverse(arr);
+  document.write(arr + "<br>");
+
+
+</script>

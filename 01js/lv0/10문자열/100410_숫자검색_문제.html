@@ -1,0 +1,77 @@
+<script>
+
+  /*
+      [문제]
+          str 의 문자를 검색해서 
+          숫자로만되어있는지, 또는 문자로만되어있는지 , 또는 숫자와문자가 섞여있는지 검사하고,
+          아래문구중 한개를 출력하시오.
+          [1]문자만있다.
+          [2]숫자만있다.
+          [3]문자와숫자가섞여있다. 
+      [정답]
+          문자와숫자가섞여있다. 
+  */
+
+  
+  let str = "dasd12312asd";
+
+  let count = 0;
+  for(let i = 0; i < str.length; i++) {
+    if(str.charAt(i) >= 0 && str.charAt(i) < 10) {
+        count += 1;
+    }
+  }
+  if(count === str.length) {
+    document.write("숫자만 있다");
+  } else if(count === 0) {
+    document.write("문자만 있다");
+  } else {
+    document.write("문자와 숫자가 섞여있다");
+  }
+  
+  /*
+  let count = 0;
+  for(let i = 0; i < str.length; i++){
+      let a = str.charAt(i);
+      if(a == "0"){
+          count += 1;
+      }
+      if(a == "1"){
+          count += 1;
+      }
+      if(a == "2"){
+          count += 1;
+      }
+      if(a == "3"){
+          count += 1;
+      }
+      if(a == "4"){
+          count += 1;
+      }
+      if(a == "5"){
+          count += 1;
+      }
+      if(a == "6"){
+          count += 1;
+      }
+      if(a == "7"){
+          count += 1;
+      }
+      if(a == "8"){
+          count += 1;
+      }
+      if(a == "9"){
+          count += 1;
+      }
+  }
+
+  if(count == 0){
+      document.write("문자만있다.");
+  }else if(count == str.length){
+      document.write("숫자만있다.");
+  }else{
+      document.write("문자와숫자가섞여있다.");
+  }
+  */
+
+</script>

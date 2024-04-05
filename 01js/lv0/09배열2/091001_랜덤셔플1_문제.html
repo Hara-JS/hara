@@ -1,0 +1,35 @@
+<script>
+
+  /*
+      [문제]
+          다음은 학생 번호와 점수의 한 셋트이다.
+          랜덤으로 셔플후 출력하시오.
+          단, 번호와 점수가 같이 셔플되야한다.
+      [예시]
+          1004,1001,1003,1002,1005
+          98,87,45,11,23
+  */
+
+  let numberList = [1001, 1002, 1003, 1004, 1005];
+  let scoreList  = [  87,   11,   45,   98,   23];
+
+  let size = numberList.length;
+  for(let i = 0; i < 100; i++){
+      let a = parseInt(Math.random() * size);
+      let b = parseInt(Math.random() * size);
+
+      let c = numberList[a];
+      numberList[a] = numberList[b];
+      numberList[b] = c;
+
+      let d = scoreList[a];
+      scoreList[a] = scoreList[b];
+      scoreList[b] = d;
+
+  }
+
+  document.write(numberList);
+  document.write("<br/>");
+  document.write(scoreList);
+
+</script>

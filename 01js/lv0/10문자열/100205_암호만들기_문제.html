@@ -1,0 +1,32 @@
+<script>
+
+  /*
+      [문제]
+          철수는 비밀번호는 아래와 같다. 
+          철수는 비밀번호를 보호하기 위해 비밀번호 글자 사이사이에 
+          알파벳을 a부터 순서대로 끼워넣었다.
+          철수가 만든 비밀번호를 만들어보시오.
+      [정답]
+          qawbecrd1e2f3g4h
+  */
+
+  let password = "qwer1234";
+  let sample = "abcdefghijklmnopqrstuvwxyz";
+
+  let temp = "";
+  for(let i = 0; i < password.length; i++) {
+    temp += password[i];
+    temp += sample[i];
+  }
+  document.write(temp);
+  
+  /*
+  let newPassword = "";
+  for(let i=0; i<password.length; i++) {
+      newPassword += password[i];
+      newPassword += sample[i];
+  }
+  document.write(newPassword);
+  */
+
+</script>

@@ -1,0 +1,22 @@
+<script>
+
+  /*
+      [문제]
+          arr배열에서 십의 자리가 1인 숫자들의 개수를 출력하시오.
+      [정답]
+          3   
+  */
+
+  let arr = [510, 423, 124, 512, 252, 23, 312, 453, 122];
+
+  let count = 0;
+  for(let i=0; i<arr.length; i++) {
+      let tenUnit = parseInt(arr[i] % 100 / 10);
+
+      if(tenUnit == 1) {
+          count += 1;
+      }
+  }
+
+  document.write(count);
+</script>

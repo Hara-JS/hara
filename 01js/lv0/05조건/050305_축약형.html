@@ -1,0 +1,38 @@
+<script>
+
+    /*
+        [문제]
+            랜덤(0~9)를 a에 저장한다. 
+            a의 값이 4의 배수이면 "o"
+            4의 배수가 아니면 "x" 출력하시오.
+        
+    */
+
+    let a = parseInt(Math.random() * 10);
+    document.write("a = " + a + "<br>");
+
+    let b = a % 4 == 0; // 식을 변수에 저장하면 true 나 false 가 저장된다. 
+
+    if(b == true){
+        document.write("o");
+    }
+    if(b == false){
+        document.write("x");
+    }
+    document.write("<br/>");
+
+    /*
+        b == true 는 줄여서 b, 
+        b == false 는 줄여서 !b 와 같이 표현가능하다.
+    */
+
+    if(b){
+        document.write("o (축약형)");
+    }
+    if(!b){
+        document.write("x (축약형)");
+    }
+
+
+
+</script>

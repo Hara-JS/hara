@@ -1,0 +1,42 @@
+<script>
+
+  /*
+      [문제]
+          [조건1] a배열과 b배열 두 개에 1~100 사이의 
+                  랜덤 값 다섯 개를 저장한다.
+          [조건2] 
+              각각의 값을 비교한다.
+              둘다 짝수이면 2를 result에 저장한다.
+              둘다 홀수이면 1을 result에 저장한다.
+              서로 다르면 -1을 result에 저장한다.
+                  
+      [예시]    
+          a=70,60,32,14,65
+          b=71,31,17,34,57
+          result=-1,-1,-1,2,1   
+  */
+
+  let a = [];
+  let b = [];
+
+  let result = [];
+
+  for(let i=0; i<5; i++) {
+      a.push(Math.floor(Math.random() * 100) + 1);
+      b.push(Math.floor(Math.random() * 100) + 1);
+  }
+  document.write("a="+a + "<br>");
+  document.write("b="+b + "<br>");
+
+  for(let i=0; i<5; i++) {
+      if(a[i] % 2 == 0 && b[i] % 2 == 0) {
+          result.push(2)
+      } else if(a[i] % 2 != 0 && b[i] % 2 != 0) {
+          result.push(1)
+      } else {
+          result.push(-1)
+      }
+  }
+  document.write("result="+result + "<br>");
+  
+</script>

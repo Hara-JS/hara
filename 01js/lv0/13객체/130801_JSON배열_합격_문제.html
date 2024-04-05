@@ -1,0 +1,82 @@
+<script>
+  let jsonArr = [
+    { num: 1001, name: "김철수", math: 10, eng: 20, kor: 30 },
+    { num: 1002, name: "박민정", math: 40, eng: 60, kor: 10 },
+    { num: 1003, name: "이상아", math: 15, eng: 10, kor: 50 },
+    { num: 1004, name: "조민수", math: 16, eng: 40, kor: 20 },
+  ];
+
+  /*
+      [문제]
+          국어,수학,영어 세 과목의 평균이 30점 이상이면 합격이다.
+          pass 항목을 추가하고 합격이면 true, 불합격이면 false를 추가하시오.
+      [정답]
+          num : 1001
+          name : 김철수
+          math : 10
+          eng : 20
+          kor : 30
+          pass : false
+
+          num : 1002
+          name : 박민정
+          math : 40
+          eng : 60
+          kor : 10
+          pass : true
+
+          num : 1003
+          name : 이상아
+          math : 15
+          eng : 10
+          kor : 50
+          pass : false
+          
+          num : 1004
+          name : 조민수
+          math : 16
+          eng : 40
+          kor : 20
+          pass : false
+         
+  */
+
+  for (let i = 0; i < jsonArr.length; i++) {
+    let total = jsonArr[i]["math"] + jsonArr[i]["eng"] + jsonArr[i]["kor"];
+    let avg = total / 3;
+    if (avg >= 30) {
+      jsonArr[i]["pass"] = true;
+    } else {
+      jsonArr[i]["pass"] = false;
+    }
+  }
+
+  for (let i = 0; i < jsonArr.length; i++) {
+    let keyList = Object.keys(jsonArr[i]);
+    for (let j = 0; j < keyList.length; j++) {
+      let key = keyList[j];
+      document.write(key + " : " + jsonArr[i][key] + "<br>");
+    }
+    document.write("<hr>");
+  }
+
+  /*
+  for(let i=0; i<jsonArr.length; i++) {
+      let avg = (jsonArr[i]["math"] + jsonArr[i]["eng"] + jsonArr[i]["kor"]) / 3;
+      if(avg >= 30) {
+          jsonArr[i]["pass"] = true;
+      } else {
+          jsonArr[i]["pass"] = false;
+      }
+  }
+
+  for(let i = 0; i < jsonArr.length; i++){
+      let keyList = Object.keys(jsonArr[i]);
+      for(let j=0; j < keyList.length; j++) {
+          let key = keyList[j];
+          document.write(key + " : " + jsonArr[i][key] + "<br>");
+      }
+      document.write("<hr/>");
+  }
+  */
+</script>

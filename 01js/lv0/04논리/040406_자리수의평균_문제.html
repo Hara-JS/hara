@@ -1,0 +1,24 @@
+<script>
+
+	/*
+		[문제] 
+			변수a의 각자리수별로 나눠서 전부 더한후, 자리수의 개수로 나눈 평균을 구한다. 
+			그 평균이 5보다 크면 true 를 출력하는 식을 작성하시오.
+		[정답]
+			2.5
+			false	
+	*/
+
+	let a = 3340;
+	let b = parseInt(a / 1000);
+	let c = parseInt(a % 1000 / 100);
+	let d = parseInt(a % 100 / 10);
+	let e = a % 10;
+	let f = b + c + d + e;
+	let g = f / 4;
+	document.write(g);
+	document.write("<br/>");
+	document.write(g > 5);
+
+
+</script>

@@ -1,0 +1,57 @@
+<script>
+
+    /*
+        [문제]
+            str 의 문자를 검색해서 
+            숫자로만되어있는지, 또는 문자로만되어있는지 , 또는 숫자와문자가 섞여있는지 검사하고,
+            아래문구중 한개를 출력하시오.
+            숫자의개수도출력하시오.
+            [1]문자만있다.
+            [2]숫자만있다.
+            [3]문자와숫자가섞여있다. 
+        [정답]
+            문자와숫자가섞여있다.
+            count=5
+    */
+
+    
+    let str = "dasd12312asd";
+
+    let count = 0;
+
+    for(let i = 0; i < str.length; i++) {
+        if(Number(str[i]) >= 0 && Number(str[i]) < 10) {
+            count += 1;
+        }
+    }
+    if(count === str.length) {
+        document.write("숫자만 있다.");
+    } else if(count === 0) {
+        document.write("문자만 있다.");
+    } else {
+        document.write("문자와 숫자가 섞여있다.");
+    }
+    
+    /*
+    let count = 0;
+    for(let i = 0; i < str.length; i++){
+        let a = str.charAt(i);
+        for( let j = 0; j < 10; j++){
+            if(a == String(j)){
+                count += 1;
+            }
+        }
+    }
+
+    if(count == 0){
+        document.write("문자만있다.");
+    }else if(count == str.length){
+        document.write("숫자만있다.");
+    }else{
+        document.write("문자와숫자가섞여있다.");
+    }
+    document.write("<hr/>");
+    document.write("count="+count);
+    */
+
+</script>

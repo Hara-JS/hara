@@ -1,0 +1,43 @@
+<script>
+
+  /*
+      [문제]
+          아래 리스트는 철수가 소지한 현금 개수이다.
+          money는 돈 단위를 뜻하고,
+          count는 단위별 개수를 뜻한다. 
+
+          거스름돈은 7800일 때, 
+          단위별로 나눠주고, 
+          count배열 값을 조정 후 출력하시오. 
+      [정답]
+          count = [1, 1, 0, 0, 2, 7]    
+  */
+
+  let money = [50000, 10000, 5000, 1000, 500, 100];
+  let count = [    1,     1,    1,    1,   5,  10];
+
+  let charge = 7800;
+
+  let temp = charge;
+  let size = money.length;
+  for(let i=0; i<size; i++) {
+      if(money[i] <= temp) {                          // 1000 <= 2800
+          while(true) {
+              if(count[i] > 0) {
+                  temp -= money[i];                   // 1800
+                  count[i] -= 1;
+
+                  if(temp < money[i]) {
+                      break;
+                  }
+              } else {
+                  break;
+              }
+          }
+      }
+  }
+
+  document.write("count = " + count + "<br>");
+  document.write(temp);
+
+</script>

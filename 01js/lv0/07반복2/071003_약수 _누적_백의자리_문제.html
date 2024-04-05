@@ -1,0 +1,33 @@
+<script>
+
+    /*
+        [문제]
+            2000의 약수 중에서 순서대로 약수를 출력했을 때, 
+            [조건1] 백의자리가 4인 약수들만 출력하고, 
+            [조건2] 그 전체 합을 출력하시오. 
+        [정답]
+            400 
+            total = 400
+    */
+
+    let num = 2000;
+
+    let total = 0;
+
+    let i = 1;
+    while(i <= num) {
+
+        let unit = parseInt(i % 1000 / 100);
+        if(num % i == 0 && unit == 4) {
+            document.write(i + " ");
+            total += i;
+        }
+
+        i += 1;
+    }
+
+    console.log("total = " + total);
+    document.write("<br>");
+    document.write("total = " + total + "<br>");
+
+</script>

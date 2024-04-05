@@ -1,0 +1,30 @@
+<script>
+
+  /*
+      [문제]
+          [조건1] arr배열에 랜덤 숫자(1~100) 다섯 개를 추가한다.
+          [조건2] 위 값 중에 5의 배수들만 result 에 저장하시오.
+      [예시]
+          arr = 59,29,54,80,53
+          result = 80
+  */
+
+  let arr = [];
+  let result = []
+
+  for(let i=0; i<5; i++) {
+      arr.push(Math.floor(Math.random() * 100) + 1);
+  }
+  document.write(arr + "<br>");
+
+  for(let i=0; i<5; i++) {
+      if(arr[i] % 5 == 0) {
+          result.push(arr[i]);
+      }
+  }
+  
+  document.write(result + "<br>");
+
+ 
+
+</script>

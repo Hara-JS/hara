@@ -1,0 +1,28 @@
+<script>
+
+  /*
+      [문제]  
+          아래 arr배열에는 순서대로 값이 저장되어있다.
+          1~100사이의 랜덤 숫자 하나를 저장 후,
+          랜덤 값보다 작은 값은 전부 arr배열에서 삭제하시오.
+      [예시]    
+          r = 47
+          arr = 50,60
+  */
+
+
+  let arr = [10, 20, 30, 40, 50, 60];
+
+  let r = Math.floor(Math.random() * 100) + 1;
+  document.write("r = " + r + "<br>");
+
+  for(let i=0; i<arr.length; i++) {
+      if(arr[i] < r) {
+          arr.splice(i, 1);
+          i -= 1;
+      }
+  }
+
+  document.write("arr = " + arr);
+
+</script>

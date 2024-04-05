@@ -1,0 +1,34 @@
+<script>
+
+  /*
+      [문제]
+          2~100 사이의 랜덤 숫자 하나를 저장하고, 
+          2부터 그 숫자 사이의 모든 소수의 개수를 출력하시오.
+      [예시]
+          r = 20
+          소수 = 2 3 5 7 11 13 17 19
+          개수 = 8   
+  */
+
+  let r = Math.floor(Math.random() * 99) + 2;
+  r = 20;
+  document.write("r = " + r + "<br>");
+
+  document.write("소수 = ");
+  let total = 0;
+  for(let i=2; i<=r; i++) {
+      let count = 0;
+      for(let j=1; j<=i; j++) {
+          if(i % j == 0) {
+              count += 1;
+          }
+      }
+      if(count == 2) {
+          document.write(i + " ");
+          total += 1;
+      }
+  }
+
+  document.write("<br>개수 = " + total);
+
+</script>

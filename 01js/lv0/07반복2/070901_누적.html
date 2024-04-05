@@ -1,0 +1,31 @@
+<script>
+
+    /*
+        [문제] 
+            1~5까지의 모든수의 합의 누적을 출력하시오.  
+            1 + 2 + 3 + 4 + 5
+        [정답] 
+            15
+    */
+
+    let total = 0;
+
+    let i = 1;
+    while(i <= 5) {
+
+        document.write("total = " + total + " + " + i + "<br>");        
+        total += i;
+        /*
+            total = 0 + 1           1
+            total = 1 + 2           3
+            total = 3 + 3           6
+            total = 6 + 4           10
+            total = 10 + 5          15
+        */
+
+        i += 1;
+    }
+
+    document.write(total);
+
+</script>

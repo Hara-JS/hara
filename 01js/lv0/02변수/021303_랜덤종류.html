@@ -1,0 +1,23 @@
+<script>
+
+    /*
+        [1] Math.floor 를 써도 소수점이 잘려나가 랜덤이 성립된다.
+
+        [2] parseInt를 써도 소수점이 잘려나가서 랜덤이 성립된다.
+
+        둘중 아무거나 사용하자. 
+    */
+
+
+    let a = Math.floor(Math.random() * 6) + 1; 
+    console.log("결과1 = " + a);
+    document.write("결과1 = " + a);
+
+    document.write("<hr/>");
+
+
+    a = parseInt(Math.random() * 7) - 3; 
+    console.log("결과2 = " + a);
+    document.write("결과2 = " + a);
+
+</script>

@@ -1,0 +1,52 @@
+<script>
+  /*
+      국어 시험 점수와 영어 시험 점수가 나왔습니다. 
+      이때 국어, 영어, 수학 시험의 평균이 70점 이상이려면 
+      수학 시험 점수가 최소 몇 점이어야 하는지 알고 싶습니다.
+      
+      국어 점수 korean과 영어 점수 english가 매개변수로 주어질 때, 
+      평균 점수를 70점 이상 받기 위해 받아야 하는 수학 점수의 최솟값을 출력해주세요.
+      
+      ---
+      #####보충 설명
+      * korean과 english는 0 이상 100 이하인 정수입니다.
+      * 수학 점수를 100점을 받아도 평균 70점이 되지 않는 경우에는 -1을 return 합니다.
+      
+      ---
+      #####예시
+      
+      | korean | english | result |
+      |--------|---------|--------|
+      | 70 	 | 60  	   | 80 	|
+      
+      #####예시 설명
+      국어 점수가 70점, 영어 점수가 60점입니다. 
+      따라서 평균이 70점 이상을 받으려면 수학 시험에서 최소 80점을 받아야 합니다.
+  */
+      
+  let korean = 70;
+  let english = 60;
+  let result = 0;
+
+  let total = 210;
+
+  for(let i = 0; i <= 100; i++) {
+    if(korean + english + i >= total) {
+      result = i;
+      break;
+    } else {
+      result = -1;
+    }
+  }
+  document.write(result);
+
+  /*
+  result = total - korean - english;
+  if(result > 100){
+      result = -1;
+  }
+  document.write(result);
+  */
+
+
+</script>

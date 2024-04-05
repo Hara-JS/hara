@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div align="center">
+            <h1>회원가입</h1>
+            <table border="1">
+                <tr>
+                    <td>아이디</td>
+                    <td>
+                        <textarea name="id" cols="20" rows="1" placeholder="아이디를 입력하세요."></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>비밀번호</td>
+                    <td>
+                        <textarea name="pw" cols="20" rows="1" placeholder="비밀번호를 입력하세요."></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>비밀번호 확인</td>
+                    <td>
+                        <textarea name="pw_check" cols="20" rows="1"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>성별</td>
+                    <td>
+                        남성 <input type="radio">
+                        여성 <input type="radio">
+                    </td>
+                </tr>
+                <tr>
+                    <td>수강과목</td>
+                    <td>
+                        Java<input type="checkbox"> 
+                        JSP<input type="checkbox"> 
+                        Spring<input type="checkbox"> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>관심분야</td>
+                    <td>
+                        <select>
+                            <option value="frontend">프론트엔드</option>
+                            <option value="backend">백엔드</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>메모</td>
+                    <td>
+                        <textarea name="memo" cols="50" rows="6"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <button>가입하기</button>
+                        <button>다시작성</button>                    
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

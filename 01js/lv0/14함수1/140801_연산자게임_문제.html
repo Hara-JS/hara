@@ -1,0 +1,48 @@
+<script>
+
+  /*
+      [문제]
+          game배열의 각 가로줄은 한게임을 뜻한다. 
+          첫 번째 숫자와 두 번째 숫자를 더하거나 빼거나 곱해서
+          그 결과를 출력하시오..
+          위 내용을 한줄씩 내려오면 5번 반복하시오.
+      [예시]
+          [5,9,"+"] : 은 5 + 9 이다 
+          [3,7,"-"] : 은 3 - 7 이다 
+          [8,4,"*"] : 는 8 * 4 이다 
+          ...
+          나머지도같은방법으로한다.
+      [정답]
+          14
+          -4
+          32
+          11
+          -2
+  */
+
+  function gameOperator(game){
+      for(let i=0; i<game.length; i++) {
+          let result = 0;
+          if(game[i][2] == "+") {
+              result = game[i][0] + game[i][1];
+          } else if(game[i][2] == "-") {
+              result = game[i][0] - game[i][1];
+          } else if(game[i][2] == "*") {
+              result = game[i][0] * game[i][1];
+          }
+  
+          document.write(result + "<br>");
+      }
+  }
+
+  let game = [
+      [5, 9, "+"],
+      [3, 7, "-"],
+      [8, 4, "*"],
+      [9, 2, "+"],
+      [4, 6, "-"]
+  ];
+
+  gameOperator(game);
+
+</script>

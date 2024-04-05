@@ -1,0 +1,29 @@
+<script>
+
+  /*  
+      [문제]    
+          arr배열의 값을 오름차순으로 정렬해주는
+          함수를 만드시오.
+      [정답]
+          arr = 23,234,1001,3234,32134
+  */  
+
+  function mySort(arr){
+      for(let i=0; i<arr.length; i++){
+          for(let j=i; j<arr.length; j++){
+              if(arr[i] > arr[j]){
+                  let temp = arr[i];
+                  arr[i] = arr[j];
+                  arr[j] = temp;
+              }
+          }
+      }
+  }
+  
+  let arr = [1001, 3234, 23, 32134, 234];
+  
+  mySort(arr);
+  
+  document.write(arr);
+
+</script>

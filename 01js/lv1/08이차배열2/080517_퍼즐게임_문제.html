@@ -1,0 +1,119 @@
+<script>
+
+  /*
+      [문제]
+          철수는 게임을 만들고 있다.
+          game배열은 이차원으로 되어있다.
+          game배열은 안에 block배열의 숫자를 채워 넣는 게임이다.
+
+          배열의 값1은 block이 차 있는 것을 의미한다.
+          배열의 값0은 block이 비어있는 것을 의미한다.
+      [조건1] 
+          block은 이번에 제시된 모양이다. 
+          block의 모양을 game 배열에 넣을 수 있다면 채워 넣고,
+          넣을 수 없다면 "gameover"를 출력하시오.
+      [조건2]
+          block을 채워 넣었을 때 가로로 1이 연속 5개이거나, 
+          세로로 1이 연속 5개이면 그 줄은 전부 숫자 2로 변경하시오.
+      [정답]    
+          [0, 2, 0, 1, 0]
+          [1, 2, 0, 1, 1]
+          [0, 2, 1, 1, 1]
+          [1, 2, 1, 1, 0]
+          [0, 2, 1, 0, 0]        
+  */
+
+  let game = [
+      [0,1,0,1,0],
+      [1,1,0,1,1],
+      [0,1,1,1,1],
+      [1,1,0,1,0],
+      [0,0,0,0,0]
+  ];
+
+  let block = [
+      [0,1],
+      [1,1]
+  ];
+
+  let y = 0;
+  let x = 0;
+
+  let check = false;
+  for(let i=0; i<game.length - 1; i++) {
+      for(let j=0; j<game[i].length - 1; j++) {
+          let count = 0;
+
+          if(game[i][j + 1] == 0) {
+              count += 1;
+          }
+          if(game[i + 1][j] == 0) {
+              count += 1;
+          }
+          if(game[i + 1][j + 1] == 0) {
+              count += 1;
+          }
+
+          if(count == 3) {
+              y = i;
+              x = j;
+
+              check = true;
+
+              break;
+          }
+      }
+  }
+
+  if(check == false) {
+      document.write("gameover");
+  } else {
+      
+      // 1로 채우기
+      for(let i=0; i<game.length; i++) {
+
+          game[y][x + 1] = block[0][1];
+          game[y + 1][x] = block[1][0];
+          game[y + 1][x + 1] = block[1][1];
+
+          document.write(game[i] + "<br>");
+      }
+      document.write("<br>");
+
+      // 2로 채우기
+      for(let i=0; i<game.length; i++) {
+
+          // 가로 검사
+          let count = 0;
+          for(let j=0; j<game[i].length; j++) {
+              if(game[i][j] == 1) {
+                  count += 1;
+              }      
+          }
+
+          if(count == 5) {
+              for(let j=0; j<game[i].length; j++) {
+                  game[i][j] = 2;
+              }
+          }
+
+          // 세로검사
+          count = 0;
+          for(let j=0; j<game[i].length; j++) {
+              if(game[j][i] == 1) {
+                  count += 1;
+              }
+          }
+          if(count == 5){
+              for(let j=0; j<game[i].length; j++) {
+                  game[j][i] = 2;
+              }
+          }
+
+      }
+
+      for(let i=0; i<game.length; i++) {
+          document.write(game[i] + "<br>");
+      }
+  }
+</script>

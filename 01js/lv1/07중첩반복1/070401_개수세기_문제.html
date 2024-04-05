@@ -1,0 +1,45 @@
+<script>
+
+  /*
+      [문제]
+          arr배열의 값을 중복없이 value배열에 저장한다.
+          그리고 중복되는 개수를 count배열에 저장한다.
+      [정답]
+          value = [10, 20, 30, 100]
+          count = [ 2,  3,  5,   1]    
+  */
+
+  let arr = [10, 20, 30, 30, 100, 10, 30, 30, 20, 30, 20];
+
+  let value = [];
+  let count = [];
+
+  let index = 0;
+  for(let i=0; i<arr.length; i++) {
+      let check = false;
+      for(let j=0; j<i; j++) {
+          if(arr[i] == arr[j]) {
+              check = true;
+          }
+      }
+
+      if(check == false) {
+          value.push(arr[i]);
+      }
+  }
+  document.write("value = " + value + "<br>");
+
+  for(let i=0; i<value.length; i++) {
+      let cnt = 0;
+      for(let j=0; j<arr.length; j++) {
+          if(value[i] == arr[j]) {
+              cnt += 1;
+          }
+      }
+
+      count.push(cnt);
+  }
+
+  document.write("count = " + count);
+
+</script>

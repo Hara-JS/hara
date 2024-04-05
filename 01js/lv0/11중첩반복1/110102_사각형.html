@@ -1,0 +1,40 @@
+<script>
+
+    /*
+        [개념] 사각형그리기
+            랜덤으로 세로(3~6)을 저장하고, 
+            각 길이에 맞게 사각형을 그려보시오. 
+            단, 가로는 항상 5이다.
+            일차원 반복문과 이차원 반복문으로 그려보시오.
+        [예시] 
+            sero = 3
+            #####
+            #####
+            #####    
+    */
+
+    let sero = Math.floor(Math.random() * 4) + 3;
+    console.log("sero = " + sero);
+    document.write("sero = " + sero + "<br>");
+
+    let garo = 5;
+
+    // 일차원 반복문
+    for(let i = 0; i < sero * garo; i++) {
+        document.write("#");
+        if(i % 5 == 4) {
+            document.write("<br>");
+        }
+    }
+
+    document.write("------------<br>");
+
+    // 이차원 반복문
+    for(let i = 0; i < sero; i++) {
+        for(let j = 0; j < garo; j++) {
+            document.write("#");
+        }
+        document.write("<br>");
+    }
+
+</script>

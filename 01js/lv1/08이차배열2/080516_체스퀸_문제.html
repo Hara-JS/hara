@@ -1,0 +1,57 @@
+<script>
+
+  /*
+      [문제]
+          세로 가로 인덱스 두개를 랜덤으로 저장한다. 
+          그 인덱스를 기점으로 대각선 + 십자가 방향으로 전부 1로 채운 후 출력하시오.
+      [예시]
+          y = 3, x = 0
+          
+          [1, 0, 0, 1, 0]
+          [1, 0, 1, 0, 0]
+          [1, 1, 0, 0, 0]
+          [1, 1, 1, 1, 1]
+          [1, 1, 0, 0, 0]    
+  */
+
+  let list = [
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0]
+  ];
+
+  let y = Math.floor(Math.random() * list.length);
+  let x = Math.floor(Math.random() * list.length);
+
+  y = 3;
+  x = 0;
+  list[y][x] = 1;
+
+  document.write("y = " + y + "<br>");
+  document.write("x = " + x + "<br>");
+
+  for(let i=-1; i<=1; i++) {
+      for(let j=-1; j<=1; j++) {
+          let ii = i;
+          let jj = j;
+          if(i == 0 && j == 0) continue;
+          while(true) {
+              if(list.length <= y + ii || y + ii < 0) break;
+              if(list.length <= x + jj || x + jj < 0) break;
+              
+              list[y + ii][x + jj] = 1;
+
+              ii += i;
+              jj += j;
+          }
+      }
+  }
+
+  for(let i=0; i<list.length; i++) {
+      document.write(list[i] + "<br>");
+  }
+
+
+</script>

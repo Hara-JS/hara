@@ -1,0 +1,69 @@
+<script>
+  /*
+          itemData는 이번달 과일판매목록이다. 
+          데이터 순서는 번호,이름,가격,판매개수 이다.
+  */
+
+  let itemData = [
+    { no: 1001, name: "사과", price: 3000, count: 32 },
+    { no: 1002, name: "배", price: 2000, count: 12 },
+    { no: 1003, name: "딸기", price: 4000, count: 42 },
+    { no: 1004, name: "바나나", price: 1500, count: 55 },
+  ];
+
+  /*
+      [문제] 
+          각 상품별 매출 총합을 total 이란는 항목을 추가해서 저장후 출력하시오.
+      [정답] 
+          no : 1001
+          name : 사과
+          price : 3000
+          count : 32
+          total : 96000
+          no : 1002
+          name : 배
+          price : 2000
+          count : 12
+          total : 24000
+          no : 1003
+          name : 딸기
+          price : 4000
+          count : 42
+          total : 168000
+          no : 1004
+          name : 바나나
+          price : 1500
+          count : 55
+          total : 82500
+  */
+
+  for (let i = 0; i < itemData.length; i++) {
+    let total = itemData[i]["price"] * itemData[i]["count"];
+    itemData[i]["total"] = total;
+  }
+
+  for (let i = 0; i < itemData.length; i++) {
+    let keyList = Object.keys(itemData[i]);
+    for (let j = 0; j < keyList.length; j++) {
+      document.write(keyList[j] + " : " + itemData[i][keyList[j]] + "<br>");
+    }
+  }
+
+  /*
+  for(let i = 0; i < itemData.length; i++){
+     
+      let total = itemData[i]["price"] * itemData[i]["count"];
+      itemData[i]["total"] = total;
+  }
+
+
+  for(let i = 0; i < itemData.length; i++){
+      let keyList = Object.keys(itemData[i]);
+      for(let j=0; j < keyList.length; j++) {
+          let key = keyList[j];
+          document.write(key + " : " + itemData[i][key] + "<br>");
+      }
+      document.write("<hr/>");
+  }
+  */
+</script>

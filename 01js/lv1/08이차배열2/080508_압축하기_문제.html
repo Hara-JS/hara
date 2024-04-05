@@ -1,0 +1,54 @@
+<script>
+
+  /*
+      [문제]
+          a배열은 압축하기 전 데이터이다.
+          다음데이터를 압축 하시오.
+          
+          압축 기준은 데이터와 개수로 저장한다.
+          예를 들어 3이 연속으로 5개이므로
+          b = [[3,5]]
+          다시 5가 6개이므로
+          b = [[3,5],[5,6]]
+          위와 같이 마지막까지 반복하시오.  
+      [정답]     
+          [3, 5]
+          [5, 6]
+          [2, 1]
+          [4, 1]
+          [2, 2]    
+  */
+
+  let a = [3, 3, 3, 3, 3, 5, 5, 5, 5, 5, 5, 2, 4, 2, 2];
+  let b = [];
+
+  let count = 1;
+  let num = a[0];
+  for(let i=1; i<a.length; i++) {
+      if(num == a[i]) {
+          count += 1;
+      } else {
+          let temp = [];
+          temp.push(num);
+          temp.push(count);
+
+          b.push(temp);
+
+          num = a[i];
+          count = 1;
+      }
+
+      if(i == a.length - 1) {
+          let temp = [];
+          temp.push(num);
+          temp.push(count);
+
+          b.push(temp);
+      }
+  }
+
+  for(let i=0; i<b.length; i++) {
+      document.write(b[i] + "<br>");
+  }
+
+</script>

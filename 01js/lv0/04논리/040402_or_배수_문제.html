@@ -1,0 +1,20 @@
+<script>
+
+	/*
+		[문제] 
+			변수 a의값에서 
+			천의 자리수가 홀수이거나, 일의 자리수가 짝수이면,
+			true 출력하시오.
+		[정답]
+			true
+	*/
+
+	let a = 3640;
+
+	let b = parseInt(a / 1000);
+	let c = a % 10;
+
+	let result = b % 2 == 1 || c % 2 == 0;
+
+	document.write(result);
+</script>

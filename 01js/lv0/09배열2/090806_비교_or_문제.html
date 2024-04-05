@@ -1,0 +1,29 @@
+<script>
+
+  /*
+      [문제]
+          [조건1] arr배열에 랜덤 숫자(1~100) 10개를 추가한다.
+          [조건2] 위 값 중 30보다 작거나 70보다 크면서 4의 배수만 출력하시오.
+      [예시]
+          41,83,62,9,21,24,51,99,47,73
+          9,21,24
+  */
+
+  let arr = [];
+  let result = []
+
+  for(let i=0; i<10; i++) {
+      arr.push(parseInt(Math.random() * 100) + 1);
+  }
+  document.write(arr + "<br>");
+
+  for(let i=0; i<arr.length; i++) {
+      if(arr[i] < 30 || (70 < arr[i] && arr[i] % 4 == 0)) {
+          result.push(arr[i]);
+      }
+  }
+  document.write(result + "<br>");
+
+ 
+
+</script>

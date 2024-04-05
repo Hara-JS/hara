@@ -1,0 +1,55 @@
+<script>
+
+  /*
+      [문제]
+          b배열의 10~90까지 값을 
+          a배열에 저장 후 셔플하시오.
+      [예시]
+          셔플 전 >>>
+          [10, 20, 30]
+          [40, 50, 60]
+          [70, 80, 90]
+          
+          셔플 후 >>> 
+          [40, 20, 80]
+          [10, 60, 90]
+          [30, 70, 50]       
+  */
+
+  let a = [
+      [0,0,0],
+      [0,0,0],
+      [0,0,0]
+  ];
+
+  let b = [10, 20, 30, 40, 50, 60, 70, 80, 90];
+
+  let index = 0;
+  for(let i=0; i<a.length; i++) {
+      for(let j=0; j<a[i].length; j++) {
+          a[i][j] = b[index];
+          index += 1;
+      }
+  }
+
+  document.write("셔플 전 >>><br>");
+  for(let i=0; i<a.length; i++) {
+      document.write(a[i] + "<br>");
+  }
+  document.write("<br>");
+
+  for(let i=0; i<50; i++) {
+      let y = Math.floor(Math.random() * a.length);
+      let x = Math.floor(Math.random() * a.length);
+
+      let temp = a[0][0];
+      a[0][0] = a[y][x];
+      a[y][x] = temp;
+  }
+
+  document.write("셔플 후 >>><br>");
+  for(let i=0; i<a.length; i++) {
+      document.write(a[i] + "<br>");
+  }
+
+</script>

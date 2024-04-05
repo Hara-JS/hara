@@ -1,0 +1,56 @@
+<script>
+	/*
+		student 배열은 순서대로 ["번호", "이름", "성별"] 의 데이터 이고, 
+		score 배열은 순서대로 ["번호", "국어", "수학"] 의 데이터이다.
+	*/
+	/*
+		[문제] 
+			랜덤숫자(0~5)를 저장하고 해당인덱스의 학생의 번호 이름 점수두개 를 출력하시오.
+		[예시]
+			3
+			1004 이철민 13 87
+	*/
+
+	let student = [
+		
+		[1001, "이만수", "남"],
+		[1002, "이영희", "여"],
+		[1003, "김민정", "여"],
+		[1004, "이철민", "남"],
+		[1005, "오만석", "남"],
+		[1006, "최이슬", "여"]
+	];
+	
+	let score = [
+		
+		[1001 , 10, 20],
+		[1002 , 70, 30],
+		[1003 , 64, 65],
+		[1004 , 13, 87],
+		[1005 , 49, 80],
+		[1006 , 14, 90]
+	];
+
+	let ranNum = Math.floor(Math.random() * student.length);
+	document.write(ranNum + "<br>");
+	let num = student[ranNum][0];
+	for(let i = 0; i < score.length; i++) {
+		if(num === score[i][0]) {
+			document.write(student[ranNum][0] + " " + student[ranNum][1] + " " + score[i][1] + " " + score[i][2]);
+		}
+	}
+
+	/*
+	let a = Math.floor( Math.random() * student.length);
+	document.write(a);
+	document.write("<hr/>");
+	let number = student[a][0];
+	for(let i = 0; i < score.length; i++){
+		if(number == score[i][0]){
+			document.write(student[a][0] + " " + student[a][1] + " " + score[i][1] + " " + score[i][2]);
+		}
+	}
+	*/
+	
+
+</script>

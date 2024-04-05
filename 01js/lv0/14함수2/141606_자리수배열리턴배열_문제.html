@@ -1,0 +1,38 @@
+<script>
+
+	/*
+		[문제]
+        아래조건을 전부 만족시키는 식을 작성해, 정답과 똑같이 출력하시오.
+        [1] 반복문을 사용하여 숫자를 10 부터 50까지 출력한다. 
+        [2] 각각의 숫자중에서 십의자리숫자가 짝수이고 , 일의자리숫자가 홀수인수만 출력한다.
+		[3] 위조건의 숫자들중 3의 배수를 전부 배열에 담에서 리턴하는 함수를 만드시오.
+    [정답]
+        21,27,45
+	*/
+
+	function getArrCondition(a , b){
+		let arr = [];
+		for(let i = a; i <= b; i++) {
+			let a = parseInt(i / 10);
+			let b = i % 10;
+			let c = a % 2 == 0;
+			let d = b % 2 == 1;
+			if(c && d) {
+				if(i % 3 == 0){
+					arr.push(i);
+				}
+    		}
+		}
+		return arr;
+	}
+
+	let a = 10;
+	let b = 50;
+	let c = getArrCondition(a , b);
+
+	document.write(a , " " , " " , b , " " ,  c);
+
+
+
+
+</script>

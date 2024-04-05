@@ -1,0 +1,39 @@
+<script>
+
+    /*
+        [문제]
+            75의 약수 중에서 큰수 부터 작은수를 출력했을 때, 
+            숫자 20보다 작은수중에서 가장큰수 한개를 출력하시오.
+            
+        [정답]
+            15    
+    */
+
+    let num = 75;
+    let count = 0;
+    let limit = 20;
+    
+    let i = 1;
+    let i2 = num;
+    let result = 0;
+    while(i <= num) {
+        if(num % i2 == 0) {
+                   
+            if(i2 < limit) {
+
+                count += 1;
+
+                if(count == 1){
+                    result = i2;
+                }
+               
+            }
+        }
+        i2 -= 1;
+        i += 1;
+    }
+  
+    document.write("<br/>");
+    document.write(result);
+
+</script>

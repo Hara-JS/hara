@@ -1,0 +1,66 @@
+<script>
+
+  /*
+      [문제] 	
+          현재 택시는 5, 5 위치에 있다.
+          배열의 왼쪽 세로줄은 속도를 뜻한다.
+          배열의 오른쪽 세로줄은 방향을 뜻하고 (북, 동, 남, 서)를 뜻한다. 
+          
+          속도와 방향은 택시가 매번 이동한 내용을 기록한 것이다. 
+          
+          예) 속도는 4이고 방향은 북쪽을 뜻한다. 
+              y가 4증가해  x : 5 , y : 1 가 된다.  
+              단, 프로그래밍에서는 y축이 위에서 아래로 실행되니 위로갈수록 숫자가 작아진다. 
+
+              arr길이만큼 모두 이동한 후 택시의 위치를 출력하시오. 
+      [정답]
+          y = 2
+          x = -1   
+  */
+
+  let arr = [
+      {"speed" : 4, "dir" :"북"},
+      {"speed" : 2, "dir" :"동"},
+      {"speed" : 1, "dir" :"남"},
+      {"speed" : 5, "dir" :"서"},
+      {"speed" : 4, "dir" :"서"},
+      {"speed" : 1, "dir" :"동"},
+    ]
+
+    let x = 5;
+    let y = 5;
+    for(let i = 0; i < arr.length; i++) {
+        if(arr[i]["dir"] === "동") {
+            x += arr[i]["speed"];
+        } else if(arr[i]["dir"] === "서") {
+            x -= arr[i]["speed"];
+        } else if(arr[i]["dir"] === "남") {
+            y += arr[i]["speed"];
+        } else if(arr[i]["dir"] === "북") {
+            y -= arr[i]["speed"];
+        }
+    }
+    console.log("x : " + x);
+    console.log("y : " + y);
+
+/*
+  let y = 5;
+  let x = 5;
+
+  for(let i=0; i<arr.length; i++) {
+      if(arr[i]["dir"] == "북"){
+          y -= arr[i]["speed"];
+      } else if(arr[i]["dir"] == "동"){
+          x += arr[i]["speed"];
+      } else if(arr[i]["dir"] == "남"){
+          y += arr[i]["speed"];
+      } else if(arr[i]["dir"] == "서"){
+          x -= arr[i]["speed"];
+      }
+  }
+
+  document.write("y = " + y + "<br>");
+  document.write("x = " + x + "<br>");
+  */
+
+</script>

@@ -1,0 +1,37 @@
+<script>
+
+  /*
+      
+      [문제]
+          [조건1] arr배열에 1~10 사이의 랜덤숫자 3개를 추가한다.
+          [조건2] 그합이 20 이면 종료한다.
+          [조건3] 3숫자가 전부 다른숫자여야한다. 
+          [조건4] 위조건에 전부 충족하는 배열을 리턴하시오.
+      [예시]
+          arr = 2,10,8
+  */
+
+ function getArr20(){
+      let arr = [];
+      while(true) { 
+          let a = Math.floor(Math.random() * 10) + 1;
+          arr.push(a);
+          let b = Math.floor(Math.random() * 10) + 1;
+          arr.push(b);
+          let c = Math.floor(Math.random() * 10) + 1;
+          arr.push(c);
+          let total = a + b + c;
+          let d = a != b && b != c && c != a;
+          if(total == 20 && d){
+              break;
+          }else{
+              arr = []; // 여기가 키포인트이다.
+          }        
+      }
+      return arr;
+  }
+
+  let arr = getArr20();
+  document.write(arr);
+
+</script>

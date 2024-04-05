@@ -1,0 +1,30 @@
+<script> 
+   
+  /*
+      [문제]
+          아래 배열은 시험점수와 학생이름이다. 
+          일등의 학생이름을 출력해주는 함수를 만드시오.
+      [정답]
+          박민지
+  */
+
+  function checkFirstPlace(name, score) {
+      let maxScore = 0;
+      let maxIndex = 0;
+
+      for(let i=0; i<score.length; i++) {
+          if(maxScore < score[i]) {
+              maxScore = score[i];
+              maxIndex = i;
+          }
+      }
+
+      document.write(name[maxIndex]);
+  }
+
+  let name = ["이만수", "김철수", "박민지"];  
+  let score = [54, 32, 92];  
+ 
+  checkFirstPlace(name, score);
+
+</script>

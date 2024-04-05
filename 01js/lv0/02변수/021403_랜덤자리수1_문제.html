@@ -1,0 +1,22 @@
+<script>
+
+    /*
+        [문제]
+            랜덤숫자 1000~2000 사이의 숫자를 저장한다. 
+
+            [1] 랜덤숫자를 출력하시오.
+            [2] 랜덤숫자의 백의 자리의 숫자와 십의 자리의 숫자의 합을 출력하시오.
+        [예시]
+            1023
+            2
+    */
+    let a = parseInt(Math.random() * 1001) + 1000;
+
+    let b = parseInt(a % 1000 / 100);
+    let c = parseInt(a % 100 / 10);
+
+    let d = b + c;
+
+    document.write(a + " " + b + " " + c + " " + d);
+
+</script>

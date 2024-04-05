@@ -1,0 +1,42 @@
+<script>
+
+	/*
+		[문제] 
+			세로 가로 숫자를 넣으면 그숫자만큼 2차원배열을 만들고,
+			숫자는 1부터 순서대로 저장후 반환하는 함수를 만드시오. 
+		[예시]
+			4, 3
+
+			1 2 3
+			4 5 6
+			7 8 9
+			10 11 12			
+	*/
+
+ 	function getDoubleList(y, x){	
+		let arr = [];
+		let num = 1;
+		for(let i=0; i< y; i++) {
+			let row = [];
+			for(let j=0; j<x; j++) {
+				row.push(num);
+				num += 1;	
+			}
+			arr.push(row);
+		}
+		return arr;
+	}
+
+	function printDoubleList(arr){
+		for(let i=0; i<arr.length; i++) {
+			for(let j=0; j<arr[i].length; j++) {
+				document.write(arr[i][j] + " ");
+			}
+			document.write("<br>");
+		}
+	}
+
+	let arr = getDoubleList(4, 3);
+	printDoubleList(arr);
+
+</script>

@@ -1,0 +1,25 @@
+<script>
+
+  /*
+      [맥스]
+          [1] 랜덤(1~10)숫자를 10번 반복해서 출력한다.
+          [2] 반복문이 종료후 가장큰수를 출력한다. 
+  */
+  let i = 1;
+  let max = 0;
+  while(i <= 10){
+      let r = parseInt(Math.random() * 10) + 1;
+      document.write(r + " ");
+      if(max < r){
+          max = r;
+      }
+      i += 1;
+  }
+  document.write("<br/>");
+  document.write(max);
+
+  
+
+
+
+</script>

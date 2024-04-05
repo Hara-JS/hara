@@ -1,0 +1,32 @@
+<script>
+
+  /*
+      [문제] 
+          9의 배수 중 100보다 큰 네번째 배수 출력하시오. 
+    단, 십의자리가 5이다.
+          단, break를 사용하시오.
+      [정답]
+          450
+ */ 
+
+  let i = 1;
+  let result = 0;
+  let count = 0;
+  while(true) {
+  let a = parseInt(i % 100 / 10);
+      if(i % 9 == 0 && i > 100 && a == 5) {
+          //document.write(i + " ");
+          count += 1;
+          if(count == 4){
+              result = i;
+              break;
+          }
+      }
+      i += 1;
+     
+      
+  }
+  document.write("<br/>");
+  document.write(result);
+
+</script>

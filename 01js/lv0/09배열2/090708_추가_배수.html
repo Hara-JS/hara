@@ -1,0 +1,33 @@
+<script>
+
+    /*
+        [문제]
+            랜덤 숫자 100~200을 arr배열에 다섯 개 저장하고,
+            다섯 개 숫자 중에 3의 배수들을 출력하시오.
+            3의 배수들의 개수와
+            3의 배수들의 누적 합도 출력하시오.  
+        [예시]  
+            arr = 198,171,200,141,138
+            3의 배수의 개수 = 4
+            3의 배수의 합 = 648        
+    */
+
+    let arr = [];
+
+    let count = 0;
+    let total = 0;
+
+    for(let i=0; i<5; i++) {
+        arr.push(Math.floor(Math.random() * 101) + 100);
+
+        if(arr[i] % 3 == 0) {
+            count += 1;
+            total += arr[i];
+        }
+    }
+
+    document.write("arr = " + arr + "<br>");
+    document.write("3의 배수의 개수 = " + count + "<br>");
+    document.write("3의 배수의 합 = " + total);
+
+</script>

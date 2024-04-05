@@ -1,0 +1,50 @@
+<script>
+
+  /*
+      [문제]
+          다음은 읽고, 말하기 수열의 규칙이다.
+  
+          1, 11, 12, 1121, 122111, 112213
+
+          첫번째 수열 : 1
+          두번째 수열 : 1이 1개 = 11
+          세번째 수열 : 1이 2개 = 12
+          네번째 수열 : 1이 1개, 2가 1개 = 1121
+          다섯번째 수열 : 1이 2개, 2가 1개, 1이 1개 = 122111
+          여섯번째 수열 : 1이 1개, 2가 2개, 1이 3개 = 112213   
+
+          랜덤숫자(1~9)를 입력받고 1부터 그숫자까지 말하기수열규칙대로 출력하시오.
+      [예시]
+          6
+
+          1
+          11
+          12
+          1121
+          122111
+          112213
+  */
+
+  let n = "1";
+  let size = Math.floor(Math.random() * 9) + 1;
+  document.write("size=" + size);
+  document.write("<hr/>");
+  for(let i=0; i<size; i++) {
+      document.write(n + "<br>");
+      
+      let temp = "";
+      let count = 1;
+      for(let j=0; j<n.length; j++) {
+                        
+          if(j + 1 < n.length && n.charAt(j) == n.charAt(j + 1)) {                
+              count += 1;
+          } else {
+              temp += n.charAt(j);
+              temp += count;
+              count = 1;
+          }
+      }
+      n = temp;
+  }
+
+</script>

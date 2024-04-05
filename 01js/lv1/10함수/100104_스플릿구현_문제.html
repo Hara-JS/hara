@@ -1,0 +1,42 @@
+<script>
+
+	/*
+		[문제]
+			문자열의 split() 함수를 직접 구현해보시오.
+		[정답]
+			["1001", "1002", "1003", "1004"]
+	*/
+	function mySplit(str, separatoer) {
+		let dataList = [];
+
+		let temp = "";
+		for(let i=0; i<str.length; i++) {
+			if(str[i] == separatoer) {
+				dataList.push(temp);
+				temp = "";
+			}
+            // 맨 마지막 부분 문자열은는 무조건 넣는다는 조건 
+            else if (i == str.length - 1) {
+                temp += str[i];
+                dataList.push(temp);
+            }
+            else {
+				temp += str[i];
+			}
+		}
+
+		document.write(dataList);
+	}
+
+	
+	// 기존 스플릿 함수
+	let data1 = "1001,1002,1003,1004";
+	let rs1 = data1.split(",");
+	document.write(rs1 + "<br>");
+
+	// 내가 만든 스플릿함수
+	let data2 = "1001,1002,1003,1004";
+	let rs2 = data2.split(",");
+	document.write(rs2);
+
+</script>

@@ -1,0 +1,40 @@
+<script>
+
+  /*
+      [문제]
+          아래와 같이 삼각형을 출력하시오.
+      [정답]
+          1
+          1 2
+          1 2 3
+          1 2 3 4
+          1 2 3 4 5	    
+  */
+
+  let size = 1;
+  for(let i = 0; i < 5; i++) {
+    let a = 1;
+    for(let j = 0; j < size; j++) {
+      document.write(a + " ");
+      a += 1;
+    }
+    document.write("<br>");
+    size += 1;
+  }
+
+  /*
+  let size = 1;
+  for(let i= 0; i < 5; i++) {
+
+      let a = 1;
+      for(let j = 0; j < size; j++) {
+
+          document.write(a + " ");
+          a += 1;
+      }
+      size += 1;
+      document.write("<br>");
+  }
+  */
+
+</script>

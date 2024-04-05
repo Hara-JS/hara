@@ -1,0 +1,143 @@
+<script>
+    /*
+        [문제]
+            memberList는 회원 목록 데이터이다.
+            순서대로 회원번호와 회원아이디이다.
+  
+            itemList은 쇼핑몰 판매 상품 데이터이다.
+            순서대로 상품이름과 가격이다.
+            
+            orderList는 오늘 주문 목록이다. 
+            순서대로 주문아이디 , 상품 , 개수 이다. 
+  
+  
+            회원별 구입총합을 출력하시오.
+            [번호, 아이디 , 총합 ] 을 출력하시오.
+            단, 금액이 높은순으로 출력하시오.
+  
+        [정답]
+            1002,pythongood,28000
+            1003,testid,16000
+            1001,qwer1234,4400
+    */
+  
+    let memberList = [
+      { num: 1001, id: "qwer1234" },
+      { num: 1002, id: "pythongood" },
+      { num: 1003, id: "testid" },
+    ];
+  
+    let itemList = [
+      { item: "사과", price: 1100 },
+      { item: "바나나", price: 2000 },
+      { item: "딸기", price: 4300 },
+    ];
+  
+    let orderList = [
+      { id: "qwer1234", item: "사과", count: 3 },
+      { id: "pythongood", item: "딸기", count: 6 },
+      { id: "testid", item: "바나나", count: 1 },
+      { id: "pythongood", item: "사과", count: 2 },
+      { id: "testid", item: "바나나", count: 7 },
+      { id: "qwer1234", item: "사과", count: 1 },
+    ];
+  
+    const tmp = [];
+  
+    memberList.forEach((k) => {
+      const innerTmp = (Object.assign = k);
+      innerTmp["total"] = 0;
+      tmp.push(innerTmp);
+    });
+  
+    //   for (let i = 0; i < tmp.length; i++) {
+    //     let keyList = Object.keys(tmp[i]);
+    //     for (let j = 0; j < keyList.length; j++) {
+    //       document.write(`${tmp[i][keyList[j]]} `);
+    //     }
+    //     document.write("<br>");
+    //   }
+  
+    orderList.forEach((a) => {
+      tmp.forEach((b) => {
+        if (a["id"] === b["id"]) {
+          itemList.forEach((c) => {
+            if (a["item"] === c["item"]) {
+              b["total"] += a["count"] * c["price"];
+            }
+          });
+        }
+      });
+    });
+  
+    tmp.sort((a, b) => {
+      if (a["total"] < b["total"]) {
+        return 1;
+      } else if (a["total"] > b["total"]) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+  
+    for (let i = 0; i < tmp.length; i++) {
+      let keyList = Object.keys(tmp[i]);
+      for (let j = 0; j < keyList.length; j++) {
+        document.write(`${tmp[i][keyList[j]]} `);
+      }
+      document.write("<br>");
+    }
+  
+    /*
+    let viewList = [];
+    for(let i = 0; i < memberList.length; i++){
+        let temp = [];
+        temp.push(memberList[i]["num"]);
+        temp.push(memberList[i]["id"]);
+        temp.push(0);
+        viewList.push(temp);
+    }
+  
+    for(let i = 0; i < viewList.length; i++){
+        document.write(viewList[i] + "<br/>");
+    }
+    document.write("<hr/>");
+  
+    for(let i = 0; i < orderList.length; i++){
+  
+        for(let j = 0; j < viewList.length; j++){
+            
+            if(orderList[i]["id"] == viewList[j][1]){
+                
+                for(let k = 0; k < itemList.length; k++){
+                    
+                    if(orderList[i]["item"] == itemList[k]["item"]){
+                        let price = Number(itemList[k]["price"]);
+                        let count = Number(orderList[i]["count"]);
+                        let total = price * count;
+  
+                        viewList[j][2] += total;
+                    }
+                }
+            }
+        }
+    }
+  
+    viewList.sort((a , b) => {
+        if(a[2] < b[2]){
+            return 1;
+        }else if(a[2] > b[2]){
+            return -1;
+        }else{
+            return 0;
+        }
+    });
+  
+  
+    for(let i = 0; i < viewList.length; i++){
+        document.write(viewList[i] + "<br/>");
+    }
+    document.write("<hr/>");
+    */
+  </script>
+  

@@ -1,0 +1,21 @@
+<script>
+
+	/*
+		리턴은 값을 함수밖으로 전달하는 이외에 함수를 강제로 종료하는 기능이있다.
+        마치 반복문의 break 와 똑같다. 
+        함수가 즉시 종료되므로 20은 출력되지않는다. 
+	*/
+
+
+	function test(){
+        let a = 10;
+        document.write(a);
+        return; // 여기서 강제종료된다. 
+
+        a = 20;
+        document.write(a);
+	}
+  
+    test();
+
+</script>

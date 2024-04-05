@@ -1,0 +1,33 @@
+<script>
+
+	/*
+		[삼항 연산자]
+			삼항연산자도 if 와 else 이외 if , else if , else 를 구현할수는있다.
+			다소 억지스러우며, 실제로 사용하지는 않는다. 
+			결국 조건이 3개이상이되면 if문을 사용하자.
+	*/
+
+	let a = parseInt(Math.random() * 10) + 5;
+	let result1 = "";
+	document.write(a);
+	document.write("<br/>");
+
+	if(a > 10){
+
+		result1 = "a는 10보다 크다";
+    }
+    else if(a < 10){
+		result1 = "a는 10보다 작다";
+    }
+    else {
+		result1 = "a는 10이다";
+    }
+	
+	document.write(result1 + "(if문)");
+	document.write("<br/>");
+
+	let result2 = a > 10 ? "a는 10보다 크다" : (a < 10 ?  "a는 10보다 작다" : "a는 10이다"); 
+	document.write(result2 + "(삼항연산자)");
+
+
+</script>

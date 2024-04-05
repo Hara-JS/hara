@@ -1,0 +1,53 @@
+<script>
+
+	/*
+		[문제]	
+		  	랜덤숫자(2~9)개수만큼 랜덤알파벳을 
+			문자열로 반환해주는 함수를 만드시오.
+	*/
+
+	function getStr(number){
+		let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		let result = "";
+
+		for(let i = 0; i < number; i++){
+			let index = Math.floor(Math.random() * str.length);
+			result += str[index];
+		}
+		return result;
+	}
+
+	let a = Math.floor(Math.random() *8) + 2;
+
+	let a2 = getStr(a);
+
+	document.write( a , " " , a2 );
+
+
+</script>
+<script>
+    /*
+		[문제]	
+		  	랜덤숫자(2~9)개수만큼 랜덤알파벳을 
+			문자열로 반환해주는 함수를 만드시오.
+	*/
+
+    function getStr(util){
+        let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        let num = util.a;
+        for(let i = 0; i < num; i++){
+            let index = Math.floor(Math.random() * str.length);
+            util.result += str[index];
+        }
+    }
+
+    let a =  Math.floor(Math.random() * 8) + 2;
+    let result = "";
+    let util = {"a":a , "result" : result}
+
+    getStr(util);
+
+    document.write(util.a , " " , util.result);
+
+
+</script>

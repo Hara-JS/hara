@@ -1,0 +1,38 @@
+<script>
+    /*
+       [문제]
+           아래와 같이 삼각형을 그려보시오.  	
+       [정답]
+           *
+           **
+           ***
+           ****	    
+   */
+   // 일차원
+   let count = 0;
+   let countMax = 1;
+   while(true){
+       document.write("*");
+       count += 1;
+       if(count == countMax){
+           count = 0;
+           countMax += 1;
+           document.write("<br>");
+       }
+       if(countMax > 4){
+           break;
+       }
+   }
+
+   document.write("<hr>");
+   count = 1;
+   for(let i = 0; i < 4; i++){
+       for(let j = 0; j < count; j++){
+           document.write("#");
+       }
+       document.write("<br>");
+       count += 1;
+   }
+
+
+</script>

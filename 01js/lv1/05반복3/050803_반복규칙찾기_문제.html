@@ -1,0 +1,36 @@
+<script>
+
+  /*
+      [문제]
+          반복문을 10회 반복해서 아래와 같이 출력하시오.
+          
+      [예시]
+          0 1
+          1 2
+          2 2
+          3 3
+          4 3
+          5 3
+          6 4
+          7 4
+          8 4
+          9 4    
+  */
+
+  let a = 0;
+  let b = 1;
+
+  let count = 0;
+  while(a < 10) {
+      console.log(a + " " + b);
+      document.write(a + " " + b + "<br>");
+      count += 1;
+
+      if(b == count) {
+          b += 1;
+          count = 0;
+      }
+      a += 1;
+  }
+
+</script>

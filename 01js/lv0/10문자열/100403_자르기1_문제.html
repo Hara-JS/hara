@@ -1,0 +1,39 @@
+<script>
+
+  /*
+      [문제]
+          score배열의 각 점수를 /(슬러시)를 구분자로 
+          하나의 문자열로 연결하고 출력하시오.
+      [정답]
+          str = 11/100/89
+  */
+
+  let arr = [11, 100, 89];
+  let str = "";
+
+  for(let i = 0; i < arr.length; i++) {
+    str += arr[i];
+    str += "/";
+  }
+  str = str.substring(0, str.length - 1);
+  document.write(str);
+  /**
+   * Array.join(String str)은 파라미터로 받은 str을 구분자로 사용하여
+   * Array를 합친 후 Array -> String 타입으로 반환
+   * document.write(arr.join("/")); // 11/100/89
+   * Array.toString()은 ","를 구분자로 Array를 합친 후
+   * String 타입으로 반환 
+   * document.write(arr.toString().replace(",", "/")); // 11/100,89
+   * document.write(arr.toString().replaceAll(",", "/")); // 11/100/89
+  /*
+  for(let i=0; i<arr.length; i++) {
+      str += arr[i];
+      str += "/";
+  }
+  // 11/100/89/
+
+  str = str.substring(0, str.length - 1); // 마지막글자 / 는 잘라준다.
+  document.write("str = " + str);
+  */
+
+</script>

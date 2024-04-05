@@ -1,0 +1,21 @@
+<script>
+
+    /*
+        [문제]
+            변수에 1부터 100 사이의 랜덤 숫자를 저장한다.
+            저장한 숫자의 값이 4의 배수이면 "o"
+            4의 배수가 아니면 "x" 출력하시오.
+    */
+
+    let a = parseInt(Math.random() * 100) + 1;   
+    console.log("a = " + a);
+    document.write("a = " + a + "<br>");
+
+    if(a % 4 == 0) {
+        document.write("o");
+    }
+    if(a % 4 != 0) {
+        document.write("x");
+    }
+
+</script>

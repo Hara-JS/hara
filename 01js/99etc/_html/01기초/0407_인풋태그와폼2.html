@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<!--
+        name 속성은
+        사용자가 입력한 값(value)에
+        변수명을 짓는 개념이다.
+  -->
+	<form action="#">
+		아이디 : <input type="text" name="id">	<br>
+		비밀번호 : <input type="password" name="pw">	<br>
+		
+		수강과목 : 
+			<input type="checkbox" name="subject" value="java">JAVA
+			<input type="checkbox" name="subject" value="jsp">JSP
+			<input type="checkbox" name="subject" value="spring">Spring <br>
+		
+		성별 : 
+			<input type="radio" name="gender" value="man">남성
+			<input type="radio" name="gender" value="woman">여성 <br>
+		
+		관심분야 : 
+		    <select name="study">
+				<option value="frontend">프론트엔드</option>
+				<option value="backend">벡엔드</option>
+				<option value="publisher">퍼블리셔</option>
+				<option value="database">데이터베이스</option>
+			</select>
+		<br>
+		<textarea rows="10" cols="50" name="memo" placeholder="메모를 작성하세요."></textarea><br>		
+		<input type="submit" value="회원가입">
+	</form>
+
+	<!--
+		아래 3가지 기능은 추후에 배운다. 지금은 모습에 익숙해진다. 
+		[1] form 의 action 
+		[2] input 의 name
+		[3] input 의 submit		
+	-->
+
+</body>
+</html>

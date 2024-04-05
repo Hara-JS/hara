@@ -1,0 +1,27 @@
+<script>
+
+  /*
+      [문제]
+          arr배열의 숫자를 하나씩 출력한다.
+          단, 이미 출력이 되어 중복되는 숫자는 출력하지 마시오.
+      [정답]
+          1 2 3 4 100		
+  */
+
+  let arr = [1, 1, 2, 2, 3, 3, 4, 100, 3];
+
+  for(let i=0; i<arr.length; i++) {
+      let check = false;
+      for(let j=0; j<=i; j++) {
+          if(i != j && arr[i] == arr[j]) {
+              check = true;
+              break;
+          }
+      }
+
+      if(check == false) {
+          document.write(arr[i] + " ");
+      }
+  }
+
+</script>

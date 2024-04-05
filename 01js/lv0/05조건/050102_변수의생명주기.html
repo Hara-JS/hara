@@ -1,0 +1,23 @@
+<script>
+
+    /*
+       [변수의 생명주기]
+            변수를 {} 안에서 만들게되면 {} 가 끝나는 시점에서 변수는 소멸한다.
+    */
+        
+
+    let a = 10;
+    if(a == 10){
+        let b = 20;
+        document.write("{}안의 a: " + a);
+        document.write("<br/>");
+        document.write("{}안의 b: " + b);
+        document.write("<br/>");
+
+    }   // b는 이시점에서 소멸한다.  
+
+    document.write("{}밖의 a: " + a);
+    document.write("<br/>");
+    document.write("{}밖의 b: " + b); // f12 를 눌러보면 에러가 발생한다. b가 소멸되서 에러가 발생한다.
+
+</script>

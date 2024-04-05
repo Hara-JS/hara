@@ -1,0 +1,63 @@
+<script>
+
+  /*
+      [문제]
+          3~6 사이의 랜덤 숫자 하나를 저장하고 그 숫자만큼 
+          아래와 같은 규칙으로 출력하시오.
+          단, 일차 반복문과 이차 반복문으로 출력하시오.
+          
+      [예시]
+          r = 6
+      [출력]
+          3 2 1
+          4 3 2
+          5 4 3
+          6 5 4
+          7 6 5
+          8 7 6
+  */
+
+  let ranNum = Math.floor(Math.random() * 4) + 3;
+  document.write(ranNum + "<br>");
+  for(let i = 0; i < ranNum; i++) {
+    let x = i + 3;
+    let y = i + 2;
+    let z = i + 1;
+    document.write(x + " " + y + " " + z + "<br>");
+  }
+
+  document.write("<hr>");
+
+  for(let i = 0; i < ranNum; i++) {
+    let num = i + 3;
+    for(let j = 0; j < 3; j++) {
+        document.write(num - j + " ");
+    }
+    document.write("<br>");
+  }
+
+  /*
+  let r = Math.floor(Math.random() * 4) + 3;
+  document.write("r = " + r + "<br>");
+  
+  // 일차 반복문
+  for(let i=0; i < r ; i++) {
+      let x = i + 3;
+      let y = i + 2;
+      let z = i + 1;
+      document.write(x + " " + y + " " + z + "<br>");
+  }
+
+  document.write("----------------<br/>");
+  // 이차 반복문
+  for(let i=0; i < r ; i++) {
+      let num = i + 3;
+      for(let j = 0; j < 3; j++) {
+          document.write(num - j + " ");
+      }
+      document.write("<br>");
+  }
+  */
+  
+
+</script>

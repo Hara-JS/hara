@@ -1,0 +1,39 @@
+<script>
+
+    /*
+        [문제] 
+            100의 약수 중에서 큰수에서 작은수로 출력했을때,
+            2번째 약수에서 5번째 약수를 뺀 값을 구하시오.
+        [정답]
+            40 
+    */
+
+    let num = 100;
+
+    let count = 0;
+    let result1 = 0;
+    let result2 = 0;
+
+    let i = 1;
+    let i2 = num;
+    while(i <= num) {
+        if(num % i2 == 0) {
+            count += 1;
+
+            if(count == 2) {
+                result1 = i2;
+            } else if(count == 5) {
+                result2 = i2;
+            }
+        }
+        i2 -= 1;
+        i += 1;
+    }
+
+    let result3 = result1 - result2;
+
+    document.write("result1 = " + result1 + ", result2 = " + result2 + "<br>");
+    document.write("result3 = " + result3);
+
+
+</script>

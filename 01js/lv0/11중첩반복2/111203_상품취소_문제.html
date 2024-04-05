@@ -1,0 +1,58 @@
+<script>
+
+  /*
+      [문제]
+          item배열은 상품의 번호이다.
+          price배열은 상품의 가격이다.
+          total 은 오늘 의 매출이다. 
+          단, cancel 은 오늘 주문취소한 주문번호이다. 
+          [1] 주문을 취소한 번호와 가격을 전부 출력하시오.
+          [2] 오늘의 매출에서 취소한 주문가격을 제외한 매출을 출력하시오.
+      [정답]
+          주문취소
+          1002번1200원
+          1004번2300원
+          1003번4300원
+          오늘의최종매출=8300
+  */
+
+  let item  = [1001, 1002, 1003, 1004];
+  let price = [ 500, 1200, 4300, 2300];
+  let total = 16100;
+
+  let cancel = [1002,1004,1003];
+
+  document.write("주문취소" + "<br>");
+  for(let i = 0; i < cancel.length; i++) {
+    for(let j = 0; j < item.length; j++) {
+        if(cancel[i] === item[j]) {
+            total -= price[j];
+            document.write(cancel[i] + "번 " + price[j] + "원" + "<br>");
+        }
+    }
+  }
+  document.write("오늘의 최종매출 = " + total +"원");
+  
+  /*
+  document.write("주문취소");
+  document.write("<br/>");
+  for(let i = 0; i < cancel.length; i++){
+
+      let number = cancel[i];
+
+      for(let j = 0; j < item.length; j++){
+
+          if(item[j] == number){
+
+              document.write(item[j] + "번" + price[j] +"원");
+              document.write("<br/>");
+
+              total -= price[j];
+          }
+      }
+  }
+
+  document.write("오늘의최종매출="+total);
+  */
+
+</script>

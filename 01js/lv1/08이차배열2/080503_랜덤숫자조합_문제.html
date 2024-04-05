@@ -1,0 +1,103 @@
+<script>
+
+  /*
+      [문제]
+          철수는 게임을 만들려고 한다.
+          숫자 다섯 개를 랜덤(1~9사이의 숫자)으로 저장한다.
+          각각의 숫자는 중복이 되면 안된다.
+
+          각각의 숫자로 랜덤 조합을 4가지 만들어서
+          numList에 저장하고, 전체 합을 출력하시오.
+          랜덤 조합 역시 중복이 되면 안된다.
+      [예시]
+          1, 3, 5, 7, 9 라고 했을 때
+          [1] 13597
+          [2] 51397
+          [3] 37951
+          [4] 91537
+
+          정답 : 13597 + 51397 + 37951 + 91537 = 194482    
+  */
+
+  let numList = [];
+
+  for(let i=0; i<5; i++) {
+      let r = Math.floor(Math.random() * 9) + 1;
+      
+      let check = false;
+      for(let j=0; j<i; j++) {
+          if(r == numList[j]) {
+              check = true;
+              break;
+          }
+      }
+
+      if(check == false) {
+          numList.push(r);
+      } else {
+          i -= 1;
+      }
+  }
+  document.write(numList + "<br><br>");
+
+  let indexList = [];
+  for(let i=0; i<4; i++) {
+      let check = [false, false, false, false, false];
+      let index = [];
+      for(let j=0; j<5; j++) {
+          let r = Math.floor(Math.random() * 5);
+
+          if(check[r] == false) {
+              check[r] = true;
+              index.push(numList[r]);
+          } else {
+              j -= 1;
+          }
+      }
+
+      indexList.push(index);
+
+      let result = -1;
+      for(let j=0; j<indexList.length; j++) {
+          for(let k=0; k<indexList.length; k++) {
+              if(j == k) continue;
+              let count = 0;
+              for(let m=0; m<indexList[k].length; m++) {
+                  if(indexList[j][m] == indexList[k][m]) {
+                      count += 1;
+                  }
+              }
+
+              if(count == indexList[k].length) {
+                  result = j;
+                  j = 100;
+                  break;
+              }
+          }
+      }
+
+      if(result != -1) {
+          indexList.splice(result, 1);
+          i -= 1;
+      }
+  }
+
+  for(let i=0; i<indexList.length; i++) {
+      document.write(indexList[i] + "<br>");
+  }
+  document.write("<br><br>");
+
+  let total = 0;
+  for(let i=0; i<indexList.length; i++) {
+      let number = 0;
+      let unit = 10000;
+      for(let j=0; j<indexList[i].length; j++) {
+          number += unit * indexList[i][j];
+          unit = parseInt(unit / 10);
+      }
+
+      document.write(number + "<br>");
+  }
+
+
+</script>

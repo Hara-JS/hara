@@ -1,0 +1,42 @@
+<script>
+
+	/*
+		[문제]	
+  			랜덤숫자(2~9) 사이의 변수 두개를 저장한다.
+	  		그 랜덤숫자들의 제곱의 합을 출력하시오.
+	  		단 리턴함수를 사용하시오.
+	*/
+
+	function getPower(number){
+		let power = number * number;
+		return power;
+	}
+
+	let a = Math.floor(Math.random() *8) + 2;
+	let b = Math.floor(Math.random() * 8) + 2;
+
+	let a2 = getPower(a);
+	let b2 = getPower(b);
+
+	let c = a2 + b2;
+	document.write(a , " " , b , " " , a2 , " " , b2," " , c);
+
+
+</script>
+<script>
+
+    function getPower(util){
+        util.a = util.a * util.a;
+        util.b = util.b * util.b;
+    }
+
+    let a = Math.floor(Math.random() * 8) + 2;    
+    let b = Math.floor(Math.random() * 8) + 2;
+    document.write(a, " " , b, " <br>" );
+    let util = {"a" : a , "b" : b};
+    getPower(util);
+    a = util.a;
+    b = util.b;
+
+    document.write(a, " " , b, " ");
+</script>

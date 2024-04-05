@@ -1,0 +1,39 @@
+<script>
+
+    /*
+        [문제]
+            랜덤숫자 1~10을 arr배열에 다섯 개 저장한다.
+            다섯 개 숫자 중에 40의 약수들을 출력하시오.
+            40의 약수들의 개수와
+            40의 약수들의 누적 합도 함께 출력하시오.    
+        [예시]
+            40의 약수 >>>
+            8 5
+            arr = 8,9,5,6,7
+            40의 약수의 개수 = 2
+            40의 약수의 합 = 13        
+    */
+
+    let num = 40;
+    let arr = [];
+
+    let count = 0;
+    let total = 0;
+
+    document.write("40의 약수 >>><br>");
+    for(let i=0; i<5; i++) {
+        arr.push(Math.floor(Math.random() * 10) + 1);
+
+        if(num % arr[i] == 0) {
+            document.write(arr[i] + " ");
+            count += 1;
+            total += arr[i];
+        }
+    }
+    document.write("<br>");
+
+    document.write("arr = " + arr + "<br>");
+    document.write("40의 약수의 개수 = " + count + "<br>");
+    document.write("40의 약수의 합 = " + total);
+ 
+</script>

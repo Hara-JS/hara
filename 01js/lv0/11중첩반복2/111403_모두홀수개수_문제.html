@@ -1,0 +1,59 @@
+<script>
+
+  /*
+      [문제]
+          (1) 1 ~ 9사이의 랜덤값을 4개를 저장 후 비교한다. 
+          (2) 4개의 랜덤값이 모두 홀수이면 1을 total에 추가,
+              하나라도 홀수가 아니면 2를 total에 추가한다.
+          (3) (1~2)를 5번 반복한다. 
+      [예시] 
+          6 6 1 1 ==> total = 2
+          5 8 8 6 ==> total = 2,2
+          3 9 7 3 ==> total = 2,2,1
+          7 9 4 6 ==> total = 2,2,1,2
+          5 2 8 9 ==> total = 2,2,1,2,2
+  */
+
+  let total = [];
+
+  for(let i = 0; i < 5; i++) {
+    let count = 0;
+    for(let j = 0; j < 4; j++) {
+        let ranNum = Math.floor(Math.random() * 9) + 1;
+        document.write(ranNum + " ");
+        if(ranNum % 2 !== 0) {
+            count += 1;
+        }
+    }
+    if(count === 4) {
+        total.push(1);
+    } else {
+        total.push(2);
+    }
+    document.write("==> total = " + total + "<br>");
+  }
+  
+  /*
+  for(let i=0; i < 5; i++) {
+
+      let count = 0;
+      for(let j=0; j < 4; j++) {
+          let num = Math.floor(Math.random() * 9) + 1;
+          document.write(num + " ");
+          if(num % 2 == 1) {
+              count += 1;
+          }
+      }
+      document.write(" ==> ");
+      if(count == 4){
+          total.push(1);
+      }else{
+          total.push(2);
+      }
+      document.write("total = " + total + "<br>");
+
+  }
+  */
+
+
+</script>

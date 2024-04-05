@@ -1,0 +1,105 @@
+<script>
+
+  /*
+      [문제]
+          아래와 같이 출력하시오.    
+  */
+
+  /*
+      [문제1]
+          11112
+          11122
+          11222
+          12222    
+  */
+  document.write("[문제1]<br>");
+  for(let i=0; i<4; i++) {
+      for(let j=0; j<4 - i; j++) {
+          document.write("1");
+      }
+      for(let j=0; j<=i; j++) {
+          document.write("2");
+      }
+      document.write("<br>");
+  }
+  
+  /*
+      [문제2]
+          12222
+          11222
+          11122
+          11112   
+  */ 
+  document.write("[문제2]<br>");
+  for(let i=0; i<4; i++) {
+      for(let j=0; j<=i; j++) {
+          document.write("1");
+      }
+      for(let j=0; j<4 - i; j++) {
+          document.write("2");
+      }
+      document.write("<br>");
+  }
+ 
+  /*
+      [문제3]
+          11211
+          12221	
+          22222
+  */  
+  document.write("[문제3]<br>");
+  let k = 1;
+  for(let i=0; i<3; i++) {
+      for(let j=0; j<2-i; j++) {
+          document.write("1");
+      }
+      for(let j=0; j<k; j++) {
+          document.write("2");
+      }
+      for(let j=0; j<2-i; j++) {
+          document.write("1");
+      }
+      k += 2;
+      
+      document.write("<br>");
+  }
+
+  /*
+      [문제4]
+            2
+           222
+          22222
+  */  
+  document.write("[문제4]<br>");
+  k = 1;
+  for(let i=0; i<3; i++) {
+      for(let j=0; j<2-i; j++) {
+          document.write("&nbsp;");
+      }
+      for(let j=0; j<k; j++) {
+          document.write("2");
+      }
+      k += 2;
+      document.write("<br>");
+  }
+
+  /*
+      [문제5]
+          22222
+           222
+            2 
+  */      
+  document.write("[문제5]<br>");
+  k = 5;
+  for(let i=0; i<3; i++) {
+      for(let j=0; j<i; j++) {
+          document.write("&nbsp;");
+      }
+      for(let j=0; j<k; j++) {
+          document.write("2");
+      }
+      k -= 2;
+      document.write("<br>");
+  }
+
+</script>

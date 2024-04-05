@@ -1,0 +1,43 @@
+<script>
+
+	/*
+		[문제]
+			numberList는 번호이고, 
+			scoreList 는 점수이다.
+
+			searchList 는 학생들이 점수를 확인하기위해
+			검색한 번호이다. 
+
+			검색한번호순서대로 점수를 출력하시오.
+			여러번 검사한경우 여러번 출력하시오.
+			함수로 만드시오.
+		[예시]
+			1001,30
+			1005,100
+			1003,12
+			1001,30
+	*/
+
+	function getCheckArr(arr, num){
+		let index = 0;
+		for(let i= 0; i < arr.length; i++){
+			if(arr[i] == num){
+				index = i;
+				break;
+			}
+		}
+		return index;
+	}
+
+	let numberList = [1001, 1002, 1003, 1004, 1005];
+	let scoreList = [30, 50, 12, 57, 100]
+	let searchList = [1001,1005,1003,1001];
+	
+	for(let i = 0; i < searchList.length; i++){
+		let index = getCheckArr(numberList, searchList[i]);
+		document.write(numberList[index] ,",", scoreList[index]);
+		document.write("<br>");
+	}
+
+
+</script>

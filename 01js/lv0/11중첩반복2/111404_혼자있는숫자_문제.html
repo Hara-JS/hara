@@ -1,0 +1,40 @@
+<script>
+
+  /*
+      [문제]
+          arr배열에서 혼자있는 숫자만 출력하시오.
+      [정답]
+          20 50
+  */
+
+  let arr = [10, 20, 30, 40, 40, 10, 30, 10, 50];
+
+  for(let i = 0; i < arr.length; i++) {
+    let isSame = false;
+    for(let j = 0; j < arr.length; j++) {
+        if(arr[i] === arr[j] && i !== j) {
+            isSame = true;
+        }
+    }
+    if(isSame === false) {
+        document.write(arr[i] + " ");
+    }
+  }
+
+  /*
+  for(let i=0; i<arr.length; i++) {
+      
+      let count = 0;
+
+      for(let j=0; j < arr.length; j++) {
+          if(arr[i] == arr[j]) {
+              count += 1;
+          }
+      }
+      if(count == 1) {
+          document.write(arr[i] + " ");
+      }
+  }
+  */
+
+</script>

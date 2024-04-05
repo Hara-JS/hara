@@ -1,0 +1,21 @@
+<script>
+
+    /*
+        [문제]
+            arr배열에서 백의 자리가 2인 수만 출력하시오.
+        [정답]
+            1210
+            1212    
+    */
+
+    let arr = [1210, 1343, 1524, 1212, 7452];
+
+    for(let i=0; i<arr.length; i++) {
+        let unit = parseInt(arr[i] % 1000 / 100);
+
+        if(unit == 2) {
+            document.write(arr[i] + "<br>");
+        }
+    }
+
+</script>

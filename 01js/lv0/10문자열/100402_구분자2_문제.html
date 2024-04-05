@@ -1,0 +1,46 @@
+<script>
+
+  /*
+      [문제]
+          이름은 name배열에 성적은 score배열에 
+          각각 저장 후 출력하시오.
+      [정답]
+          name = 김철수,이만수,이영희
+          score = 87,42,95
+  */
+
+  let str = "김철수/87,이만수/42,이영희/95";
+  let name = [];
+  let score = [];
+
+  let arr1 = [];
+  arr1 = str.split(",");
+  /**
+   * 첫 번째 split 결과 ["김철수/87", "이만수/42", "이영희/95"]
+   */
+
+  for(let i = 0; i < arr1.length; i++) {
+    /**
+     * 두 번째 split은 항상 배열의 크기가 2 ["김철수", "87"]
+     * split("/")를 기준으로 잘라
+     * arr2의 name[]은 0번지를 저장 score[]는 1번지를 저장
+     */
+    let arr2 = arr1[i].split("/");
+    name.push(arr2[0]);
+    score.push(arr2[1]);
+  }
+  document.write("name = " + name + "<br> score = " + score);
+  
+  /*
+  let arr = str.split(",");
+
+  for(let i = 0; i < arr.length; i++){
+      let temp = arr[i].split("/");
+      name.push(temp[0]);
+      score.push(temp[1]);
+  }
+  document.write(name + "<Br>");
+  document.write(score + "<Br>");
+    */
+
+</script>

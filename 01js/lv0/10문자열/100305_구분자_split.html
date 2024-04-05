@@ -1,0 +1,33 @@
+<script>
+
+    /*
+        [개념] 문자열 자르기2
+            let 변수 = "문자열";
+            변수 = 변수.split(구분자);
+
+            문자열을 구분자를 기준으로 잘라서 배열로 만들어준다.
+    */
+
+    let text = "One,Two,Three,Four,Five";
+    let arr = text.split(",");
+    
+    for(let i=0; i<arr.length; i++) {
+        document.write(arr[i] + " ");
+    }
+    document.wrtie("<br>");
+
+    /*
+        [문제]
+            input에 저장된 암호를 글자의 길이만큼
+            password배열에 한 글자씩 저장 후 출력하시오.
+        [정답]
+            password = q,w,e,r,1,2,3,4
+    */
+
+    let input = "qwer1234";
+    let passwrod = [];
+
+    passwrod = input.split("");
+    document.write(passwrod);
+
+</script>

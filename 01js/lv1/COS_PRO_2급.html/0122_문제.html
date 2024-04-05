@@ -1,0 +1,88 @@
+<script>
+  /*
+  
+  자연수가 들어있는 배열에 3의 배수와 5의 배수 중 어떤 수가 더 많은지 알아보려 합니다.
+   이를 위해 다음과 같이 프로그램 구조를 작성했습니다.
+  
+  ~~~
+  1. 3의 배수의 개수를 셉니다.
+  2. 5의 배수의 개수를 셉니다.
+  3. 3의 배수와 5의 배수의 개수를 비교 후 다음을 수행합니다.
+    3-1. 만약 3의 배수가 더 많다면 "three"를 return 합니다.
+    3-2. 만약 5의 배수가 더 많다면 "five"를 return 합니다.
+    3-3. 만약 3의 배수와 5의 배수의 개수가 같다면 "same"을 return 합니다.
+  ~~~
+  
+  ---
+  #####매개변수 설명
+  자연수가 들어있는 배열 arr가 solution 메소드의 매개변수로 주어집니다.
+  * arr의 길이는 1 이상 100 이하입니다.
+  * arr에 들어있는 숫자는 1 이상 1,000 이하의 자연수입니다.
+  
+  ---
+  #####return 값 설명
+  배열에 3의 배수의 개수가 더 많다면 "three"를, 5의 배수의 개수가 더 많다면 "five"를,
+   3의 배수와 5의 배수의 개수가 같다면 "same"을 return 해주세요.
+  
+  ---
+  #####예시
+  
+  | arr                    | return |
+  |------------------------|--------|
+  | [2, 3, 6, 9, 12, 15, 10, 20, 22, 25] | "three" |
+  
+  #####예시 설명
+  
+  * 3의 배수 : 3, 6, 9, 12, 15
+  * 5의 배수 : 10, 15, 20, 25
+  
+  3의 배수는 5개, 5의 배수는 4개이므로 3의 배수가 더 많습니다. 따라서 "three"를 return 합니다.
+  
+   */
+      let arr = [2, 3, 6, 9, 12, 15, 10, 20, 22, 25];
+
+      let count1 = 0;
+      let count2 = 0;
+      for(let i = 0; i < arr.length; i++) {
+        if(arr[i] % 3 === 0) {
+          count1 += 1;
+        }
+        if(arr[i] % 5 === 0) {
+          count2 += 1;
+        }
+      }
+      if(count1 > count2) {
+        document.write("three");
+      } else if(count1 < count2) {
+        document.write("five");
+      } else {
+        document.write("same");
+      }
+
+      /*
+      let a = 0;
+      let b = 0;
+  
+      for(let i = 0; i < arr.length; i++){
+          if(arr[i] % 3 == 0){
+              a += 1;
+          }
+          if(arr[i] % 5 == 0){
+              b += 1;
+          }
+      }
+      document.write(a + " " + b +" ");
+      let result = "";
+  
+      if(a > b){
+          result = "three";
+      }else if(a <b){
+          result = "five";
+      }else{
+          result = "same";
+      }
+      document.write(result);
+      */
+  
+  
+  </script>

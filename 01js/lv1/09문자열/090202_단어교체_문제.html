@@ -1,0 +1,53 @@
+<script>
+
+  /*
+      [문제]
+          text변수의 내용을 변경하려 한다.
+          change변수의 앞부분은 교체할 단어이고, 뒷부분은 삽입할 단어이다.
+          text변수의 내용을 변경하시오.
+          단, replace함수를 사용하지 마시오.
+      [정답]
+          text = "Life is too short." (변경 전)          
+          text = "Life is too long."  (변경 후)    
+  */
+
+  let text = "Life is too short.";
+  let change = "short,long";
+
+  let words = change.split(",");
+
+  document.write("교체할 단어 = " + words[0] + "<br>");
+  document.write("삽입할 단어 = " + words[1] + "<br>");
+
+  // 교체할 단어의 시작 위치 검색
+  let startIndex = -1;
+  for(let i=0; i<text.length - words[0].length + 1; i++) {
+      let count = 0;
+      for(let j=0; j<words[0].length; j++) {
+          if(text[i + j] == words[0][j]) {
+              count += 1;
+          }
+      }
+      if(count == words[0].length) {
+          startIndex = i;
+          break;
+      }
+  }
+
+  if(startIndex != -1) {
+      let endIndex = startIndex + words[0].length;
+      document.write("startIndex = " + startIndex + "<br>");
+      document.write("endIndex = " + endIndex + "<br>");
+
+      let start = text.substring(0, startIndex);
+      document.write("start = " + start + "<br>");
+      let end = text.substring(endIndex);
+      document.write("end = " + end + "<br>");
+
+      text = start + words[1] + end;
+      document.write(text);
+  } else {
+      document.write("교체 불가");
+  }
+  
+</script>

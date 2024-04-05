@@ -1,0 +1,31 @@
+<script>
+
+    /*
+        [문제]
+            랜덤숫자(1~10)을 각각 다섯개씩
+            a배열과 b배열에 저장한 후,
+            a배열과 b배열의 각 자리의 합을 total배열에 추가하시오.
+        [예시]
+            a     =  6,10, 9,1,2
+            b     =  9,10, 6,5,3
+            total = 15,20,15,6,5        
+    */
+
+    let a = [];
+    let b = [];
+    let total = [];
+
+    for(let i=0; i<5; i++) {
+        a.push(Math.floor(Math.random() * 10) + 1);
+        b.push(Math.floor(Math.random() * 10) + 1);
+    }
+
+    document.write("a = " + a + "<br>");
+    document.write("b = " + b + "<br>");
+
+    for(let i=0; i<5; i++) {
+        total.push(a[i] + b[i]);
+    }
+    document.write("total = " + total + "<br>");
+
+</script>

@@ -1,0 +1,41 @@
+<script>
+
+    /*
+        [문제]
+            arr배열을 다음과 같이 출력하시오.
+        [정답]
+            1
+            2 3
+            4 5 6
+            7 8 9 0      
+    */
+
+    /*
+        [풀이]
+            줄번호, 출력개수
+
+            [0] 1                   : 0개
+            [1] 2 3                 : 1개
+            [2] 4 5 6               : 2개
+            [3] 7 8 9 0             : 3개
+    */
+
+    let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+
+    let line = 0;
+    let count = 0;
+    for(let i=0; i<arr.length; i++) {
+        document.write(arr[i] + " ");
+
+        if(line == count) {
+            document.write("<br>");
+
+            line += 1;
+            count = 0;
+        } else {
+            count += 1;
+        }
+    }
+
+   
+</script>

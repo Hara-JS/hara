@@ -1,0 +1,35 @@
+<script>
+
+  /*
+      [문제]
+          1부터 100 사이의 숫자 두 개를 랜덤으로 저장한다.
+          두 숫자 중 더 큰 숫자를 출력하시오.
+          단, 서로 같으면 "같다"를 출력하시오.
+      [예시]
+          76
+          5
+          76
+  */
+
+  function checkCompar(a , b){
+      if(a > b) {
+          document.write("a = " + a + "크다");
+      }
+      if(a < b) {
+          document.write("b = " + b + "크다");
+      }
+      if(a == b) {
+          document.write("같다");
+      }
+  }
+
+
+
+  let a = parseInt(Math.random() * 100) + 1;   // [0 ~ 99] + 1
+  let b = parseInt(Math.random() * 100) + 1;   
+
+  document.write("a = " + a + "<br>");
+  document.write("b = " + b + "<br>");
+
+  checkCompar(a , b);
+</script>

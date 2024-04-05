@@ -1,0 +1,37 @@
+<script>
+
+  /*
+      [문제]
+          arr배열에 1~9를 순차적으로 저장하고 출력하시오.
+      [정답]
+          arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]    
+  */
+
+
+   /*
+      이차원배열만들기1
+  */
+ 
+  let arr = [
+      [0, 0, 0],
+      [0, 0, 0],
+      [0, 0, 0]
+  ];
+
+
+  document.write("행 = " + arr.length + "<br>");
+  document.write("열 = " + arr[0].length + "<br>");
+
+  let num = 1;
+  for(let i=0; i<arr.length; i++) {
+      for(let j=0; j<arr[i].length; j++) {
+          arr[i][j] = num;
+          num += 1;
+      }
+  }
+
+  for(let i=0; i<arr.length; i++) {
+      document.write(arr[i] + "<br>");
+  }
+
+</script>
