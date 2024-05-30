@@ -1,0 +1,297 @@
+[Scanner]
+Scanner sc = new Scanner(System.in);
+int a = sc.nextInt();
+int b = sc.nextInt();
+int c = sc.nextInt();
+
+[BufferedReader]
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+StringTokenizer st = new StringTokenizer(br.readline());
+int a = Integer.parseInt(st.nextToken());
+int b = Integer.parseInt(st.nextToken());
+int c = Integer.parseInt(st.nextToken());
+
+[전위 연산자]
+int A[] = new int[3];
+int i = 1;
+A[++i] = 10;
+// 1. i값 2로 증가(가장 먼저) 2. A[i]에 10저장(i=2) (A = 0 / 0 / 10)
+System.out.println(i); // 2
+System.out.println(A[1]); // 0
+System.out.println(A[2]); // 10
+
+[후위 연산자]
+int A[] = new int[3];
+int i = 1;
+A[i++] = 10;
+// 1. A[i]에 10저장(i=1) (A = 0 / 10 / 0) 2. i값 2로 증가(가장 나중)
+System.out.println(i); // 2
+System.out.println(A[1]); // 10
+System.out.println(A[2]); // 0
+
+[Array 오름차순 정렬]
+int A[] = {5, 3, 2, 4, 1};
+Arrays.sort(A);
+System.out.println(Arrays.toString(A)); // [1, 2, 3, 4, 5]
+
+[Array 내림차순 정렬 1]
+Integer A[] = {5, 3, 2, 4, 1};
+Arrays.sort(A, Collections.reverseOrder()); // 객체 형태에만 적용이 가능
+System.out.println(Arrays.toString(A)); // [5, 4, 3, 2, 1]
+
+[Array 내림차순 정렬 2]
+int A[] = {5, 3, 2, 4, 1};
+Integer[] tmp = Arrays.stream(A).boxed().toArray(Integer[]::new);
+Arrays.sort(tmp, Collections.reverseOrder());
+System.out.println(Arrays.toString(tmp)); // [5, 4, 3, 2, 1]
+
+[Array 내림차순 정렬 3]
+// 오름차순 문법으로 정렬하고 싶다면 -1을 곱하여 저장하고 오름차순 함수로 정렬
+int A[] = {-5, -3, -2, -4, -1}; // 실제로는 5, 3, 2, 4, 1을 저장하고자 하는 의도지만 -1을 곱하여 저장
+Arrays.sort(A);
+System.out.println(Arrays.toString(A)); // [-5, -4, -3, -2, -1]
+// 배열을 출력 시 -1만 곱하여 출력해주면 내림차순 정렬 효과
+
+[Comparable(정렬 기준이 여러 개)]
+Comparable 구현하기 - 영어, 수학 점수로 데이터 정렬하기
+// 영어 점수가 높은 학생 순으로 정렬하되 영어 점수가 같으면 수학 점수가 높은 학생을 선순위로 정렬하라
+// 점수 클래스 생성하기
+public class Score {
+	int english;
+	int math;
+
+	public Score(int english, int math) {
+		super();
+		this.english = english;
+		this.math = math;
+	} // 우클릭 -> Alt + Shift + S -> Generate Constructor using Fields
+
+	@Override
+	public String toString() {
+		return "Score[english = " + english + ", math = " + math + "]";
+	} // 우클릭 -> Alt + Shift + S -> Generate toString()
+
+}
+// implement Comparable -> comparaTo 함수 구현하기
+public class Score implements Comparable<Score> {
+	int english;
+	int math;
+
+	@Override
+	public int compareTo(Score o) {
+		// 영어 점수로 정렬
+		if (this.english != o.english) {// 영어 점수가 같지 않을 때만 동작
+			return o.english - this.english; // 정렬을 바꾸고 싶으면 this.english - o.english로 변경
+			/* return 값이 양수인지 음수인지만 중요
+			 * 매개변수 데이터가 더 클 때 음수 리턴 -> 오름차순
+			 * 매개변수 데이터가 더 클 때 양수 리턴 -> 내림차순
+			 * 정렬 방향을 바꾸고 싶으면 두 데이터의 위치를 변경*/
+		}
+		return o.math - this.math;
+	}
+}
+// 정렬하기
+		ArrayList<Score> A = new ArrayList<>();
+		
+		A.add(new Score(80, 100));
+		A.add(new Score(100, 100));
+		A.add(new Score(70, 80));
+		A.add(new Score(100, 90));
+		
+		Collections.sort(A);
+		for (int i = 0; i < A.size(); i++) {
+			System.out.println(A.get(i).toString());
+		}
+// 결과
+		/*
+		 * Score[english = 100, math = 100]
+		 * Score[english = 100, math = 90]
+		 * Score[english = 80, math = 100]
+		 * Score[english = 70, math = 80]
+		 */
+
+[Static 변수]
+// 11을 출력하려면 어떻게 해야할까?
+public class Score {
+	public static void main(String[] args) {
+		int a = 10;
+		addOne(a);
+		System.out.println(a); // main에서 사용한 a변수와 addOne에서 사용한 a변수는 다르기 때문에 10 출력
+	}
+
+	private static void addOne(int a) {
+		a = a + 1;
+	}
+}
+
+// 리턴 값으로 해결
+public class Score {
+	public static void main(String[] args) {
+		int a = 10;
+		a = addOne(a);
+		System.out.println(a); // 11이 출력되지만 복잡
+	}
+
+	private static int addOne(int a) {
+		a = a + 1;
+		return a;
+	}
+}
+
+// 클래스 멤버 변수로 해결
+public class Score {
+	int a;
+
+	public static void main(String[] args) {
+		Score score = new Score(10);
+		addOne(score);
+		System.out.println(score.a); // 11이 출력되지만 복잡
+	}
+
+	public Score(int a) {
+		this.a = a;
+	}
+
+	private static void addOne(Score score) {
+		score.a = score.a + 1;
+	}
+}
+
+// Static 변수로 해결
+public class Score {
+	static int a;
+
+	public static void main(String[] args) {
+		a = 10;
+		addOne();
+		System.out.println(a);
+	}
+
+	private static void addOne() {
+		a = a + 1;
+	}
+}
+
+[for 반복문(범위반복, 고정)]
+// 1~10까지 숫자를 출력
+		for (int i = 1; i <= 10; i++) {
+			System.out.println(i);
+		}
+
+// Queue가 비워질 때 까지 큐 내용을 반복하여 출력 (단, 짝수가 들어왔을 경우 2로 나눈 몫을 큐에 삽입)
+		Queue<Integer> queue = new LinkedList<>();
+		queue.add(10);
+		queue.add(5);
+		queue.add(4);
+
+		for (; !queue.isEmpty();) {
+			int value = queue.poll();
+			if (value % 2 == 0) {
+				queue.add(value / 2);
+			}
+			System.out.print(value + " ");
+		}
+
+[while 반복문(조건반복, 변동)]
+// 1~10까지 숫자를 출력
+		int i = 1;
+		while (i <= 10) {
+			System.out.println(i);
+			i++;
+		}
+// Queue가 비워질 때 까지 큐 내용을 반복하여 출력 (단, 짝수가 들어왔을 경우 2로 나눈 몫을 큐에 삽입)
+		Queue<Integer> queue = new LinkedList<>();
+		queue.add(10);
+		queue.add(5);
+		queue.add(4);
+
+		while (!queue.isEmpty()) {
+			int value = queue.poll();
+			if (value % 2 == 0) {
+				queue.add(value / 2);
+			}
+			System.out.print(value + " ");
+		}
+
+[if 제어문(자유도 높은 제어)]
+// 키보드 입력 값에 따라 캐릭터를 이동하기
+		Scanner sc = new Scanner(System.in);
+		int input = sc.nextInt();
+		if (input == 8) { // 위쪽 화살표
+			System.out.println("jump");
+		} else if (input == 6) { // 오른쪽 화살표
+			System.out.println("go");
+		} else if (input == 4) { // 왼쪽 화살표
+			System.out.println("back");
+		}
+
+// 입력된 정수에 따라 A B C를 출력하기 (A : 91~100 B :  81~90 C : 80 이하)
+		Scanner sc = new Scanner(System.in);
+		int iuput = sc.nextInt();
+		if (iuput <= 100 && iuput > 90) {
+			System.out.println("A");
+		} else if (iuput <= 90 && iuput > 80) {
+			System.out.println("b");
+		} else {
+			System.out.println("C");
+		}
+
+[switch 제어문(하나의 값에 대한 제어)]
+		Scanner sc = new Scanner(System.in);
+		int input = sc.nextInt();
+		switch (input) {
+		case 8: // 위쪽 화살표
+			System.out.println("jump");
+			break;
+		case 6: // 오른쪽 화살표
+			System.out.println("go");
+			break;
+		case 4: // 왼쪽 화살표
+			System.out.println("back");
+			break;
+		}
+
+[정답을 XX로 나눈 나머지를 출력]
+// 정답이 변수가 표현하는 범위를 넘어가는 경우. MOD 연산의 특성을 이용
+// 덧셈
+(A+B) % C = (A%C + B%C) %C
+A = 20, B = 6, C = 3
+(20+6) % 3 = 26 % 3 = 2 
+(20%3 + 6%3) % 3 = (2+0) % 3 = 2 // 덧셈에 대해서 분배 법칙이 성립
+// 뺄셈
+(A-B) % C = (A%C - B%C) %C
+A = 20, B = 6, C = 3
+(20-6) % 3 = 14 % 3 = 2 
+(20%3 + 6%3) % 3 = (2-0) % 3 = 2 // 뺄셈에 대해서 분배 법칙이 성립
+// 곱셈
+(A*B) % C = (A%C) * (B%C) %C
+A = 20, B = 6, C = 3
+(20*6) % 3 = 120 % 3 = 0 
+(20%3) * (6%3) % 3 = (2*0) % 3 = 2 // 곱셈에 대해서 분배 법칙이 성립
+// 나눗셈
+(A/B) % C = (A%C) / (B%C) %C
+A = 20, B = 6, C = 3
+(20/6) % 3 = 3 % 3 = 0 
+(20%3) / (2%3) % 3 = (2/2) % 3 = 1 // 나눗셈에 대해서 분배 법칙이 성립하지 않음
+
+// 정답을 구하고 % 연산을 하는게 아니라 step마다 % 연산을 하면서 문제를 풀어야 함
+	public static void main(String[] args) throws Exception {
+		// 문제 : 자연수 N과 정수 K가 주어졌을 때 이항 계수를 10,007로 나눈 나머지를 구하는 프로그램을 작성
+		// 입력 : 첫째 줄에 N과 K가 주어진다 (1 <= N <= 1,000, 0 <= K <= N)
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
+		int K = sc.nextInt();
+		int D[][] = new int[N + 1][N + 1];
+		for (int i = 0; i < N; i++) {
+			D[i][1] = i;
+			D[i][0] = 1;
+			D[i][i] = 1;
+		}
+		for (int i = 2; i <= N; i++) {
+			for (int j = 1; j < 1; j++) {
+				D[i][j] = D[i - 1][j] + D[i - 1][j - 1];
+				D[i][j] = D[i][j] % 10007;
+			}
+		}
+		System.out.println(D[N][K]);
+	}
