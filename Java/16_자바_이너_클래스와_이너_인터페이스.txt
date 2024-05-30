@@ -1,0 +1,256 @@
+[이너 클래스(inner class)]
+클래스 내부에 포함된 클래스
+
+멤버 클래스 : 인스턴스 멤버 이너 클래스, 정적 멤버 이너 클래스
+지역 클래스 : 지역 이너 클래스
+
+[인스턴스 멤버 이너 클래스]
+특징 : 외부 클래스의 모든 접근 지정자의 멤버에 접근 가능
+
+생성 클래스명 : 외부 클래스.class / 외부 클래스$내부 클래스.class
+
+인스턴스 멤버 이너 클래스의 객체 생성 방법 :
+외부 클래스 외부 클래스 참조 변수 = new 외부 클래스();
+외부 클래스.내부 클래스 내부 클래스 참조 변수 = 외부 클래스 참조 변수.new 내부 클래스();
+// 외부 클래스 객체 생성 → 내부 클래스 객체 생성
+
+class A {
+class B {
+}
+}
+
+A a = new A();
+A.B b = a.new B();
+
+외부 클래스의 객체 참조 : 외부 클래스명.this
+
+[정적 멤버 이너 클래스]
+특징 : 외부 클래스의 static 멤버만 접근 가능 (static 특징)
+
+생성 클래스명 : 외부 클래스.class / 외부 클래스$내부 클래스.class
+
+정적 멤버 이너 클래스의 객체 생성 방법 :
+외부 클래스.내부 클래스 내부 클래스 참조 변수 = new 외부 클래스.내부 클래스();
+// 내부 클래스 생성자로 직접 객체 생성
+
+class A {
+class B {
+}
+}
+
+A.B b = new A.B();
+
+[지역 이너 클래스]
+특징 : 메서드 내부에서 정의된 클래스. 외부 클래스의 필드는 모두 접근 가능. 메서드 지역 변수는 final만 사용 가능 (메서드가 종료되면 모든 지역 변수는 사라지기 때문. final로 지정하지 않은 경우 컴파일러가 자동으로 지정)
+
+생성 클래스명 : 외부 클래스.class / 외부 클래스$+숫자(동일한 지역 클래스명이 있을 때는 숫자가 1부터 하나씩 증가)+지역 이너 클래스.class
+
+class A { // A.class
+void abc() {
+class B {} // A$1B.class
+class C {} // A$1C.class
+}
+void bcd() {
+class C {} // A$2C.class
+class D {} // A$1D.class
+}
+}
+
+객체 생성 및 메서드 호출 : 메서드 내에서만 생성 및 활용 가능
+// 지역 이너 클래스는 static 지정 불가능
+A a = new A();
+a.abc();
+
+[익명 이너 클래스(anonymous inner class)]
+클래스의 중괄호 바로 아래에 사용했을 때는 인스턴스 익명 이너 클래스
+메서드 내부에서 사용했을 때는 지역 익명 이너 클래스
+
+익명(이름을 알 수 없음) + 이너 클래스
+interface C {
+public abstract void bcd();
+}
+
+// 객체 생성 방법 1 : 자식 클래스
+class A1 {
+C b = new B(); // 필드
+
+void abc() { // 메서드
+b.bcd();
+}
+
+class B implements C { // 이너 클래스
+public void bcd() {
+System.out.println();
+}
+}
+}
+
+// 객체 생성 방법 2 : 익명 이너 클래스
+class A2 {
+C b = new C() {
+public void bcd() {
+System.out.println();
+}
+}; // C를 상속받아 bcd() 메서드를 오버라이딩한 익명 이너 클래스의 객체
+
+void abc() {
+b.bcd();
+}
+}
+
+익명(이름을 알 수 없음) + 인스턴스 이너 클래스
+interface C {
+public abstract void bcd();
+}
+
+class B implements C {
+void bcd() { // 오버라이딩 메서드
+System.out.println();
+}
+
+void cde() { // 추가 메서드
+}
+}
+
+B b = new B();
+b.bcd(); // (O)
+b.cde(); // (O)
+
+C c = new C() {
+void bcd() { // 오버라이딩 메서드
+System.out.println();
+cde(); // 내부적으로 호출 가능
+}
+
+void cde() {
+}
+};
+
+c.bcd(); // (O)
+c.cde(); // (X) // C 타입에 없기 때문
+
+익명 이너 클래스를 사용하는 경우 이름이 없어 한번에 객체를 2개 이상 생성 불가능
+
+정적 익명 이너 클래스는 존재할 수 없음. 정적이려면 객체 생성 없이 클래스명만으로 객체를 생성해야 하는데 익명 이너 클래스는 이름을 알 수 없기 때문
+
+익명 이너 클래스를 활용한 인터페이스 타입의 매개 변수 전달 :
+class C {
+void cde()(A a) {
+a.abc();
+}
+}
+
+interface A {
+public abstract void abc();
+}
+
+class B implements A {
+public void abc() {
+}
+}
+
+C c = new C();
+
+// 방법 1 : 클래스명 O + 참조 변수명 O
+A a1 = new B();
+c.cde(a1);
+
+// 방법 2 : 클래스명 O + 참조 변수명 X
+c.cde(new B());
+
+class C {
+void cde(A a) {
+a.abc();
+}
+}
+
+interface A {
+public abstract void abc();
+}
+
+C c = new C();
+
+// 방법 3 : 클래스명 X + 참조 변수명 O
+A a = new A() {
+public void abc() {
+}
+};
+c.cde(a);
+
+// 방법 4 : 클래스명 X + 참조 변수명 X
+c.cde(new A() {
+public void abc() {
+}
+});
+
+[이너 인터페이스(inner interface)]
+이너 인터페이스는 정적 이너 인터페이스만 존재
+특징 1 : 외부 클래스와 밀접한 관계가 있는 경우에 정의
+특징 2 : UI의 이벤트 처리에 가장 많이 사용 (클릭, 터치 등)
+특징 3 : static을 생략한 경우 컴파일러는 자동으로 static 삽입
+
+class A {
+static interface B { // static을 생략해도 컴파일러가 자동으로 추가
+void bcd();
+}
+}
+생성 클래스명 : 외부 클래스명$이너 인터페이스명.class
+
+객체 생성 및 사용 :
+// 객체 생성 방법 1 : 인터페이스 구현 클래스 생성 및 객체 생성
+class C implements A.B {
+public void bcd() {
+}
+}
+
+C c = new C(); // A.B ab = new C(); 가능
+c.bcd();
+
+// 객체 생성 방법 2 : 익명 이너 클래스 사용
+A.B b = new A.B() { // static 클래스와 유사
+public void bcd() {
+}
+};
+b.bcd();
+
+[이벤트 처리 기능 작성]
+// API가 제공하는 버튼의 일반적인 구조
+class Button {
+OnClickListener ocl;
+
+void setOnClickListener(OnClickListener ocl) {
+this.ocl = ocl;
+}
+
+interface OnClickListener {
+public abstract void onClick();
+}
+
+void onClick() {
+ocl.onClick();
+}
+}
+
+public class ButtonAPIExample {
+public static void main(String[] args) {
+// 클릭하면 음악 재생
+Button btn1 = new Button();
+btn1.setOnClickListener(new Button.OnClickListener() {
+@Override
+public void onClick() {
+System.out.println("음악 재생");
+}
+});
+btn1.onClick();
+
+// 클릭하면 네이버 접속
+Button btn2 = new Button();
+btn2.setOnClickListener(new Button.OnClickListener() {
+@Override
+public void onClick() {
+System.out.println("네이버 접속");
+}
+});
+btn2.onClick();
+}
+}

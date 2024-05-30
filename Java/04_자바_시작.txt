@@ -1,0 +1,17 @@
+Write once, run anywhere
+
+제임스 아서 고슬링(James Arthur Gosling, 1955년 5월 19일 ~ )은 캐나다의 소프트웨어 개발자이다. 자바를 최초 개발하여 '자바의 아버지'라 불리며, 가장 영향력 있는 프로그래머들 가운데 한 사람이다. 자바 이외에도 다중 프로세서용 유닉스와 컴파일러, 메일 시스템, 데이터 인식 시스템 등을 개발하였다.
+
+Consolas(콘솔라스)를 사용하는 이유 : 특수문자, 영문, 숫자, 띄어쓰기 너비가 일정한 고정폭 폰트이며 각각의 문자를 한 번에 구별할 수 있다. (MS사의 대표적인 개발자용 폰트. 한글은 지원하지 않음)
+
+프로그램 언어의 종류 : 기계어 (00101001110111...) / 어셈블리어 (기계어와 1:1 대응되는 언어) / 고급언어 (C, C++, JAVA, ...)
+
+자바의 특징 : 플랫폼독립적, 객체지향언어, 함수형코딩지원, 분산처리지원, 멀티쓰레드지원
+
+운영체제(실행파일) : Windows(.exe) / Mac(.app) / Linux(.sh 쉘) - JVM(.class)
+
+JVM : Java Virtual Machine
+JRE : Java Runtime Environment (Class Loader, Java API, Runtime Library)
+JDK : Java Development Kit (Compiler, Debugger)
+
+Java Project 생성 (프로젝트 폴더 생성 → 패키지 생성 (하위 폴더 생성) → Java class (소스파일 생성(.java)) → 저장(컴파일) (바이트코드 생성(.class)) → 실행

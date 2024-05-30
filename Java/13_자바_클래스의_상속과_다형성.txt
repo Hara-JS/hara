@@ -1,0 +1,177 @@
+[클래스의 상속]
+부모 클래스의 멤버(필드, 메서드, 이너 클래스)를 자식 클래스가 내려받아 자식 클래스 내부에 포함시키는 자바의 문법 요소
+
+UML(Unified Modeling Language) : 시스템을 모델로 표현해주는 대표적인 모델링 언어
+상속 다이어그램을 표기할 때 부모 클래스 쪽으로 화살표가 있음
+// 부모 클래스에서 자식 클래스로 갈수록 더 많은 특징과 기능이 구체화되므로 범위가 좁아짐
+
+상속의 장점 : 코드의 중복성 제거. 다형적 표현 가능(가장 중요한 장점) // 다형성(polymorphism)
+
+상속 문법 : 클래스를 상속할 때는 extends 키워드 사용. 클래스명 다음에 extends 부모 클래스를 표기
+class 자식 클래스 extends 부모 클래스 {
+}
+
+다중 상속 불가 (부모 클래스가 둘이 될 수는 없지만 자식 클래스는 여러 개 가능)
+
+상속 시 메모리의 구조 : 상속을 받으면 부모 클래스의 멤버를 가질 수 있는 이유는 객체 속에 부모 클래스의 객체를 먼저 생성하여 포함하기 때문
+
+생성자의 상속 여부 (생성자의 두가지 조건 : 클래스 이름과 동일. 리턴 타입이 없음)
+Q. 생성자는 상속이 될까?
+class A {
+A() {
+}
+}
+
+class B extends A {
+}
+
+ANS. 생성자는 상속되지 않음. 만일 생성자가 상속된다면 B클래스 내에 A() 생성자가 존재하는 형태. 이름이 달라 생성자 자격 없음. 리턴 타입이 없어 메서드는 아님
+
+상속 관계에서 다형성의 코드 표현 :
+A a1 = new A(); // A는 A이다.
+A a2 = new B(); // B는 A이다. (좌우 타입은 동일. 업 캐스팅으로 자동 변환)
+
+[객체의 타입 변환]
+자바 프로그램은 등호(=)를 중심으로 항상 왼쪽과 오른쪽의 자료형이 일치해야 함. 만일 자료형이 서로 다를 때는 컴파일러가 자동으로 타입을 변환해주거나 개발자가 직접 명시적으로 타입을 변환해 줘야 함. 이를 각각 업 캐스팅, 다운 캐스팅이라 함
+
+업 캐스팅과 다운 캐스팅 :
+기본 자료형에서 업 캐스팅은 범위가 좁은 쪽에서 넓은 쪽으로 캐스팅하는 것을 말하며, 그 반대가 다운 캐스팅
+객체에서는 자식 클래스에서 부모 클래스 쪽으로 변환되는 것이 업 캐스팅, 그 반대가 다운 캐스팅
+
+상속 관계에 있는 경우 객체도 타입 변환이 가능
+
+업 캐스팅은 항상 가능 (생략 시 컴파일러에 의해 자동 캐스팅)
+다운 캐스팅은 때에 따라서 가능/불가능 : 가능한 경우에만 수동으로 직접 캐스팅 필요 (다운 캐스팅이 가능하기 위해서는 Heap 메모리 내에 해당 객체가 있어야 함) // 잘못된 다운 캐스팅을 수행하면 ClassCastException이라는 예외가 발생하고 프로그램이 종료
+
+선언 타입에 따른 차이점 : 선언한 타입의 멤버만 사용 가능
+
+다운 캐스팅 가능 여부 확인 :
+참조 변수 instanceof 타입 // true : 캐스팅 가능 / false : 캐스팅 불가능 // 참조 변수가 참조하고 있는 실제 인스턴스 타입을 알아보기 위해 사용
+public void method(Vehicle vehicle) {
+if(vehicle instanceof Bus) {
+Bus bus = (Bus) vehicle;
+// bus 변수 사용
+}
+}
+// Java 12부터는 instanceof 연산의 결과가 true일 경우, 우측 타입 변수를 사용할 수 있기 때문에 강제 타입 변환이 필요 없음
+if(Vehicle instanceof Bus bus) {
+// bus 변수 사용
+}
+
+[메서드 오버라이딩(Method Overriding)]
+부모 클래스에게 상속받은 메서드와 동일한 이름의 메서드를 재정의하는 것
+
+메서드 오버라이딩을 위한 조건 :
+부모 클래스의 메서드와 시그너처 및 리턴 타입 동일
+부모 클래스의 메서드보다 접근 지정자의 범위가 같거나 넓어야 함
+
+객체 내에 동일한 멤버가 두개 이상 있는 경우 :
+참조 변수가 가리키는 객체의 바깥쪽부터 안쪽으로 들어가면서 첫번째 만나는 멤버가 실행
+
+메서드 오버라이딩 대표적인 예 :
+class Animal {
+void cry() {
+}
+}
+
+class Bird extends Animal {
+void cry() {
+System.out.println("짹짹");
+}
+}
+
+class Cat extends Animal {
+void cry() {
+System.out.println("야옹");
+}
+}
+
+class Dog extends Animal {
+void cry() {
+System.out.println("멍멍");
+}
+}
+
+각각의 타입으로 선언 + 각각의 타입으로 객체 생성
+Animal aa = new Animal();
+Bird bb = new Bird();
+Cat cc = new Cat();
+Dog dd = new Dog();
+
+aa.cry(); // 출력 없음
+bb.cry(); // 짹짹
+cc.cry(); // 야옹
+dd.cry(); // 멍멍
+
+부모 클래스 타입으로 선언 + 자식 클래스 타입으로 객체 생성 (다형적 표현)
+Animal ab = new Bird();
+Animal ac = new Cat();
+Animal ad = new Dog();
+
+ab.cry(); // 짹짹
+ac.cry(); // 야옹
+ad.cry(); // 멍멍
+
+배열로 한 번에 관리 가능
+Animal[] animals = new Animal[] { new Bird(), new Cat(), new Dog() };
+for (Animal animal : animals) {
+animal.cry();
+} // 짹짹, 야옹, 멍멍
+
+메서드 오버라이딩(Method Overriding)과 접근 지정자 :
+오버라이딩시 자식 클래스의 메서드 접근 지정자는 부모의 접근 지정자와 범위가 같거나 커야 함(좁혀질 수 없음)
+
+부모 클래스 메서드의 접근 지정자 / 메서드 오버라이딩을 할 때 사용할 수 있는 접근 지정자
+public / public
+protected / public, protected
+default / public, protected, default
+private / public, protected, default, private
+
+[인스턴스(Instance) 필드와 정적(static) 멤버의 중복]
+Instance 필드 → instance 필드는 오버라이딩 되지 않음 (메모리 상에서 공간이 분리되어 있기 때문)
+
+Instance 메서드 → 오버라이딩 발생 → 인스턴스 메서드 오버라이딩
+
+static 필드 → static 필드는 오버라이딩 되지 않음 (메모리 상에서 공간이 분리되어 있기 때문)
+
+static 메서드 → static 메서드는 오버라이딩 되지 않음 (메모리 상에서 공간이 분리되어 있기 때문)
+
+A a = new B();
+기준점 A(선언) : instance 필드, static 필드, static 메서드
+기준점 B(생성) : instance 메서드
+
+[super 키워드]
+부모의 객체를 가리키는 것. 필드명의 중복 또는 메서드 오버라이딩으로 가려진 부모의 필드 또는 메서드를 호출하기 위해 주로 사용
+
+[super() 메서드]
+부모 클래스의 생성자를 호출 → 자식 클래스 객체 속에 부모 객체가 포함될 수 있었던 이유
+
+super() 메서드는 생성자 내부에서만 사용 가능
+반드시 중괄호 이후 첫줄에 위치해야 함
+자식 클래스 생성자의 첫 줄에는 반드시 this() 또는 super()가 포함되어야 함(생략시 컴파일러가 자동으로 super() 추가)
+
+[Object 클래스]
+모든 자바 클래스의 부모 클래스 (상속을 하지 않은 경우 extends Object를 삽입해 Object 클래스를 상속)
+
+자바의 모든 클래스는 Object의 자식 클래스 (자바의 모든 클래스는 Object의 메서드를 가짐)
+
+Object 클래스의 주요 메서드 :
+리턴 타입 / 메서드명 / 주요 내용
+String / toString() / Object 객체의 정보 (패키지.클래스명@해쉬코드) 일반적으로 오버라이딩해서 사용
+boolean / equals(Object obj) / 입력 매개 변수 Obj 객체와 stack 메모리 값(번지) 비교. 등가 비교 연산자 ==와 동일한 결과
+int / hashCode() / 객체의 hashCode() 값 리턴. Hashtable, HashMap 등의 동등 비교에 사용. 위칫값을 기반으로 생성된 고윳값 (STEP 1. hashcode() 일치 + STEP 2. equals() true → 동등)
+void / wait() / 현재의 쓰레드를 일시정지(waiting / timed-waiting) 상태로 전환. 보통 notify() 또는 notifyAll()로 일시정지 해제. 동기화 블록에서만 사용 가능
+void / wait(long timeout) / 현재의 쓰레드를 일시정지(waiting / timed-waiting) 상태로 전환. 보통 notify() 또는 notifyAll()로 일시정지 해제. 동기화 블록에서만 사용 가능
+void / wait(long timeout, int nanos) / 현재의 쓰레드를 일시정지(waiting / timed-waiting) 상태로 전환. 보통 notify() 또는 notifyAll()로 일시정지 해제. 동기화 블록에서만 사용 가능
+void / notify() / wait()를 이용해 일시정지 상태의 하나의 쓰레드(notify()) 또는 전체 쓰레드(notifyAll())의 일시정지 해제. 동기화 블록에서만 사용 가능
+void / notifyAll() / wait()를 이용해 일시정지 상태의 하나의 쓰레드(notify()) 또는 전체 쓰레드(notifyAll())의 일시정지 해제. 동기화 블록에서만 사용 가능
+
+[sealed class(봉인된 클래스)]
+기본적으로 final 클래스를 제외한 모든 클래스는 부모 클래스가 될 수 있음. 그러나 Java 15부터는 무분별한 자식 클래스 생성을 방지하기 위해 봉인된(sealed) 클래스가 도입되었음. 다음과 같이 Person의 자식 클래스는 Employee와 Manager만 가능하고, 그 이외는 자식 클래스가 될 수 없도록 Person을 봉인된 클래스로 선언할 수 있음
+public sealed class Person permits Employee, Manager {}
+sealed 키워드를 사용하면 permits 키워드 뒤에 상속 가능한 자식 클래스를 지정해야 함. 봉인된 Person 클래스를 상속하는 Employee와 Manager는 final 또는 non-sealed 키워드로 다음과 같이 선언하거나 sealed 키워드를 사용해서 또 다른 봉인 클래스로 선언해야 함
+public final class Employee extends Person {}
+public non-sealed class Manager extends Person {}
+public sealed class Manager extends Person {} // 봉인된 부모를 상속 받았기 때문에 봉인의 특성을 물려받음. 선언할 때 sealed를 붙여야 함
+final은 더 이상 상속할 수 없다는 뜻이고, non-sealed는 봉인을 해제한다는 뜻. 따라서 Employee는 더 이상 자식 클래스를 만들 수 없지만 Manager는 다음과 같이 자식 클래스를 만들 수 있음
+public class Director extends Manager {}
