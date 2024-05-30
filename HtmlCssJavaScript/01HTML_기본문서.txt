@@ -1,0 +1,43 @@
+[HTML(Hyper Text Markup Language)]
+Hyper Text 웹에서 자유롭게 오갈 수 있는 링크
+Mark up 텍스트뿐만 아니라 이미지, 영상 등을 표시함. 마크업에 사용하는 꼬리표를 태그(tag)라고 함
+HTML은 웹에서 자유롭게 오갈 수 있는 웹 문서를 만드는 언어
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>제목</h1>
+  <p>텍스트 단락</p>
+  <table>
+    <tr>
+      <td>셀1</td>
+      <td>셀2</td>
+    </tr>
+    <tr>
+      <td>셀3</td>
+      <td>셀4</td>
+    </tr>
+  </table>
+</body>
+</html>
+
+<!DOCTYPE html> : 현재 문서가 HTML5 언어로 작성한 웹 문서라는 뜻
+
+<html>~</html> : 웹 문서의 시작과 끝을 나타내는 태그. 웹 브라우저가 <html> 태그를 만나면 </html>까지 소스를 읽어 화면에 표시
+
+<head>~</head> : 웹 브라우저가 웹 문서를 해석하는 데 필요한 정보를 입력하는 부분. 웹 브라우저 화면에는 보이지 않음. 문서에서 사용할 외부 파일 링크
+
+<meta> : 문자 세트 등 문서 정보가 들어 있음
+	<meta charset="UTF-8"> 한글로 된 내용을 표시하기 위한 문자 세트
+	<meta name="keywords" content=""> 웹 문서의 키워드
+	<meta name="description" content=""> 웹 문서의 설명
+	<meta name="author" content=""> 웹 문서의 소유자나 제작자
+
+<title>~</title> : 문서 제목
+
+<body>~</body> : 실제로 웹 브라우저 화면에 나타나는 내용
