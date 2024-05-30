@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+  <script src="quest1.js"></script>
+
+  <!-- Excel to JSON Convert Library -->
+  <script src="lib/xlsx.full.min.js"></script>
+  
+  <head>
+    <style>
+      .areaDiv {
+        margin : 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="areaDiv">
+      <b>데이터 Excel 파일 업로드 영역</b><br>
+      <!-- accept는 확장자 선택에 제한을 두기 위한 속성 -->
+      <input type="file" id="my_file_input" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+    </div>
+    <hr>
+    <div class="areaDiv">
+      <b>데이터 확인 영역</b><br>
+      <select id="dataViewSelect">
+        <option value="-"> - 데이터 선택 - </option>
+      </select>
+      <input type="button" id="dataViewBtn" value="데이터 확인">
+    </div>
+    <hr>
+    <div class="areaDiv">
+      <b>문제 선택 영역</b><br>
+      <select id="questionSelect">
+        <option value="-1"> - 문제를 선택하세요 - </option>
+      </select>
+      <input type="button" id="showAnswerBtn" value="선택한 문제의 정답">
+    </div>
+  </body>
+
+</html>
