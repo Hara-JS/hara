@@ -1,0 +1,65 @@
+h1 {
+    text-align: center;
+    word-spacing: normal;
+}
+
+div {
+    margin-bottom: 20px;
+}
+
+.dice_rule {
+    box-sizing: border-box;
+    width: auto;
+    height: auto;
+    padding: 20px;
+    border: 5px dotted #ccc;
+    border-radius: 5%;
+}
+
+nav ul {
+    text-align: center;
+    list-style: none;
+    text-align: center;
+}
+nav ul li {
+    text-align: center;
+    box-sizing: border-box;
+    display: inline-block;
+    box-sizing: border-box;
+    border: 10px double #ccc;
+    padding: 50px;
+    margin: 20px;
+    
+}
+
+.rollButton {
+    cursor: pointer;
+}
+
+.scoreList {
+    text-align: center;
+}
+
+.calButton {
+    cursor: pointer;
+}
+
+.score {
+    box-sizing: border-box;
+    width: auto;
+    height: auto;
+    padding: 20px;
+    border: 5px dotted #ccc;
+    border-radius: 5%;
+}
+
+.diceBtn1 {
+    box-sizing: border-box;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+}
+
+.diceBtn2 {
+    cursor: pointer;
+}
