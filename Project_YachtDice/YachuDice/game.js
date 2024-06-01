@@ -148,16 +148,53 @@ for(let i = 0; i < fourOfAKindCalc.length; i++) {
 }
 
 const fullHouseCalc = document.getElementsByName("fullHouseCalc");
+for(let i = 0; i < fullHouseCalc.length; i++) {
+    fullHouseCalc[i].addEventListener("click", (event) => {
+        moveAllDown();
+        fullHouseCalcFn();
+        switchPlayer();
+        event.target.disabled = true;
+        clearDiceDiv();
+    })
+}
+
 const smallStraightCalc = document.getElementsByName("smallStraightCalc");
+for(let i = 0; i < smallStraightCalc.length; i++) {
+    smallStraightCalc[i].addEventListener("click", (event) => {
+        moveAllDown();
+        smallStraightCalcFn();
+        switchPlayer();
+        event.target.disabled = true;
+        clearDiceDiv();
+    })
+}
+
 const largeStraightCalc = document.getElementsByName("largeStraightCalc");
+for(let i = 0; i < largeStraightCalc.length; i++) {
+    largeStraightCalc[i].addEventListener("click", (event) => {
+        moveAllDown();
+        largeStraightCalcFn();
+        switchPlayer();
+        event.target.disabled = true;
+        clearDiceDiv();
+    })
+}
+
 const yachtCalc = document.getElementsByName("yachtCalc");
+for(let i = 0; i < yachtCalc.length; i++) {
+    yachtCalc[i].addEventListener("click", (event) => {
+        moveAllDown();
+        yachtCalcFn();
+        switchPlayer();
+        event.target.disabled = true;
+        clearDiceDiv();
+    })
+}
 };
+
 const clearDiceDiv = () => {
     const diceRollBtn = document.getElementById("diceRoll");
     diceRollBtn.disabled = false;
-    // const diceBtn3 = document.getElementsByClassName("diceBtn3");
-    // for(let i = 0; i < diceBtn3.length; i++) {
-    //     diceBtn3[i].value = "";
     // }
 }
 
@@ -282,5 +319,78 @@ const fourOfAKindCalcFn = () => {
         }
     }    
     score += sameDiceCnt * sameDice;
+    targetDiv.value = score;
+}
+
+const fullHouseCalcFn = () => {
+    const targetDiv = document.getElementById("player" + gameJsObj.player + "fullHouse");
+    const finalDiceDiv = document.getElementsByClassName("diceBtn3");
+    let score = 0;
+    let isSameThree = false;
+    let isSameTwo = false;
+    for(let i = 1; i <= 6; i++) {
+        if([...finalDiceDiv].filter(x => Number.parseInt(x.value) === i).length === 3) {
+            isSameThree = true;
+        }
+        if([...finalDiceDiv].filter(x => Number.parseInt(x.value) === i).length === 2) {
+            isSameTwo = true;
+        }
+    }    
+    // score += sameDiceCnt * sameDice;
+    if(isSameThree === true && isSameTwo === true){
+        for(let i = 0; i < finalDiceDiv.length; i++) {
+            score += Number.parseInt(finalDiceDiv[i].value);
+        }
+    }
+    targetDiv.value = score;
+}
+
+const smallStraightCalcFn = () => {
+    const targetDiv = document.getElementById("player" + gameJsObj.player + "smallStraight");
+    let score = 0;
+    let smallStraightCnt = 0;
+    const sortedArr = [...document.getElementsByClassName("diceBtn3")].sort((a, b) => a.value - b.value);
+    for(let i = 0; i < sortedArr.length - 1; i++) {
+        if(Number.parseInt(sortedArr[i].value) + 1 === Number.parseInt(sortedArr[i + 1].value)) {
+            smallStraightCnt++;
+        }
+    }
+    if(smallStraightCnt >= 3) {
+        score = 15;
+    }
+    targetDiv.value = score;
+}
+
+const largeStraightCalcFn = () => {
+    const targetDiv = document.getElementById("player" + gameJsObj.player + "largeStraight");
+    let score = 0;
+    let largeStraightCnt = 0;
+    const sortedArr = [...document.getElementsByClassName("diceBtn3")].sort((a, b) => a.value - b.value);
+    for(let i = 0; i < sortedArr.length - 1; i++) {
+        if(Number.parseInt(sortedArr[i].value) + 1 === Number.parseInt(sortedArr[i + 1].value)) {
+            largeStraightCnt++;
+        }
+    }
+    if(largeStraightCnt === 4) {
+        score = 30;
+    }
+    targetDiv.value = score;
+}
+
+const yachtCalcFn = () => {
+    const targetDiv = document.getElementById("player" + gameJsObj.player + "yacht");
+    let score = 0;
+    let yachtCnt = 0;
+    let isYucht = true ;
+    const finalDiceDiv = document.getElementsByClassName("diceBtn3");
+    for(let i = 0; i < finalDiceDiv.length - 1 && isYucht === true; i++) {
+        isYucht = isYucht && (finalDiceDiv[i].value === finalDiceDiv[i + 1].value)
+        if(finalDiceDiv[i].value === finalDiceDiv[i + 1].value) {
+            yachtCnt++;
+        }
+    }
+    if(yachtCnt === 4) {
+        score = 50;
+    }
     targetDiv.value = score;
 }
