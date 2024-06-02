@@ -203,6 +203,7 @@ const calcFn = (scoreName, event) => {
     clearDiceDiv();
     switchPlayer();
     switchDisableBtn();
+    compareTotalScore();
 }
 
 const calcTotalScore = () => {
@@ -363,4 +364,22 @@ const yachtCalcFn = () => {
     }
     targetDiv.value = score;
 }
-                
+
+const compareTotalScore = () => {
+    const scoreDiv = document.getElementsByClassName("totalScore");
+    let isNotFulled = false;
+    for(let i = 0; i < scoreDiv.length; i++) {
+        if(scoreDiv[i].value === "") {
+            isNotFulled = true;
+        }
+    }
+    if(!isNotFulled) {
+        if(Number.parseInt(document.getElementById("player1TotalScore").value) > Number.parseInt(document.getElementById("player2TotalScore").value)) {
+            alert("Player 1 우승");
+        } else if (Number.parseInt(document.getElementById("player1TotalScore").value) < Number.parseInt(document.getElementById("player2TotalScore").value)) {
+            alert("Player 2 우승");
+        } else {
+            alert("무승부");
+        }
+    }
+}
