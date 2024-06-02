@@ -1,8 +1,10 @@
 window.onload = () => {
-  gameJsInit();
+    gameJsInit();
 };
+
 const gameJsInit = () => {
-  makeGameJsEvent();
+    makeGameJsEvent();
+    switchDisableBtn();
 };
 
 /**
@@ -14,50 +16,47 @@ const gameJsObj = {
 }
 
 const makeGameJsEvent = () => {
-  const diceRollBtn = document.getElementById("diceRoll");
-  diceRollBtn.addEventListener("click", () => {
-      gameJsObj.count++;
-      const diceDiv = document.getElementsByClassName("diceBtn1");
-      
-      for (let i = 0; i < diceDiv.length; i++) {
-          const targetDiv = diceDiv[i];
-          const diceBtn3 = document.getElementsByClassName("diceBtn3")[i.toString()].value;
-          
-          if (diceBtn3 !== null && diceBtn3 !== undefined && diceBtn3 === "") {
-              targetDiv.value = Math.floor(Math.random() * 6) + 1;
+    const diceRollBtn = document.getElementById("diceRoll");
+    diceRollBtn.addEventListener("click", () => {
+        gameJsObj.count++;
+        const diceDiv = document.getElementsByClassName("diceBtn1");
+        for (let i = 0; i < diceDiv.length; i++) {
+            const targetDiv = diceDiv[i];
+            const diceBtn3 = document.getElementsByClassName("diceBtn3")[i.toString()].value;
+            if (diceBtn3 !== null && diceBtn3 !== undefined && diceBtn3 === "") {
+                targetDiv.value = Math.floor(Math.random() * 6) + 1;
             }
         }
         if(gameJsObj.count > 2) {
             diceRollBtn.disabled = true;
         }
-  });
-
-  const keepBtnList = document.getElementsByClassName("diceBtn2");
-  for (let i = 0; i < keepBtnList.length; i++) {
-    const keepBtn = keepBtnList[i];
-    keepBtn.addEventListener("click", (event) => {
-        let moveFrom;
-        let moveTo;
-        const divIndex = event.target.id;
-
-        switch(keepBtnList[divIndex].value) {
-            case "keep":
-                moveFrom = document.getElementsByClassName("diceBtn1")[divIndex];
-                moveTo = document.getElementsByClassName("diceBtn3")[divIndex];
-                keepBtnList[divIndex].value = "recovery";
-                break;
-            case "recovery":
-                moveFrom = document.getElementsByClassName("diceBtn3")[divIndex];
-                moveTo = document.getElementsByClassName("diceBtn1")[divIndex];
-                keepBtnList[divIndex].value = "keep";
-                break;
-        }
-
-      const value = moveFrom.value;
-      moveTo.value = value;
-      moveFrom.value = "";
     });
-  }
+    
+    const keepBtnList = document.getElementsByClassName("diceBtn2");
+    for (let i = 0; i < keepBtnList.length; i++) {
+        const keepBtn = keepBtnList[i];
+        keepBtn.addEventListener("click", (event) => {
+            let moveFrom;
+            let moveTo;
+            const divIndex = event.target.id;
+            
+            switch(keepBtnList[divIndex].value) {
+                case "keep":
+                    moveFrom = document.getElementsByClassName("diceBtn1")[divIndex];
+                    moveTo = document.getElementsByClassName("diceBtn3")[divIndex];
+                    keepBtnList[divIndex].value = "recovery";
+                    break;
+                case "recovery":
+                    moveFrom = document.getElementsByClassName("diceBtn3")[divIndex];
+                    moveTo = document.getElementsByClassName("diceBtn1")[divIndex];
+                    keepBtnList[divIndex].value = "keep";
+                    break;
+            }
+            const value = moveFrom.value;
+            moveTo.value = value;
+            moveFrom.value = "";
+        });
+    }
 
 const acesCalc = document.getElementsByName("acesCalc");
 for(let i = 0; i < acesCalc.length; i++) {
@@ -147,6 +146,14 @@ for(let i = 0; i < yachtCalc.length; i++) {
 const clearDiceDiv = () => {
     const diceRollBtn = document.getElementById("diceRoll");
     diceRollBtn.disabled = false;
+    const diceBtn3 = document.getElementsByClassName("diceBtn3");
+    for(let i = 0; i < diceBtn3.length; i++) {
+        diceBtn3[i].value = "";
+    }
+    const diceBtn2 = document.getElementsByClassName("diceBtn2");
+    for(let i = 0; i < diceBtn2.length; i++) {
+        diceBtn2[i].value = "keep";
+    }
 }
 
 const moveAllDown = () => {
@@ -163,25 +170,62 @@ const moveAllDown = () => {
     }
 }
 
+const checkEmptySpace = () => {
+    const diceBtn3 = document.getElementsByClassName("diceBtn3");
+    return [...diceBtn3].filter(x => x.value !== null && x.value !== undefined && x.value !== "").length === diceBtn3.length;
+}
+
 const calcFn = (scoreName, event) => {
     moveAllDown();
-    switch(scoreName) {            
-        case "AcesCalc":        calcAcesToSixesFn(1);   break;
-        case "TwosCalc":        calcAcesToSixesFn(2);   break;
-        case "ThreesCalc":      calcAcesToSixesFn(3);   break;
-        case "FoursCalc":       calcAcesToSixesFn(4);   break;
-        case "FivesCalc":       calcAcesToSixesFn(5);   break;
-        case "SixesCalc":       calcAcesToSixesFn(6);   break;
-        case "Choice":          choiceCalcFn();         break;
-        case "fourOfAKind":     fourOfAKindCalcFn();    break;
-        case "fullHouse":       fullHouseCalcFn();      break;
-        case "smallStraight":   straightCalFn(3);       break;
-        case "largeStraight":   straightCalFn(4);       break;
-        case "yacht":           yachtCalcFn();          break;
+
+    if(checkEmptySpace() === false) {
+        alert("주사위를 반드시 굴려주세요.");
+        return;
     }
-    switchPlayer();
+
+    switch(scoreName) {            
+        case "AcesCalc": calcAcesToSixesFn(1); break;
+        case "TwosCalc": calcAcesToSixesFn(2); break;
+        case "ThreesCalc": calcAcesToSixesFn(3); break;
+        case "FoursCalc": calcAcesToSixesFn(4); break;
+        case "FivesCalc": calcAcesToSixesFn(5); break;
+        case "SixesCalc": calcAcesToSixesFn(6); break;
+        case "Choice": choiceCalcFn(); break;
+        case "fourOfAKind": fourOfAKindCalcFn(); break;
+        case "fullHouse": fullHouseCalcFn(); break;
+        case "smallStraight": straightCalFn(3); break;
+        case "largeStraight": straightCalFn(4); break;
+        case "yacht": yachtCalcFn(); break;
+    }
+
     event.target.disabled = true;
+    calcTotalScore();
     clearDiceDiv();
+    switchPlayer();
+    switchDisableBtn();
+}
+
+const calcTotalScore = () => {
+    const acesPoint  = document.getElementById("player" + gameJsObj.player + "Aces").value === "" ? 0 : Number.parseInt(document.getElementById("player" + gameJsObj.player + "Aces").value);
+    const twosPoint  = document.getElementById("player" + gameJsObj.player + "Twos").value === "" ? 0 : Number.parseInt(document.getElementById("player" + gameJsObj.player + "Twos").value);
+    const threesPoint  = document.getElementById("player" + gameJsObj.player + "Threes").value === "" ? 0 : Number.parseInt(document.getElementById("player" + gameJsObj.player + "Threes").value);
+    const foursPoint  = document.getElementById("player" + gameJsObj.player + "Fours").value === "" ? 0 : Number.parseInt(document.getElementById("player" + gameJsObj.player + "Fours").value);
+    const fivesPoint  = document.getElementById("player" + gameJsObj.player + "Fives").value === "" ? 0 : Number.parseInt(document.getElementById("player" + gameJsObj.player + "Fives").value);
+    const sixesPoint  = document.getElementById("player" + gameJsObj.player + "Sixes").value === "" ? 0 : Number.parseInt(document.getElementById("player" + gameJsObj.player + "Sixes").value);
+    const choicePoint  = document.getElementById("player" + gameJsObj.player + "Choice").value === "" ? 0 : Number.parseInt(document.getElementById("player" + gameJsObj.player + "Choice").value);
+    const fourOfAKindPoint  = document.getElementById("player" + gameJsObj.player + "fourOfAKind").value === "" ? 0 : Number.parseInt(document.getElementById("player" + gameJsObj.player + "fourOfAKind").value);
+    const fullHousePoint  = document.getElementById("player" + gameJsObj.player + "fullHouse").value === "" ? 0 : Number.parseInt(document.getElementById("player" + gameJsObj.player + "fullHouse").value);
+    const smallStraightPoint  = document.getElementById("player" + gameJsObj.player + "smallStraight").value === "" ? 0 : Number.parseInt(document.getElementById("player" + gameJsObj.player + "smallStraight").value);
+    const largeStraightPoint  = document.getElementById("player" + gameJsObj.player + "largeStraight").value === "" ? 0 : Number.parseInt(document.getElementById("player" + gameJsObj.player + "largeStraight").value);
+    const yachtPoint  = document.getElementById("player" + gameJsObj.player + "yacht").value === "" ? 0 : Number.parseInt(document.getElementById("player" + gameJsObj.player + "yacht").value);
+
+    const topTotal = acesPoint + twosPoint + threesPoint + foursPoint + fivesPoint + sixesPoint;
+    const bonusScore = topTotal >= 63 ? 35 : 0;
+    const totalScore = topTotal + bonusScore + choicePoint + fourOfAKindPoint + fullHousePoint + smallStraightPoint + largeStraightPoint + yachtPoint;
+
+    document.getElementById("player" + gameJsObj.player + "TopScore").value = topTotal;
+    document.getElementById("player" + gameJsObj.player + "Bonus").value = bonusScore;
+    document.getElementById("player" + gameJsObj.player + "TotalScore").value = totalScore;
 }
 
 const switchPlayer = () => {
@@ -192,6 +236,25 @@ const switchPlayer = () => {
         case 2:
             gameJsObj.player = 1;
             break;
+    }
+    gameJsObj.count = 0;
+}
+
+const switchDisableBtn = () => {
+    for(let i = 1; i <= 2; i++) {
+        const isDisable = i !== gameJsObj.player;
+        document.getElementById("player" + i + "AcesBtn").disabled = isDisable || document.getElementById("player" + i + "Aces").value !== "";
+        document.getElementById("player" + i + "TwosBtn").disabled = isDisable || document.getElementById("player" + i + "Twos").value !== "";
+        document.getElementById("player" + i + "ThreesBtn").disabled = isDisable || document.getElementById("player" + i + "Threes").value !== "";
+        document.getElementById("player" + i + "FoursBtn").disabled = isDisable || document.getElementById("player" + i + "Fours").value !== "";
+        document.getElementById("player" + i + "FivesBtn").disabled = isDisable || document.getElementById("player" + i + "Fives").value !== "";
+        document.getElementById("player" + i + "SixesBtn").disabled = isDisable || document.getElementById("player" + i + "Sixes").value !== "";
+        document.getElementById("player" + i + "ChoiceBtn").disabled = isDisable || document.getElementById("player" + i + "Choice").value !== "";
+        document.getElementById("player" + i + "fourOfAKindBtn").disabled = isDisable || document.getElementById("player" + i + "fourOfAKind").value !== "";
+        document.getElementById("player" + i + "fullHouseBtn").disabled = isDisable || document.getElementById("player" + i + "fullHouse").value !== "";
+        document.getElementById("player" + i + "smallStraightBtn").disabled = isDisable || document.getElementById("player" + i + "smallStraight").value !== "";
+        document.getElementById("player" + i + "largeStraightBtn").disabled = isDisable || document.getElementById("player" + i + "largeStraight").value !== "";
+        document.getElementById("player" + i + "yachtBtn").disabled = isDisable || document.getElementById("player" + i + "yacht").value !== "";
     }
 }
 
