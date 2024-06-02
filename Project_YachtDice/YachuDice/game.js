@@ -62,132 +62,84 @@ const makeGameJsEvent = () => {
 const acesCalc = document.getElementsByName("acesCalc");
 for(let i = 0; i < acesCalc.length; i++) {
     acesCalc[i].addEventListener("click", (event) => {
-        moveAllDown();
-        acesCalcFn();
-        switchPlayer();
-        event.target.disabled = true;
-        clearDiceDiv();
+        calcFn("AcesCalc", event);
     })
 }
 
 const twosCalc = document.getElementsByName("twosCalc");
 for(let i = 0; i < twosCalc.length; i++) {
     twosCalc[i].addEventListener("click", (event) => {
-        moveAllDown();
-        twosCalcFn();
-        switchPlayer();
-        event.target.disabled = true;
-        clearDiceDiv();
+        calcFn("TwosCalc", event);
     })
 }
 
 const threesCalc = document.getElementsByName("threesCalc");
 for(let i = 0; i < threesCalc.length; i++) {
     threesCalc[i].addEventListener("click", (event) => {
-        moveAllDown();
-        threesCalcFn();
-        switchPlayer();
-        event.target.disabled = true;
-        clearDiceDiv();
+        calcFn("ThreesCalc", event);
     })
 }
 
 const foursCalc = document.getElementsByName("foursCalc");
 for(let i = 0; i < foursCalc.length; i++) {
     foursCalc[i].addEventListener("click", (event) => {
-        moveAllDown();
-        foursCalcFn();
-        switchPlayer();
-        event.target.disabled = true;
-        clearDiceDiv();
+        calcFn("FoursCalc", event);
     })
 }
 
 const fivesCalc = document.getElementsByName("fivesCalc");
 for(let i = 0; i < fivesCalc.length; i++) {
     fivesCalc[i].addEventListener("click", (event) => {
-        moveAllDown();
-        fivesCalcFn();
-        switchPlayer();
-        event.target.disabled = true;
-        clearDiceDiv();
+        calcFn("FivesCalc", event);
     })
 }
 
 const sixesCalc = document.getElementsByName("sixesCalc");
 for(let i = 0; i < sixesCalc.length; i++) {
     sixesCalc[i].addEventListener("click", (event) => {
-        moveAllDown();
-        sixesCalcFn();
-        switchPlayer();
-        event.target.disabled = true;
-        clearDiceDiv();
+        calcFn("SixesCalc", event);
     })
 }
 
 const choiceCalc = document.getElementsByName("choiceCalc");
 for(let i = 0; i < choiceCalc.length; i++) {
     choiceCalc[i].addEventListener("click", (event) => {
-        moveAllDown();
-        choiceCalcFn();
-        switchPlayer();
-        event.target.disabled = true;
-        clearDiceDiv();
+        calcFn("Choice", event);
     })
 }
 
 const fourOfAKindCalc = document.getElementsByName("fourOfAKindCalc");
 for(let i = 0; i < fourOfAKindCalc.length; i++) {
     fourOfAKindCalc[i].addEventListener("click", (event) => {
-        moveAllDown();
-        fourOfAKindCalcFn();
-        switchPlayer();
-        event.target.disabled = true;
-        clearDiceDiv();
+        calcFn("fourOfAKind", event);
     })
 }
 
 const fullHouseCalc = document.getElementsByName("fullHouseCalc");
 for(let i = 0; i < fullHouseCalc.length; i++) {
     fullHouseCalc[i].addEventListener("click", (event) => {
-        moveAllDown();
-        fullHouseCalcFn();
-        switchPlayer();
-        event.target.disabled = true;
-        clearDiceDiv();
+        calcFn("fullHouse", event);
     })
 }
 
 const smallStraightCalc = document.getElementsByName("smallStraightCalc");
 for(let i = 0; i < smallStraightCalc.length; i++) {
     smallStraightCalc[i].addEventListener("click", (event) => {
-        moveAllDown();
-        smallStraightCalcFn();
-        switchPlayer();
-        event.target.disabled = true;
-        clearDiceDiv();
+        calcFn("smallStraight", event);
     })
 }
 
 const largeStraightCalc = document.getElementsByName("largeStraightCalc");
 for(let i = 0; i < largeStraightCalc.length; i++) {
     largeStraightCalc[i].addEventListener("click", (event) => {
-        moveAllDown();
-        largeStraightCalcFn();
-        switchPlayer();
-        event.target.disabled = true;
-        clearDiceDiv();
+        calcFn("largeStraight", event);
     })
 }
 
 const yachtCalc = document.getElementsByName("yachtCalc");
 for(let i = 0; i < yachtCalc.length; i++) {
     yachtCalc[i].addEventListener("click", (event) => {
-        moveAllDown();
-        yachtCalcFn();
-        switchPlayer();
-        event.target.disabled = true;
-        clearDiceDiv();
+        calcFn("yacht", event);
     })
 }
 };
@@ -195,7 +147,6 @@ for(let i = 0; i < yachtCalc.length; i++) {
 const clearDiceDiv = () => {
     const diceRollBtn = document.getElementById("diceRoll");
     diceRollBtn.disabled = false;
-    // }
 }
 
 const moveAllDown = () => {
@@ -212,6 +163,27 @@ const moveAllDown = () => {
     }
 }
 
+const calcFn = (scoreName, event) => {
+    moveAllDown();
+    switch(scoreName) {            
+        case "AcesCalc":        calcAcesToSixesFn(1);   break;
+        case "TwosCalc":        calcAcesToSixesFn(2);   break;
+        case "ThreesCalc":      calcAcesToSixesFn(3);   break;
+        case "FoursCalc":       calcAcesToSixesFn(4);   break;
+        case "FivesCalc":       calcAcesToSixesFn(5);   break;
+        case "SixesCalc":       calcAcesToSixesFn(6);   break;
+        case "Choice":          choiceCalcFn();         break;
+        case "fourOfAKind":     fourOfAKindCalcFn();    break;
+        case "fullHouse":       fullHouseCalcFn();      break;
+        case "smallStraight":   straightCalFn(3);       break;
+        case "largeStraight":   straightCalFn(4);       break;
+        case "yacht":           yachtCalcFn();          break;
+    }
+    switchPlayer();
+    event.target.disabled = true;
+    clearDiceDiv();
+}
+
 const switchPlayer = () => {
     switch(gameJsObj.player) {
         case 1:
@@ -223,73 +195,23 @@ const switchPlayer = () => {
     }
 }
 
-const acesCalcFn = () => {
-    const targetDiv = document.getElementById("player" + gameJsObj.player + "Ace");
-    const finalDiceDiv = document.getElementsByClassName("diceBtn3");
-    let score = 0;
-    for(let i = 0; i < finalDiceDiv.length; i++) {
-        if(Number.parseInt(finalDiceDiv[i].value) === 1) {
-            score += 1;
-        }
+const calcAcesToSixesFn = (number) => {
+    let divName = "";
+    switch(number) {
+        case 1: divName = "Aces"; break;
+        case 2: divName = "Twos"; break;
+        case 3: divName = "Threes"; break;
+        case 4: divName = "Fours"; break;
+        case 5: divName = "Fives"; break;
+        case 6: divName = "Sixes"; break;
     }
-    targetDiv.value = score;
-}
 
-const twosCalcFn = () => {
-    const targetDiv = document.getElementById("player" + gameJsObj.player + "Twos");
+const targetDiv = document.getElementById("player" + gameJsObj.player + divName);
     const finalDiceDiv = document.getElementsByClassName("diceBtn3");
     let score = 0;
     for(let i = 0; i < finalDiceDiv.length; i++) {
-        if(Number.parseInt(finalDiceDiv[i].value) === 2) {
-            score += 2;
-        }
-    }
-    targetDiv.value = score;
-}
-
-const threesCalcFn = () => {
-    const targetDiv = document.getElementById("player" + gameJsObj.player + "Threes");
-    const finalDiceDiv = document.getElementsByClassName("diceBtn3");
-    let score = 0;
-    for(let i = 0; i < finalDiceDiv.length; i++) {
-        if(Number.parseInt(finalDiceDiv[i].value) === 3) {
-            score += 3;
-        }
-    }
-    targetDiv.value = score;
-}
-
-const foursCalcFn = () => {
-    const targetDiv = document.getElementById("player" + gameJsObj.player + "Fours");
-    const finalDiceDiv = document.getElementsByClassName("diceBtn3");
-    let score = 0;
-    for(let i = 0; i < finalDiceDiv.length; i++) {
-        if(Number.parseInt(finalDiceDiv[i].value) === 4) {
-            score += 4;
-        }
-    }
-    targetDiv.value = score;
-}
-
-const fivesCalcFn = () => {
-    const targetDiv = document.getElementById("player" + gameJsObj.player + "Fives");
-    const finalDiceDiv = document.getElementsByClassName("diceBtn3");
-    let score = 0;
-    for(let i = 0; i < finalDiceDiv.length; i++) {
-        if(Number.parseInt(finalDiceDiv[i].value) === 5) {
-            score += 5;
-        }
-    }
-    targetDiv.value = score;
-}
-
-const sixesCalcFn = () => {
-    const targetDiv = document.getElementById("player" + gameJsObj.player + "Sixes");
-    const finalDiceDiv = document.getElementsByClassName("diceBtn3");
-    let score = 0;
-    for(let i = 0; i < finalDiceDiv.length; i++) {
-        if(Number.parseInt(finalDiceDiv[i].value) === 6) {
-            score += 6;
+        if(Number.parseInt(finalDiceDiv[i].value) === number) {
+            score += number;
         }
     }
     targetDiv.value = score;
@@ -336,7 +258,6 @@ const fullHouseCalcFn = () => {
             isSameTwo = true;
         }
     }    
-    // score += sameDiceCnt * sameDice;
     if(isSameThree === true && isSameTwo === true){
         for(let i = 0; i < finalDiceDiv.length; i++) {
             score += Number.parseInt(finalDiceDiv[i].value);
@@ -345,34 +266,19 @@ const fullHouseCalcFn = () => {
     targetDiv.value = score;
 }
 
-const smallStraightCalcFn = () => {
-    const targetDiv = document.getElementById("player" + gameJsObj.player + "smallStraight");
+const straightCalFn = (number) => {
+    const divName = number === 3 ? "smallStraight" : "largeStraight";
+    const targetDiv = document.getElementById("player" + gameJsObj.player + divName);
     let score = 0;
-    let smallStraightCnt = 0;
+    let straightCnt = 0;
     const sortedArr = [...document.getElementsByClassName("diceBtn3")].sort((a, b) => a.value - b.value);
     for(let i = 0; i < sortedArr.length - 1; i++) {
         if(Number.parseInt(sortedArr[i].value) + 1 === Number.parseInt(sortedArr[i + 1].value)) {
-            smallStraightCnt++;
+            straightCnt++;
         }
     }
-    if(smallStraightCnt >= 3) {
-        score = 15;
-    }
-    targetDiv.value = score;
-}
-
-const largeStraightCalcFn = () => {
-    const targetDiv = document.getElementById("player" + gameJsObj.player + "largeStraight");
-    let score = 0;
-    let largeStraightCnt = 0;
-    const sortedArr = [...document.getElementsByClassName("diceBtn3")].sort((a, b) => a.value - b.value);
-    for(let i = 0; i < sortedArr.length - 1; i++) {
-        if(Number.parseInt(sortedArr[i].value) + 1 === Number.parseInt(sortedArr[i + 1].value)) {
-            largeStraightCnt++;
-        }
-    }
-    if(largeStraightCnt === 4) {
-        score = 30;
+    if(straightCnt >= number) {
+        score = number === 3 ? 15 : 30;
     }
     targetDiv.value = score;
 }
@@ -384,13 +290,14 @@ const yachtCalcFn = () => {
     let isYucht = true ;
     const finalDiceDiv = document.getElementsByClassName("diceBtn3");
     for(let i = 0; i < finalDiceDiv.length - 1 && isYucht === true; i++) {
-        isYucht = isYucht && (finalDiceDiv[i].value === finalDiceDiv[i + 1].value)
-        if(finalDiceDiv[i].value === finalDiceDiv[i + 1].value) {
-            yachtCnt++;
-        }
+            isYucht = finalDiceDiv[i].value !== "" && isYucht && (finalDiceDiv[i].value === finalDiceDiv[i + 1].value)
+            if(finalDiceDiv[i].value === finalDiceDiv[i + 1].value) {
+                yachtCnt++;
+            }
     }
     if(yachtCnt === 4) {
         score = 50;
     }
     targetDiv.value = score;
 }
+                
