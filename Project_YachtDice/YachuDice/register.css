@@ -19,8 +19,8 @@ div {
 nav ul {
     text-align: center;
     list-style: none;
-    text-align: center;
 }
+
 nav ul li {
     text-align: center;
     box-sizing: border-box;
@@ -32,16 +32,8 @@ nav ul li {
     
 }
 
-.rollButton {
-    cursor: pointer;
-}
-
 .scoreList {
     text-align: center;
-}
-
-.calButton {
-    cursor: pointer;
 }
 
 .score {

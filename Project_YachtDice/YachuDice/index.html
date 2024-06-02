@@ -17,7 +17,7 @@
         4. 점수판이 12칸이니 총 12 라운드를 하면 게임이 끝난다.<br>
         5. 이제 점수판의 점수 총합으로 승패를 정한다.<br>
     </div>
-
+    
     <nav>
         <table id="diceTargetTable">
             <tr>
@@ -49,136 +49,147 @@
             </tr>
         </table>
 
-            <hr>
+        <hr>
 
+        <ul>
             <li>
                 <b>Player 1</b><hr>
 
                 <input type= "text" class="scoreList" value="Aces" readonly>
                 <input type= "number" class="totalScore" id="player1Aces" readonly>
                 <input type= "button" class="calButton" name="acesCalc" id="player1AcesBtn"><br>
-
+                
                 <input type= "text" class="scoreList" value="Twos" readonly>
                 <input type="number" class="totalScore" id="player1Twos" readonly>
                 <input type= "button" class="calButton" name="twosCalc" id="player1TwosBtn"><br>
-
+                
                 <input type= "text" class="scoreList" value="Threes" readonly>
                 <input type="number" class="totalScore" id="player1Threes" readonly>
                 <input type= "button" class="calButton" name="threesCalc" id="player1ThreesBtn"><br>
-
+                
                 <input type= "text" class="scoreList" value="Fours"readonly>
                 <input type="number" class="totalScore" id="player1Fours" readonly>
                 <input type= "button" class="calButton" name="foursCalc" id="player1FoursBtn"><br>
-
+                
                 <input type= "text" class="scoreList" value="Fives" readonly>
                 <input type="number" class="totalScore" id="player1Fives" readonly>
                 <input type= "button" class="calButton" name="fivesCalc" id="player1FivesBtn"><br>
-
+                
                 <input type= "text" class="scoreList" value="Sixes" readonly>
                 <input type="number" class="totalScore" id="player1Sixes" readonly>
                 <input type= "button" class="calButton" name="sixesCalc" id="player1SixesBtn"><br>
+                
+                <hr>
 
                 <input type= "text" class="scoreList"  value="보너스"readonly>
                 <input type="number" class="totalScore" id="player1Bonus"><br readonly>
-
+                
                 <input type= "text" class="scoreList" value="상단 합계" readonly>
                 <input type="number" class="totalScore" id="player1TopScore" readonly>
                 
                 <hr>
-
+                
                 <input type= "text" class="scoreList" value="Choice" readonly>
                 <input type="number" class="totalScore" id="player1Choice" readonly>
                 <input type= "button" class="calButton" name="choiceCalc" id="player1ChoiceBtn"><br>
-
+                
                 <input type= "text" class="scoreList" value="4 of a Kind" readonly>
                 <input type="number" class="totalScore" id="player1fourOfAKind" readonly>
                 <input type= "button" class="calButton" name="fourOfAKindCalc" id="player1fourOfAKindBtn"><br>
-
+                
                 <input type= "text" class="scoreList" value="full House" readonly>
                 <input type="number" class="totalScore" id="player1fullHouse" readonly>
                 <input type= "button" class="calButton" name="fullHouseCalc" id="player1fullHouseBtn"><br>
-
+                
                 <input type= "text" class="scoreList" value="Small Straight" readonly>
                 <input type="number" class="totalScore" id="player1smallStraight" readonly>
                 <input type= "button" class="calButton" name="smallStraightCalc" id="player1smallStraightBtn"><br>
-
+                
                 <input type= "text" class="scoreList" value="Large Straight" readonly>
                 <input type="number" class="totalScore" id="player1largeStraight" readonly>
                 <input type= "button" class="calButton" name="largeStraightCalc" id="player1largeStraightBtn"><br>
-
+                
                 <input type= "text" class="scoreList" value="Yacht" readonly>
                 <input type="number" class="totalScore" id="player1yacht" readonly>
                 <input type= "button" class="calButton" name="yachtCalc" id="player1yachtBtn"><br>
-
+                
+                <hr>
+                    
                 <input type= "text" class="scoreList" value="총 합계" readonly>
                 <input type="number" class="totalScore" id="player1TotalScore" readonly>
             </li>
-
+        <!-- </ul>
+            
+        <ul> -->
             <li>
                 <b>Player 2</b><hr>
-
+                
                 <input type= "text" class="scoreList" value="Aces" readonly>
-                <input type= "number" class="totalScore" id="player2Aces">
+                <input type= "number" class="totalScore" id="player2Aces" readonly>
                 <input type= "button" class="calButton" name="acesCalc" id="player2AcesBtn"><br>
-
+                
                 <input type= "text" class="scoreList" value="Twos" readonly>
-                <input type="number" class="totalScore" id="player2Twos">
+                <input type="number" class="totalScore" id="player2Twos" readonly>
                 <input type= "button" class="calButton" name="twosCalc" id="player2TwosBtn"><br>
-
+                
                 <input type= "text" class="scoreList" value="Threes" readonly>
-                <input type="number" class="totalScore" id="player2Threes">
+                <input type="number" class="totalScore" id="player2Threes" readonly>
                 <input type= "button" class="calButton" name="threesCalc" id="player2ThreesBtn"><br>
-
+                
                 <input type= "text" class="scoreList" value="Fours"readonly>
-                <input type="number" class="totalScore" id="player2Fours">
+                <input type="number" class="totalScore" id="player2Fours" readonly>
                 <input type= "button" class="calButton" name="foursCalc" id="player2FoursBtn"><br>
-
+                
                 <input type= "text" class="scoreList" value="Fives" readonly>
-                <input type="number" class="totalScore" id="player2Fives">
+                <input type="number" class="totalScore" id="player2Fives" readonly>
                 <input type= "button" class="calButton" name="fivesCalc" id="player2FivesBtn"><br>
-
+                
                 <input type= "text" class="scoreList" value="Sixes" readonly>
-                <input type="number" class="totalScore" id="player2Sixes">
+                <input type="number" class="totalScore" id="player2Sixes" readonly>
                 <input type= "button" class="calButton" name="sixesCalc" id="player2SixesBtn"><br>
 
+                <hr>
+                
                 <input type= "text" class="scoreList"  value="보너스"readonly>
-                <input type="number" class="totalScore" id="player2Bonus"><br>
-
+                <input type="number" class="totalScore" id="player2Bonus" readonly><br>
+                
                 <input type= "text" class="scoreList" value="상단 합계" readonly>
-                <input type="number" class="totalScore" id="player2TopScore">
+                <input type="number" class="totalScore" id="player2TopScore" readonly>
                 
                 <hr>
-
+                
                 <input type= "text" class="scoreList" value="Choice" readonly>
-                <input type="number" class="totalScore" id="player2Choice">
+                <input type="number" class="totalScore" id="player2Choice" readonly>
                 <input type= "button" class="calButton" name="choiceCalc" id="player2ChoiceBtn"><br>
-
+                
                 <input type= "text" class="scoreList" value="4 of a Kind" readonly>
-                <input type="number" class="totalScore" id="player2fourOfAKind">
+                <input type="number" class="totalScore" id="player2fourOfAKind" readonly>
                 <input type= "button" class="calButton" name="fourOfAKindCalc" id="player2fourOfAKindBtn"><br>
-
+                
                 <input type= "text" class="scoreList" value="full House" readonly>
-                <input type="number" class="totalScore" id="player2fullHouse">
+                <input type="number" class="totalScore" id="player2fullHouse" readonly>
                 <input type= "button" class="calButton" name="fullHouseCalc" id="player2fullHouseBtn"><br>
-
+                
                 <input type= "text" class="scoreList" value="Small Straight" readonly>
-                <input type="number" class="totalScore" id="player2smallStraight">
+                <input type="number" class="totalScore" id="player2smallStraight" readonly>
                 <input type= "button" class="calButton" name="smallStraightCalc" id="player2smallStraightBtn"><br>
-
+                
                 <input type= "text" class="scoreList" value="Large Straight" readonly>
-                <input type="number" class="totalScore" id="player2largeStraight">
+                <input type="number" class="totalScore" id="player2largeStraight" readonly>
                 <input type= "button" class="calButton" name="largeStraightCalc" id="player2largeStraightBtn"><br>
-
+                
                 <input type= "text" class="scoreList" value="Yacht" readonly>
-                <input type="number" class="totalScore" id="player2yacht">
+                <input type="number" class="totalScore" id="player2yacht" readonly>
                 <input type= "button" class="calButton" name="yachtCalc" id="player2yachtBtn"><br>
 
+                <hr>
+                
                 <input type= "text" class="scoreList" value="총 합계" readonly>
-                <input type="number" class="totalScore" id="player2TotalScore">            </li>
+                <input type="number" class="totalScore" id="player2TotalScore">
+            </li>
         </ul>
     </nav>
-    <br>
-
+        
     <div align="center" class="score"><b>점수 계산 방법</b><hr>
         Aces : '1'이 나온 주사위 눈만을 모두 더한다.<br>
         Twos : '2'가 나온 주사위 눈만을 모두 더한다.<br>
@@ -200,7 +211,5 @@
         총 합계 : 상단 점수와 하단 점수의 모든 점수의 합계를 기록
     </div>
 
-    <script src="function.js"></script>
-    
 </body>
 </html>
