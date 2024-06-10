@@ -12,12 +12,12 @@ const nowCursorIndex = {
   y: 0
 }
 
-const answerList = ["APPLE", "angel", "album", "angry", "bacon", "basic", "bagle", "bench", "blind", "bread", "camel",
-                    "cliff", "click", "clear", "clock", "cream", "heart", "build", "check", "chily", "cover", "dream",
-                    "candy", "chess", "exist", "floor", "glass", "class", "green", "house", "human", "issue", "learn",
-                    "leave", "level", "media", "radio", "night", "music", "owner", "peace", "phone", "place", "price",
-                    "range", "right", "score", "shoot", "smile", "sound", "story", "trade", "watch", "water", "world",
-                    "lemon"];
+const answerList = ["apple", "angel", "album", "ocean", "bacon", "basic", "bagle", "bench", "ameba", "bread", "camel",
+                    "cliff", "solar", "earth", "pluto", "cream", "heart", "alien", "venus", "house", "cover", "dream",
+                    "candy", "chess", "queen", "floor", "glass", "class", "green", "snake", "juice", "issue", "whale",
+                    "yacht", "brain", "pilot", "coach", "night", "music", "owner", "peace", "phone", "place", "price",
+                    "range", "right", "score", "spike", "smile", "sound", "story", "trade", "brick", "water", "world",
+                    "lemon", "truck", "event", "agent", "clock", "plant", "sugar", "train", "pizza", "grape", "color"];
 
 const answer = answerList[Math.floor(Math.random() * answerList.length)].toUpperCase();
 
@@ -31,9 +31,9 @@ const makeEvent = () => {
   document.body.addEventListener("keydown", (event) => {
     stringToAscii(event.key);
     });
-  const keybordBtn = document.getElementsByClassName("keybordBtn");
-  for(let i = 0; i < keybordBtn.length; i++) {
-    keybordBtn[i].addEventListener("click", (event) => {
+  const keyboardBtn = document.getElementsByClassName("keyboardBtn");
+  for(let i = 0; i < keyboardBtn.length; i++) {
+    keyboardBtn[i].addEventListener("click", (event) => {
       const pushKey = event.target.value;
       if(pushKey === "←") {
         stringToAscii("Backspace");
@@ -45,7 +45,6 @@ const makeEvent = () => {
 };
 
 /**
- * 
  * @param {string} str 
  */
 const stringToAscii = (str) => {
@@ -62,12 +61,11 @@ const stringToAscii = (str) => {
   } else if (str === "Enter" && nowCursorIndex.y === 5 && document.getElementById("inputBtn_" + nowCursorIndex.x + "_4").value !== "") {
     const answerFlag = isAnswer();
     if(answerFlag === true) {
-      alert("정답입니다!");
-    }
-    if(nowRowIndex.x < 7) {
+      setTimeout(() => {alert("정답입니다!");}, 500);
+    } else if(nowRowIndex.x < 7) {
       makeTemplate();
     } else if(nowRowIndex.x === 7 && answerFlag === false) {
-      alert("아쉽네요. 정답은 '" + answer + "' 입니다.")
+      alert("아쉽네요. 정답은 '" + answer + "' 입니다.");
     }
   } else if (str === "Backspace" && nowCursorIndex.y !== 0) {
     const removeTarget = document.getElementById("inputBtn_" + nowCursorIndex.x + "_" + (nowCursorIndex.y - 1));
