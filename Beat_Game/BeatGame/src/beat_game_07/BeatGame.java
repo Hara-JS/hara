@@ -1,4 +1,4 @@
-package beat_game_05;
+package beat_game_07;
 
 import java.awt.Color;
 import java.awt.Cursor;
@@ -7,6 +7,7 @@ import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -35,6 +36,14 @@ public class BeatGame extends JFrame {
 	private ImageIcon quitButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/quitButtonEntered.png"));
 	// 종료하기 버튼 기본 이미지
 	private ImageIcon quitButtonBasicImage = new ImageIcon(Main.class.getResource("../images/quitButtonBasic.png"));
+
+	// 좌우 이동 버튼
+	private ImageIcon leftButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/leftButtonEntered.png"));
+	private ImageIcon leftButtonBasicImage = new ImageIcon(Main.class.getResource("../images/leftButtonBasic.png"));
+	private ImageIcon rightButtonEnteredImage = new ImageIcon(
+			Main.class.getResource("../images/rightButtonEntered.png"));
+	private ImageIcon rightButtonBasicImage = new ImageIcon(Main.class.getResource("../images/rightButtonBasic.png"));
+
 	// 이미지를 담을 수 있는 객체
 	// 메인 클래스의 위치를 기반으로 해서 리소스 즉 background라는 이미지 파일을 가져온 뒤 그 이미지 인스턴스를
 	// background라는 변수에 초기화를 시키겠다는 뜻
@@ -45,9 +54,22 @@ public class BeatGame extends JFrame {
 	private JButton exitButton = new JButton(exitButtonBasicImage);
 	private JButton startButton = new JButton(startButtonBasicImage);
 	private JButton quitButton = new JButton(quitButtonBasicImage);
+	private JButton leftButton = new JButton(leftButtonBasicImage);
+	private JButton rightButton = new JButton(rightButtonBasicImage);
 
 	// 마우스 X와 Y의 좌표
 	private int mouseX, mouseY;
+
+	// 시작화면에서 메인화면으로 이동하면 isMainScreen = true;
+	private boolean isMainScreen = false;
+
+	ArrayList<Track> trackList = new ArrayList<Track>();
+
+	private Image titleImage;
+	// 현재 선택된 곡의 이미지
+	private Image selectedImage;
+	private Music selectedMusic;
+	private int nowSelected = 0;
 
 	public BeatGame() {
 		setUndecorated(true); // 기본 메뉴바 숨김
@@ -59,6 +81,18 @@ public class BeatGame extends JFrame {
 		setVisible(true); // 화면이 정상적으로 출력되게 함
 		setBackground(new Color(0, 0, 0, 0)); // paintComponents를 했을 때 배경이 전부 흰색으로 변경
 		setLayout(null); // 위치 고정
+
+		// 시작 화면에서 음악이 무한 반복 재생이 되도록 만들어 줌
+		// 두번째 매개변수가 true이므로 음악은 직접 종료를 하기 전까지는 반복 재생
+		Music introMusic = new Music("Summer_Night.mp3", true);
+		introMusic.start();
+
+		trackList.add(new Track("Grey_Morning_Title.png", "Grey_Morning_Piano_Ver_Image.png", "mainBackground.jpg",
+				"Grey_Morning_Piano_Ver_Selected.mp3", "Grey_Morning_Piano_Ver.mp3"));
+		trackList.add(new Track("In_My_Planet_Title.png", "In_My_Planet_Image.png", "mainBackground.jpg",
+				"In_My_Planet_Selected.mp3", "In_My_Planet.mp3"));
+		trackList.add(new Track("Kairos_Title.png", "Kairos_Image.png", "mainBackground.jpg", "Kairos_Selected.mp3",
+				"Kairos.mp3"));
 
 		exitButton.setBounds(1245, 0, 30, 30); // menuBar 가장 오른쪽에 위치
 		// 원하는 형태의 exitButton을 만들어 줌
@@ -128,10 +162,16 @@ public class BeatGame extends JFrame {
 			public void mousePressed(MouseEvent e) {
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
+				introMusic.close();
+				selectTrack(0);
 				// 게임 시작 이벤트
 				startButton.setVisible(false);
 				quitButton.setVisible(false);
+				// 메인 화면에서는 좌우 이동 버튼이 보이도록 setVisible을 true로 설정
+				leftButton.setVisible(true);
+				rightButton.setVisible(true);
 				background = new ImageIcon(Main.class.getResource("../images/mainBackground.jpg")).getImage();
+				isMainScreen = true;
 			}
 		});
 		add(startButton);
@@ -171,6 +211,65 @@ public class BeatGame extends JFrame {
 		});
 		add(quitButton);
 
+		leftButton.setVisible(false);
+		leftButton.setBounds(140, 310, 60, 60);
+		leftButton.setBorderPainted(false);
+		leftButton.setContentAreaFilled(false);
+		leftButton.setFocusPainted(false);
+		leftButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				leftButton.setIcon(leftButtonEnteredImage);
+				leftButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+				Music buttonEnteredMusic = new Music("buttonEnteredMusic.mp3", false);
+				buttonEnteredMusic.start();
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				leftButton.setIcon(leftButtonBasicImage);
+				leftButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
+				buttonPressedMusic.start();
+				// 왼쪽 버튼 이벤트
+				selectLeft();
+			}
+		});
+		add(leftButton);
+		rightButton.setVisible(false);
+		rightButton.setBounds(1080, 310, 60, 60);
+		rightButton.setBorderPainted(false);
+		rightButton.setContentAreaFilled(false);
+		rightButton.setFocusPainted(false);
+		rightButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				rightButton.setIcon(rightButtonEnteredImage);
+				rightButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+				Music buttonEnteredMusic = new Music("buttonEnteredMusic.mp3", false);
+				buttonEnteredMusic.start();
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				rightButton.setIcon(rightButtonBasicImage);
+				rightButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
+				buttonPressedMusic.start();
+				// 오른쪽 버튼 이벤트
+				selectRight();
+			}
+		});
+		add(rightButton);
+
 		menuBar.setBounds(0, 0, 1280, 30); // 위치와 크기 저장
 		// 마우스로 해당 버튼을 눌렀을 때의 처리
 		menuBar.addMouseListener(new MouseAdapter() {
@@ -194,11 +293,6 @@ public class BeatGame extends JFrame {
 		});
 		// JFrame에 menuBar가 추가
 		add(menuBar);
-
-		// 시작 화면에서 음악이 무한 반복 재생이 되도록 만들어 줌
-		// 두번째 매개변수가 true이므로 음악은 직접 종료를 하기 전까지는 반복 재생
-		Music introMusic = new Music("Summer_Night.mp3", true);
-		introMusic.start();
 	}
 
 	//
@@ -216,11 +310,46 @@ public class BeatGame extends JFrame {
 	public void screenDraw(Graphics g) {
 		// 전체 이미지 즉 스크린 이미지에 그려줄 수 있도록 함. background를 0,0 위치에 그려줌
 		g.drawImage(background, 0, 0, null);
+		// 시작 화면이 아니라 메인 화면일 때 selectedImage를 보여줌
+		if (isMainScreen) {
+			g.drawImage(selectedImage, 340, 130, null);
+			g.drawImage(titleImage, 340, 110, null);
+		}
 		// JLabel 이미지를 그려줌
+		// 메인 프레임에 추가된 요소에 대한 것들을 보여줌 add()
 		paintComponents(g);
 		// paint()는 JFrame을 상속받은 GUI 게임에서 가장 첫번째로 화면을 그려주는 메서드
 		// repaint()는 다시 paint() 메서드를 불러옴. 전체 화면 이미지를 프로그램이 중료되는 시점까지 반복해서 그려줌
 		this.repaint();
+	}
+
+	public void selectTrack(int nowSelected) {
+		if (selectedMusic != null)
+			selectedMusic.close();
+		titleImage = new ImageIcon(Main.class.getResource("../images/" + trackList.get(nowSelected).getTitleImage()))
+				.getImage();
+		selectedImage = new ImageIcon(Main.class.getResource("../images/" + trackList.get(nowSelected).getStartImage()))
+				.getImage();
+		selectedMusic = new Music(trackList.get(nowSelected).getStartMusic(), true);
+		selectedMusic.start();
+	}
+
+	public void selectLeft() {
+		if (nowSelected == 0)
+			nowSelected = trackList.size() - 1;
+		else
+			nowSelected--;
+		selectTrack(nowSelected);
+
+	}
+
+	public void selectRight() {
+		if (nowSelected == trackList.size() - 1)
+			nowSelected = 0;
+		else
+			nowSelected++;
+		selectTrack(nowSelected);
+
 	}
 
 }
