@@ -61,7 +61,7 @@ const stringToAscii = (str) => {
   } else if (str === "Enter" && nowCursorIndex.y === 5 && document.getElementById("inputBtn_" + nowCursorIndex.x + "_4").value !== "") {
     const answerFlag = isAnswer();
     if(answerFlag === true) {
-      setTimeout(() => {alert("정답입니다!");}, 500);
+      setTimeout(() => {alert("정답입니다!");}, 100);
     } else if(nowRowIndex.x < 7) {
       makeTemplate();
     } else if(nowRowIndex.x === 7 && answerFlag === false) {

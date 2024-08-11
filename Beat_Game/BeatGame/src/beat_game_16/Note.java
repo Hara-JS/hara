@@ -10,16 +10,18 @@ public class Note extends Thread {
 	private Image noteBasicImage = new ImageIcon(Main.class.getResource("../images/noteBasic.png")).getImage();
 	private int x, y = 500 - (1000 / Main.SLEEP_TIME * Main.NOTE_SPEED) * Main.REACH_TIME;
 	private String noteType;
-	private boolean proceeded = true;
+	private boolean proceeded = true; // 현재 노트의 진행 여부
 
 	public String getNoteType() {
 		return noteType;
 	}
 
+	// 현재 진행이 되고 있는지 getter 함수
 	public boolean isProceeded() {
 		return proceeded;
 	}
 
+	// 현재 노트가 움직이지 않게 해주는 함수
 	public void close() {
 		proceeded = false;
 	}
@@ -43,18 +45,22 @@ public class Note extends Thread {
 		this.noteType = noteType;
 	}
 
+	// 노트를 그려주는 메서드
 	public void screenDraw(Graphics2D g) {
 		if (!noteType.equals("Space")) {
 			g.drawImage(noteBasicImage, x, y, null);
 		} else {
+			// 스페이스는 2개
 			g.drawImage(noteBasicImage, x, y, null);
 			g.drawImage(noteBasicImage, x + 100, y, null);
 		}
 
 	}
 
+	// 노트를 NOTE_SPEED 만큼 아래로 떨어뜨리게 함
 	public void drop() {
 		y += Main.NOTE_SPEED;
+		// 노트가 판정바를 벗어나면 Miss를 출력하고 close()
 		if (y > 620) {
 			System.out.println("Miss");
 			close();
@@ -66,8 +72,9 @@ public class Note extends Thread {
 		try {
 			while (true) {
 				drop();
+				// 현재 노트가 움직이는 중이면 반복적으로 쉬면서 내려올 수 있게 처리
 				if (proceeded) {
-					Thread.sleep(Main.SLEEP_TIME);
+					Thread.sleep(Main.SLEEP_TIME); // 한번 노트를 떨어뜨리고 SLEEP_TIME 만큼 쉬게 하고 다시 떨어뜨림
 				} else {
 					interrupt();
 					break;
@@ -78,6 +85,7 @@ public class Note extends Thread {
 		}
 	}
 
+	// 판정 기준 설정. String으로 해당 판정이 특정한 반환값을 가질 수 있도록 설정
 	public String judge() {
 		if (y >= 613) {
 			System.out.println("Late");
@@ -108,9 +116,10 @@ public class Note extends Thread {
 			close();
 			return "Early";
 		}
-		return "None";
+		return "None"; // 해당되지 않는 경우 판정이 없다고 리턴
 	}
 
+	// 현재의 y좌표 반환
 	public int getY() {
 		return y;
 	}

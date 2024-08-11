@@ -8,9 +8,11 @@ import javazoom.jl.player.Player;
 
 public class Music extends Thread {
 
+	// javazoom 사이트에 있던 라이브러리
 	private Player player;
 	// 현재 곡이 무한반복인지 아닌지를 설정하는 변수
 	private boolean isLoop;
+	
 	private File file;
 	private FileInputStream fis;
 	private BufferedInputStream bis;
@@ -30,15 +32,14 @@ public class Music extends Thread {
 		}
 	}
 
-	// 현재 실행되고 있는 음악이 어떤 위치에서 실행되고 있는지를 알려줌
-	// 0.001초 단위까지 알려줌
+	// 현재 실행되고 있는 음악이 어떤 위치에서 실행되고 있는지를 알려주는 메서드
 	public int getTime() {
 		if (player == null)
 			return 0;
 		return player.getPosition();
 	}
 
-	// 음악이 실행되고 있어도 언제든지 안정적으로 종료할 수 있도록 해줌
+	// 음악이 실행되고 있어도 언제든지 안정적으로 종료할 수 있도록 해주는 메서드
 	public void close() {
 		isLoop = false;
 		player.close();

@@ -7,6 +7,7 @@ public class KeyListener extends KeyAdapter {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
+		// 현재 게임이 진행되고 있지 않은 경우 return을 해서 키보드를 눌러도 어떤 변화가 없도록 키보드를 무력화
 		if (BeatGame.game == null) {
 			return;
 		}
@@ -29,6 +30,7 @@ public class KeyListener extends KeyAdapter {
 
 	@Override
 	public void keyReleased(KeyEvent e) {
+		// 현재 게임이 진행되고 있지 않은 경우 return을 해서 키보드를 떼더라도 어떤 변화가 없도록 키보드를 무력화
 		if (BeatGame.game == null) {
 			return;
 		}
