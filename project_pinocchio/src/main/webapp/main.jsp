@@ -8,7 +8,7 @@
 </head>
 <body>
 	<%-- top --%>
-	<jsp:include page="01_top.jsp" />
+	<jsp:include page="header.jsp" />
 	
 	<div align="center">
 		<table border="1">
@@ -33,6 +33,6 @@
 	</div>
 	
 	<%-- bottom --%>
-	<jsp:include page="02_bottom.jsp" />
+	<jsp:include page="footer.jsp" />
 </body>
 </html>
