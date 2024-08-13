@@ -1,0 +1,55 @@
+-- # 자료형의 종류
+-- 문자 : char, varchar
+-- 정수 : int
+-- 실수 : float, double
+
+-- # 옵션
+-- primary key : 중복데이터 금지 + 데이터를 넣지 않으면 오류 발생
+
+create database _11_golf;
+use _11_golf;
+
+CREATE TABLE tbl_teacher_202201(
+	teacher_code CHAR(3),
+	teacher_name VARCHAR(15),
+	class_name VARCHAR(20),
+	class_price INT(8),
+	teacher_regist_date VARCHAR(8),
+	PRIMARY KEY(teacher_code)
+);
+INSERT INTO tbl_teacher_202201 VALUES('100', '이초급', '초급반', 100000, '20220101');
+INSERT INTO tbl_teacher_202201 VALUES('200', '김중급', '중급반', 200000, '20220102');
+INSERT INTO tbl_teacher_202201 VALUES('300', '박고급', '고급반', 300000, '20220103');
+INSERT INTO tbl_teacher_202201 VALUES('400', '정심화', '심화반', 400000, '20220104');
+SELECT * FROM tbl_teacher_202201;
+
+CREATE TABLE tbl_member_202201(
+	c_no CHAR(5),
+	c_name VARCHAR(15),
+	phone VARCHAR(11),
+	address VARCHAR(50),
+	grade VARCHAR(6),
+	PRIMARY KEY(c_no)
+);
+INSERT INTO tbl_member_202201 VALUES('10001', '홍길동', '01011112222', '서울시 강남구', '일반');
+INSERT INTO tbl_member_202201 VALUES('10002', '장발장', '01022223333', '성남시 분당구', '일반');
+INSERT INTO tbl_member_202201 VALUES('10003', '임꺽정', '01033334444', '대전시 유성구', '일반');
+INSERT INTO tbl_member_202201 VALUES('20001', '성춘향', '01044445555', '부산시 서구', 'VIP');
+INSERT INTO tbl_member_202201 VALUES('20002', '이몽룡', '01055556666', '대구시 북구', 'VIP');
+SELECT * FROM tbl_member_202201;
+
+CREATE TABLE tbl_class_202201(
+	regist_month VARCHAR(6),
+	c_no CHAR(5),
+	class_area VARCHAR(15),
+	tuition INT(8),
+	teacher_code CHAR(3),
+	PRIMARY KEY(regist_month, c_no)
+);
+INSERT INTO tbl_class_202201 VALUES('202203', '10001', '서울본원', 100000, 100);
+INSERT INTO tbl_class_202201 VALUES('202203', '10002', '성남분원', 100000, 100);
+INSERT INTO tbl_class_202201 VALUES('202203', '10003', '대전분원', 200000, 200);
+INSERT INTO tbl_class_202201 VALUES('202203', '20001', '부산분원', 150000, 300);
+INSERT INTO tbl_class_202201 VALUES('202203', '20002', '대구분원', 200000, 400);
+SELECT * FROM tbl_class_202201;
+

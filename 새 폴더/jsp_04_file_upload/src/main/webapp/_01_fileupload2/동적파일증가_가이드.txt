@@ -1,0 +1,71 @@
+[boardWriteForm.jsp 페이지 설명]
+
+<td width="150" align="center" bgcolor="<%= tdColor %>">사진첨부</td>
+<td width="450" id="box">
+	 <p></p>	
+	 <button id="button-addPicture">사진추가</button>
+	 <p></p>					
+</td>
+
+
+1. 동적 input="file" [추가]하는 방법		
+		
+		
+		let addPicture = (event) => {
+			
+			event.preventDefault();			
+			 
+        	if(num == 6){
+    			alert("사진은 5장까지 업로드 가능합니다.");
+    			return;
+    		}
+        	
+        	let $box = document.getElementById("box");
+        	
+        	let $line = document.createElement('span');
+        	$line.className = 'line';
+        	
+        	let $newP1 = document.createElement('span');
+            let fileNumber = "file" + num + "";
+            let str = "<input type='file' value='추가' name='";            
+            str += fileNumber + "'>";
+            $newP1.innerHTML = str;
+            $line.appendChild($newP1); 
+            
+        	let $newP2 = document.createElement('span');
+        	str = "<input type='button' value='삭제'  onclick='delPicture(this)'><p></p>";       
+        	$newP2.innerHTML = str;
+            $line.appendChild($newP2);
+            
+            $box.appendChild($line);
+            
+            num += 1;
+        }
+        
+2. 동적 input="file" [삭제]하는 방법
+
+
+		let delPicture = (event) => {
+			let $lineList = document.querySelectorAll('.line');
+			
+			for(let i=0; i<$lineList.length; i++) {
+				if($lineList[i].children[1].children[0] == event) {
+					console.log(i);
+					$lineList[i].remove();
+					num -= 1;
+					break;
+				}
+			}
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		     

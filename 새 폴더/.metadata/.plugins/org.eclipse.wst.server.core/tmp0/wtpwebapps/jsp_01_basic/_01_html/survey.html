@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form>
+		<h2>설문조사</h2>
+		
+		<h4>아래 항목을 채워주세요.</h4>
+		
+		<h5>신상 정보 : </h5>
+		<table>
+			<tr>
+				<td>이름</td>
+				<td><input type="text" name="name"></td>
+			</tr>
+			<tr>
+				<td>전화번호</td>
+				<td><input type="text" name="tel"></td>
+			</tr>
+			<tr>
+				<td>이메일주소</td>
+				<td><input type="text" name="email"></td>
+			</tr>
+			<tr>
+				<td>성별</td>
+				<td>
+					<input type="radio" name="gender" value="man">남성
+					<input type="radio" name="gender" value="woman">여성
+				</td>
+			</tr>
+		</table>
+		
+		<h5>좋아하는 과목은 무엇입니까?</h5>
+		<input type="checkbox" name="subject" value="java">자바
+		<input type="checkbox" name="subject" value="web">웹<br>
+		<input type="checkbox" name="subject" value="bigdata">빅데이터
+		<input type="checkbox" name="subject" value="design">디자인
+	
+		<h5>원하시는 연락방법은 무엇입니까?(email, phone 중에 선택)</h5>
+		연락방법
+		<select name="contact">
+			<option value="email">email</option>
+			<option value="phone">phone</option>
+		</select>
+		<br><br><br>
+		
+		<input type="checkbox">개인정보 활용에 동의합니다.
+		<br><br><br>
+		
+		<input type="submit" value="submit">	
+	</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
