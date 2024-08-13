@@ -7,8 +7,8 @@
 <title>Hara</title>
 </head>
 <body>
-	<%-- top --%>
-	<jsp:include page="header.jsp" />
+	<%-- header --%>
+	<jsp:include page="01_header.jsp" />
 	
 	<div align="center">
 		<h1>관리자 페이지</h1>
@@ -18,7 +18,7 @@
 		<input type="button" value="메인화면" onclick="location.href='main.jsp'">
 	</div>
 	
-	<%-- bottom --%>
-	<jsp:include page="footer.jsp" />
+	<%-- footer --%>
+	<jsp:include page="02_footer.jsp" />	
 </body>
 </html>

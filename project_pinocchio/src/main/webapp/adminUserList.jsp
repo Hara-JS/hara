@@ -8,7 +8,7 @@
 </head>
 <body>
 	<%-- top --%>
-	<jsp:include page="header.jsp" />
+	<jsp:include page="01_header.jsp" />
 
 	<%
 		request.setCharacterEncoding("UTF-8");
@@ -49,7 +49,7 @@
 		<input type="button" value="관리자 페이지" onclick="location.href='adminMain.jsp'">
 	</div>
 
-	<%-- bottom --%>
-	<jsp:include page="footer.jsp" />
+	<%-- footer --%>
+	<jsp:include page="02_footer.jsp" />	
 </body>
 </html>

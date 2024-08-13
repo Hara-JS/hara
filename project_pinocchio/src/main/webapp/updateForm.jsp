@@ -7,8 +7,8 @@
 <title>Hara</title>
 </head>
 <body>
-	<%-- top --%>
-	<jsp:include page="header.jsp" />
+	<%-- header --%>
+	<jsp:include page="01_header.jsp" />
 	
 	<%
 		String[] idList = (String[]) session.getAttribute("idList");
@@ -77,7 +77,7 @@
 		<input type="button" value="메인화면" onclick="location.href='main.jsp'">
 	</div>
 	
-	<%-- bottom --%>
-	<jsp:include page="footer.jsp" />
+	<%-- footer --%>
+	<jsp:include page="02_footer.jsp" />	
 </body>
 </html>

@@ -7,8 +7,8 @@
 <title>Hara</title>
 </head>
 <body>
-	<%-- top --%>
-	<jsp:include page="header.jsp" />
+	<%-- header --%>
+	<jsp:include page="01_header.jsp" />
 	
 	<div align="center">
 		<table border="1">
@@ -32,7 +32,7 @@
 	봐 이게 내가 만든 홈페이지야
 	</div>
 	
-	<%-- bottom --%>
-	<jsp:include page="footer.jsp" />
+	<%-- footer --%>
+	<jsp:include page="02_footer.jsp" />	
 </body>
 </html>
