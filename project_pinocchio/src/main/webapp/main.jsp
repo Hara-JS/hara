@@ -20,7 +20,8 @@
 						<a href="loginForm.jsp">로그인</a>
 						<a href="loginAdminForm.jsp">관리자</a>						
 					<% } else { %>
-						[<%=log %>님 반갑습니다.]
+						[<strong><%=log %></strong>님 반갑습니다.]
+						<a href="boardIndex.jsp">게시판</a>
 						<a href="logoutPro.jsp">로그아웃</a>
 						<a href="updateForm.jsp">회원정보수정</a>
 						<a href="deleteForm.jsp">회원탈퇴</a>										

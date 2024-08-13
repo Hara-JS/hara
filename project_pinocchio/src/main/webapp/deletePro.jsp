@@ -1,17 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+
 <%
 	request.setCharacterEncoding("UTF-8");
-
+	
 	int count = (int) session.getAttribute("count");
-
+	
 	String id = (String) session.getAttribute("log");
 	
 	String[] idList = (String[]) session.getAttribute("idList");
 	String[] pwList = (String[]) session.getAttribute("pwList");
-	String[] nameList = (String[]) session.getAttribute("nameList");
-	String[] genderList = (String[]) session.getAttribute("genderList");
+	String[] nameList = (String[]) session.getAttribute("log");
+	String[] genderList = (String[]) session.getAttribute("log");
 	
 	String pw = request.getParameter("pw");
 	
@@ -33,8 +34,7 @@
 			nameList[i] = nameList[i + 1];
 			genderList[i] = genderList[i + 1];
 		}
-	
-		count--;
+		count++;
 	
 		session.removeAttribute("log");
 	
@@ -44,7 +44,7 @@
 		session.setAttribute("nameList", nameList);
 		session.setAttribute("genderList", genderList);
 	
-		response.sendRedirect("main.jsp");
+		response.sendRedirect("deleteForm.jsp");
 	} else {
 		response.sendRedirect("deleteForm.jsp");
 	}
