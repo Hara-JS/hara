@@ -9,7 +9,7 @@
 	Object obj = session.getAttribute("count");
 	int count = (int) obj;
 	
-	obj = session.getAttribute("lasrNum");
+	obj = session.getAttribute("lastNum");
 	int lastNum = (int) obj;
 	
 	obj = session.getAttribute("noList");

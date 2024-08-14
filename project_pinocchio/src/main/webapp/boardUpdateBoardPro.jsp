@@ -7,15 +7,15 @@
 	Object obj = session.getAttribute("subjectList");
 	String[] subjectList = (String[]) obj;
 	
-	obj = session.getAttribute("contectsList");
+	obj = session.getAttribute("contentsList");
 	String[] contentsList = (String[]) obj;
 	
 	int index = Integer.parseInt(request.getParameter("index"));
 	String subject = request.getParameter("subject");
-	String contects = request.getParameter("contents");
+	String contents = request.getParameter("contents");
 	
 	subjectList[index] = subject;
-	contentsList[index] = contects;
+	contentsList[index] = contents;
 	
 	session.setAttribute("subjectList", subjectList);
 	session.setAttribute("contentsList", contentsList);

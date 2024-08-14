@@ -5,7 +5,7 @@
 	request.setCharacterEncoding("UTF-8");
 
 	// 회원 샘플 데이터 저장
-	String[] sampleId = { "강아지", "고양이", "가오리", "수달" };
+	String[] sampleId = { "가오리", "수달", "강아지", "고양이" };
 	String[] samplePw = { "1111", "2222", "3333", "4444" };
 	String[] sampleName = { "현광용", "홍민주", "정소라", "고유나" };
 	String[] sampleGender = { "남성", "선택안함", "여성", "선택안함" };

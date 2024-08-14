@@ -23,7 +23,7 @@
 	
 	if (check) {
 		session.setAttribute("log", id);
-	
+		// setMaxInactiveInterval() 메서드는 초단위
 		// 100분 후 세션 삭제
 		session.setMaxInactiveInterval(100 * 60);
 	

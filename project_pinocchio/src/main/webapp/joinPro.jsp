@@ -39,7 +39,7 @@
 		session.setAttribute("pwList", pwList);
 		session.setAttribute("nameList", nameList);
 		session.setAttribute("genderList", genderList);
-		session.setAttribute("countList", count);
+		session.setAttribute("count", count);
 	
 		response.sendRedirect("main.jsp");
 	}

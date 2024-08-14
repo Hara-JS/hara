@@ -66,6 +66,11 @@
 						<input type="submit" value="수정하기">
 					</td>
 				</tr>
+				<tr>
+					<td colspan="4" align="center">
+						<button onclick="location.href='boardMain.jsp'">게시판 메인</button>
+					</td>
+				</tr>
 		</table>
 	</form>
 	</div>
